@@ -1,16 +1,37 @@
-@import url('./styles/normalize.scss');
-@import url('./styles/vars.scss');
-@import url('./styles/fonts.scss');
+@import './styles/normalize.scss';
+@import './styles/vars.scss';
+@import './styles/fonts.scss';
+@import '../pages/homepage/homepage.scss';
+@import '../widgets/footer/footer.scss';
+@import '../widgets/header/header.scss';
+@import '../widgets/about/about.scss';
+@import '../widgets/howItWorks/howItWorks.scss';
+@import '../widgets/reviews/reviews.scss';
+@import '../entities/loadingBar/loadingBar.scss';
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  box-sizing: border-box;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapped {
+  padding-left: 240px;
+  padding-right: 240px;
+  @media screen and (max-width: 1919px){
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

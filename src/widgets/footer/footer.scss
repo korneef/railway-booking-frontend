@@ -1,0 +1,105 @@
+.footer {
+  background-color: #2D2B2F;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.footer-contacts {
+  width: 400px;
+  margin-right: 250px;
+}
+
+.footer__header {
+  font-size: 30px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 0 0 20px;
+  margin: 0;
+}
+
+.footer-contacts__contacts-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-contacts__contact-element {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.footer-contacts__contact-image {
+  margin-right: 35px;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+
+.mail-subscription__form-header {
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff
+}
+
+.footer-subscriptions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.social-subscriptions__list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-subscriptions__item {
+  margin-right: 50px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.footer-info {
+  border-top: 1px solid #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info__top-swiper-button {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background-color: inherit;
+  width: 36px;
+  height: 36px;
+
+  &:hover {
+    color: $orange;
+  }
+}
+
+.footer-info__top-swiper-image {
+  position: relative;
+  top: -1px;
+  fill: $orange;
+}
+
+.footer-info__web-studio {
+  font-size: 24px;
+  font-weight: 300;
+  color: #ffffff;
+}
