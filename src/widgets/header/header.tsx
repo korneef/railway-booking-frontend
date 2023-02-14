@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Button from "shared/button/button";
 
 export default function Header() {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -33,7 +34,7 @@ export default function Header() {
               <div className="ticket-search-form__input-wrapper">
                 <DatePicker dateFormat="dd/MM/yy" className="ticket-search-form__input" selected={startDate} onChange={(date) => setStartDate(date)} calendarStartDay={1} placeholderText="ДД/ММ/ГГ"/>
                 <DatePicker dateFormat="dd/MM/yy" className="ticket-search-form__input" selected={startDate} onChange={(date) => setStartDate(date)} calendarStartDay={1} placeholderText="ДД/ММ/ГГ"/>            </div>
-              </div> <button className="ticket-search-form__button">Найти билеты</button>
+              </div> <Button variant="standart" className="ticket-search-form">Найти билеты</Button>
           </form>
         </div>
       </header>
