@@ -8,7 +8,10 @@
 @import '../widgets/howItWorks/howItWorks.scss';
 @import '../widgets/reviews/reviews.scss';
 @import '../entities/loadingBar/loadingBar.scss';
-@import '../shared/button/button.scss';
+@import '../shared/button/Button.scss';
+@import '../widgets/OrderSteps/OrderSteps.scss';
+@import '../shared/Switcher/Switcher.scss';
+@import '../shared/OrderStepElement/OrderStepElement.scss';
 
 *, *:before, *:after {
   box-sizing: inherit;
