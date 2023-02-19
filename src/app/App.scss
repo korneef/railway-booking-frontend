@@ -1,17 +1,10 @@
 @import './styles/normalize.scss';
 @import './styles/vars.scss';
 @import './styles/fonts.scss';
-@import '../pages/homepage/homepage.scss';
-@import '../widgets/footer/footer.scss';
-@import '../widgets/header/header.scss';
-@import '../widgets/about/about.scss';
-@import '../widgets/howItWorks/howItWorks.scss';
-@import '../widgets/reviews/reviews.scss';
-@import '../entities/loadingBar/loadingBar.scss';
-@import '../shared/button/Button.scss';
-@import '../widgets/OrderSteps/OrderSteps.scss';
-@import '../shared/Switcher/Switcher.scss';
-@import '../shared/OrderStepElement/OrderStepElement.scss';
+@import '../pages/index.scss';
+@import '../widgets/index.scss';
+@import '../entities/index.scss';
+@import '../shared/index.scss';
 
 *, *:before, *:after {
   box-sizing: inherit;

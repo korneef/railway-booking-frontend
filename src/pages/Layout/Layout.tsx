@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "widgets/header/header";
-import Footer from "widgets/footer/footer";
+import { Header, Footer } from "widgets/index";
 
 export default function Layout() {
   return <>

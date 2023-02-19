@@ -1,7 +1,5 @@
-import About from 'widgets/about/about';
-import HowItWorks from 'widgets/howItWorks/howItWorks';
-import Reviews from 'widgets/reviews/reviews';
-import LoadingBar from 'entities/loadingBar/loadingBar';
+import { LoadingBar } from 'entities/index';
+import { About, HowItWorks, Reviews } from 'widgets/index'
 
 export default function HomePage() {
   return (

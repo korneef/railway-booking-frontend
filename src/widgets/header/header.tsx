@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Button from "../../shared/Button/Button";
+import { Button } from "../../shared/index";
 
 export default function Header() {
   const [startDate, setStartDate] = useState<Date | null>(null);

@@ -1,4 +1,4 @@
-import OrderStepElement from "shared/OrderStepElement/OrderStepElement";
+import { OrderStepElement } from "shared/index";
 
 interface OrderStepsProps {
   step: 1 | 2 | 3| 4
