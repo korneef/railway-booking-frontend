@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button } from "../../shared/index";
 
+import { globalURL } from "../../shared/index";
+
 export default function Header() {
   const [startDate, setStartDate] = useState<Date | null>(null);
   return(
@@ -10,10 +12,10 @@ export default function Header() {
         <div className="logo wrapped">Лого</div>
         <nav className="header__nav-menu wrapped">
           <ul className="header-nav-menu-list">
-            <li className="header__nav-menu-item"><a href="#/" className="header__nav-menu-link">О нас</a></li>
-            <li className="header__nav-menu-item"><a href="#/" className="header__nav-menu-link">Как это работает</a></li>
-            <li className="header__nav-menu-item"><a href="#/" className="header__nav-menu-link">Отзывы</a></li>
-            <li className="header__nav-menu-item"><a href="#/" className="header__nav-menu-link">Контакты</a></li>
+            <li className="header__nav-menu-item"><a href={`${globalURL}/#about`} className="header__nav-menu-link">О нас</a></li>
+            <li className="header__nav-menu-item"><a href={`${globalURL}/#how-it-works`} className="header__nav-menu-link">Как это работает</a></li>
+            <li className="header__nav-menu-item"><a href={`${globalURL}/#reviews`} className="header__nav-menu-link">Отзывы</a></li>
+            <li className="header__nav-menu-item"><a href={`${globalURL}/#contacts`} className="header__nav-menu-link">Контакты</a></li>
           </ul>
         </nav>
         <div className="header__ticket-search-section wrapped">

@@ -8,7 +8,6 @@ interface OrderStepElementProps {
 
 export default function OrderStepElement(props: OrderStepElementProps) {
   const {step, number, value} = props;
-  console.log(step <= number)
   const className: string = classNames('order-steps__step', {'order-steps__step_completed': step >= number})
 
   return <>

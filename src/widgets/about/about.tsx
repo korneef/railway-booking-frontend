@@ -1,7 +1,7 @@
 export default function About() {
   return(
     <div className="about wrapped">
-    <h2 className="about__title">О нас</h2>
+    <h2 className="about__title" id="about">О нас</h2>
     <div className="about__wrapped">
       <div className="about__line"></div>
       <div className="about__content"><div className="about__content-normal">

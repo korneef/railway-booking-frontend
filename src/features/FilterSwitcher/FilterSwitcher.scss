@@ -1,0 +1,20 @@
+.filter-switcher {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-switcher__description-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-switcher__icon {
+  margin: 0 40px;
+  width: 20px;
+  height: 20px;
+}
+
+.filter-switcher__name {
+  font-weight: 400;
+  font-size: 18px;
+}

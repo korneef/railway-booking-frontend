@@ -1,7 +1,7 @@
 export default function Reviews() {
   return (
     <div className="reviews wrapped">
-      <h2 className="reviews__header">Отзывы</h2>
+      <h2 className="reviews__header" id="reviews">Отзывы</h2>
       <div className="reviews__container">
         <div className="review">
           <div className="reviwe__image-container">

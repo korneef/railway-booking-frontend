@@ -1,0 +1,23 @@
+.ticket-fiter-form {
+  background-color: #3E3C41;
+  width: 360px;
+  color: #ffffff;
+
+  margin: 15px;
+}
+
+.ticket-fiter-form__section {
+  padding: 0 30px 1px;
+
+  border-bottom: 1px solid #ffffff;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.ticket-fiter-form__switcher {
+  margin-bottom: 40px;
+  &:first-child {
+    margin-top: 30px;
+  }
+}

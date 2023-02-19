@@ -4,6 +4,7 @@ import Footer from "./Footer/Footer";
 import HowItWorks from "./HowItWorks/HowItWorks";
 import Reviews from "./Reviews/Reviews";
 import OrderSteps from "./OrderSteps/OrderSteps";
+import TicketFilterForm from "./TicketFilterForm/TicketFilterForm";
 
 
-export { About, Header, Footer, HowItWorks, Reviews, OrderSteps }
+export { About, Header, Footer, HowItWorks, Reviews, OrderSteps, TicketFilterForm }

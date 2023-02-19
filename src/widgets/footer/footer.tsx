@@ -16,7 +16,7 @@ export default function Footer() {
     <footer className='footer'>
       <div className="footer-main">
         <div className="footer-contacts">
-          <h2 className="footer-contacts__header footer__header">Свяжитесь с нами</h2>
+          <h2 className="footer-contacts__header footer__header" id='contacts'>Свяжитесь с нами</h2>
           <ul className="footer-contacts__contacts-list">
             <li className="footer-contacts__contact-element"><img className='footer-contacts__contact-image' src={phoneIcon} alt="" />8 (800) 000 00 00</li>
             <li className="footer-contacts__contact-element"><img className='footer-contacts__contact-image' src={mailIcon} alt="" />inbox@mail.ru</li>

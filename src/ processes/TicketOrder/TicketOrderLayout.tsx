@@ -1,8 +1,12 @@
 import { Outlet } from "react-router-dom";
+import { OrderSteps } from "widgets";
 
 function TicketOrderLayout() {
   return (
-    <Outlet />
+    <>
+      <OrderSteps step={1} />
+      <Outlet />
+    </>
   );
 }
 

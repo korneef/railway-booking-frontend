@@ -2,7 +2,7 @@ export default function HowItWorks() {
   return (
     <div className="how-it-works wrapped">
           <div className="how-it-works__header-segment">
-            <div className="how-it-works__header">Как это работает?</div>
+            <div className="how-it-works__header" id="how-it-works">Как это работает?</div>
             <div className="how-it-works__button-wrapper">
               <button className="how-it-works__button">Узнать больше</button>
             </div>
