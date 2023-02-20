@@ -1,14 +1,36 @@
 .ticket-search-form {
   background-color: #0000007e;
-  padding: 0px 20px 50px
+  padding: 0px 20px 50px;
+}
+
+.ticket-search-form__group-wrapper {
+  &_variant-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_variant-2 {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.ticket-search-form__group {
+  &_variant-2 {
+    &:first-child {
+      margin-right: 35px;
+    }
+  }
 }
 
 .ticket-search-form__header {
   color: #ffffff;
   font-size: 30px;
   font-weight: 300;
-  padding-left: 10px;
   margin-top: 60px;
+  &_variant-1 {
+    padding-left: 10px;
+  }
 }
 
 .ticket-search-form__input-wrapper {
@@ -44,6 +66,10 @@
   &:focus {
     outline: none;
   }
+}
+
+.ticket-search-form__button-wrapper {
+  text-align: right;
 }
 
 .ticket-search-form__button {

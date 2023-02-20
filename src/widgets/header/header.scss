@@ -1,8 +1,14 @@
 .header {
-  background-image: url('../../app/assets/images/header-image.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: $orange;
+
+  &_variant-1 {
+    background-image: url('../../shared/assets/images/header-background-images/header-image.png');
+  }
+  &_variant-2 {
+    background-image: url('../../shared/assets/images/header-background-images/header-image-2.png');
+  }
 }
 
 .logo {
@@ -44,8 +50,14 @@
 }
 
 .header__ticket-search-section {
-  margin-top: 250px;
   display: flex;
+  justify-content: center;
+  &_variant-1 {
+    margin-top: 250px;
+  }
+  &_variant-2 {
+    margin-top: 110px;
+  }
 }
 
 .slogan {
