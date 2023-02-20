@@ -48,24 +48,7 @@
   display: flex;
 }
 
-.header__slogan {
-  color: #ffffff;
-  font-size: 72px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-
-  &_light {
-    font-weight: 100;
-  }
-
-  &_bold {
-    font-weight: 700;
-  }
-}
-
-.header__slogan-wrapper {
+.slogan {
   margin: 0px 10px;
 }
 
