@@ -8,9 +8,9 @@ function Slogan(props: SloganProps) {
   const {bemClass} = props;
 
   const className = 'slogan'
-
+  console.log(bemClass)
   return (
-    <div className={classNames(className, {bemClass: bemClass})}>
+    <div className={classNames(className, (bemClass+`__${className}`))}>
       <div className={`${className}__wrapper`}>
         <div className={`${className}_light`}>Вся жизнь - </div>
         <div className={`${className}_bold`}>путешествие</div>
