@@ -6,9 +6,8 @@ interface SloganProps {
 
 function Slogan(props: SloganProps) {
   const {bemClass} = props;
+  const className = 'slogan';
 
-  const className = 'slogan'
-  console.log(bemClass)
   return (
     <div className={classNames(className, (bemClass+`__${className}`))}>
       <div className={`${className}__wrapper`}>
