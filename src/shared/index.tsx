@@ -2,6 +2,7 @@ import Button from "./components/Button/Button";
 import OrderStepElement from "./components/OrderStepElement/OrderStepElement";
 import Switcher from "./components/Switcher/Switcher";
 import Slogan from "./components/Slogan/Slogan";
+import MultiRangeSlider from "./components/MultiRangeSlider/MultiRangeSlider";
 
 import { ReactComponent as Coupe } from './assets/icons/ticketFiltersIcons/coupe.svg';
 import { ReactComponent as Express } from './assets/icons/ticketFiltersIcons/express.svg';
@@ -13,7 +14,7 @@ import { ReactComponent as WiFi } from './assets/icons/ticketFiltersIcons/wifi.s
 import { globalURL } from "./API/globalUrl";
 
 //components
-export { Button, OrderStepElement, Switcher, Slogan };
+export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider };
 
 //icons
 export { Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi };

@@ -16,7 +16,7 @@ function TicketSearchForm(props: TicketSearchFormProps) {
   const className = "ticket-search-form";
 
   return (
-    <form className={classNames(className, (bemClass+`__${className}`))}>
+    <form className={classNames(className, (bemClass + `__${className}`))}>
       <div className={`ticket-search-form__group-wrapper_${variant}`}>
         <div className={`ticket-search-form__group_${variant}`}>
           <h1 className={classNames("ticket-search-form__header", `ticket-search-form__header_${variant}`)}>Направление</h1>
@@ -34,7 +34,7 @@ function TicketSearchForm(props: TicketSearchFormProps) {
       </div>
       <div className="ticket-search-form__button-wrapper">
         <Button variant="standart" className="ticket-search-form">Найти билеты</Button>
-        </div>
+      </div>
     </form>
   );
 }
