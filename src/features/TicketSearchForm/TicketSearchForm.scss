@@ -39,42 +39,17 @@
   position: relative;
 }
 
-.react-datepicker__tab-loop {
-  position: absolute;
-}
-
-.react-datepicker-wrapper {
+.ticket-search-form__date-input-wrapper {
   &:first-child {
       margin-right: 40px;
   }
 }
 
-.react-datepicker-popper {
-  z-index: 5!important;
-}
-
-.ticket-search-form__input {
-  width: 325px;
-  height: 60px;
+.ticket-search-form__textfield-input {
   margin-right: 40px;
-  border-radius: 3px;
-  padding: 0px 20px;
-  font-size: 18px;
-  font-weight: 400;
-  color: #000000;
-  border: none;
 
   &:last-child {
     margin-right: 0px;
-  }
-
-  &::placeholder {
-    color: #d0d0d0;
-  }
-
-  &:active,
-  &:focus {
-    outline: none;
   }
 }
 

@@ -7,9 +7,10 @@
 }
 
 .ticket-fiter-form__section {
-  padding: 0 30px 1px;
+  padding: 30px;
 
   border-bottom: 1px solid #ffffff;
+
   &:last-child {
     border-bottom: none;
   }
@@ -17,7 +18,21 @@
 
 .ticket-fiter-form__switcher {
   margin-bottom: 40px;
-  &:first-child {
-    margin-top: 30px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.ticket-fiter-form__section-header {
+  font-weight: 400;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.ticket-fiter-form__date-section-group {
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
   }
 }
