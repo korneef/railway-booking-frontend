@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { Express, WiFi, Coffee } from "shared";
-import { toUpperCaseFirst } from "shared";
+import { toUpperCaseFirst, Panel } from "shared";
 
 interface DirectionInfo {
   railway_station_name: string,
@@ -30,7 +30,7 @@ function LastTicketCard(props: LastTicketCardProps) {
   const className = 'last-ticket-card'
 
   return (
-    <div className={classNames(className)} >
+    <Panel bemClass={className} >
       <div className={classNames(className + '__direction-wrapper')}>
         <div className={classNames(className + '__from')}>
           <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(from.city)}</h2>
@@ -54,7 +54,7 @@ function LastTicketCard(props: LastTicketCardProps) {
 
         </div>
       </div>
-    </div >
+    </Panel >
   );
 }
 
