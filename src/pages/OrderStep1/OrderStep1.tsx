@@ -21,6 +21,22 @@ export default function OrderStep1() {
         wifi={false}
         isExpress={true}
       />
+      <LastTicketCard
+        from={from}
+        to={to}
+        minPrice={2700}
+        airConditioning={true}
+        wifi={false}
+        isExpress={true}
+      />
+      <LastTicketCard
+        from={from}
+        to={to}
+        minPrice={2700}
+        airConditioning={true}
+        wifi={false}
+        isExpress={true}
+      />
     </div>
   );
 }

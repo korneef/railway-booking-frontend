@@ -11,6 +11,8 @@ import youtubeIcon from '../../app/assets/icons/footer-subscriptions/youtube.svg
 
 import swiperIcon from '../../app/assets/icons/footer-swiper/swiper.svg'
 
+import { TextField, Button } from 'shared'
+
 export default function Footer() {
   return (
     <footer className='footer'>
@@ -29,7 +31,8 @@ export default function Footer() {
             <h2 className="footer__header">Подписка</h2>
             <h3 className="mail-subscription__form-header">Будьте в курсе событий</h3>
             <form action="" className="mail-subscription__sub-form">
-              <input className='mail-subscription__sub-form-input' type="email" placeholder='e-mal' /> <button>Отправить</button>
+              <TextField bemClass='mail-subscription' type="email" placeholder='e-mail' />
+              <Button className='subscribe-button' variant='transparent-white'>ОТПРАВИТЬ</Button>
             </form>
           </div>
           <div className="social-subscriptions">

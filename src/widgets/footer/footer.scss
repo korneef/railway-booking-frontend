@@ -52,6 +52,14 @@
   color: #ffffff
 }
 
+.mail-subscription__sub-form {
+  display: flex;
+}
+
+.mail-subscription__textfield-input {
+  margin-right: 30px;
+}
+
 .footer-subscriptions {
   display: flex;
   flex-direction: column;
