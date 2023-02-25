@@ -13,14 +13,21 @@ import { ReactComponent as LuxuryClass } from './assets/icons/ticketFiltersIcons
 import { ReactComponent as SeatClass } from './assets/icons/ticketFiltersIcons/seat-class.svg';
 import { ReactComponent as SecondClass } from './assets/icons/ticketFiltersIcons/second-class.svg';
 import { ReactComponent as WiFi } from './assets/icons/ticketFiltersIcons/wifi.svg';
+import { ReactComponent as Coffee } from './assets/icons/ticketFiltersIcons/coffee.svg';
+
 
 import { globalURL } from "./API/globalUrl";
+
+import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
 
 //components
 export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton };
 
 //icons
-export { Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi };
+export { Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, Coffee };
 
 //api
 export { globalURL };
+
+//helpers 
+export { toUpperCaseFirst }
