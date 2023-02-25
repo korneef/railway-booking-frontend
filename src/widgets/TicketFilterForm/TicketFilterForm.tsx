@@ -1,3 +1,4 @@
+import { TimeClarification } from "entities/index";
 import { FilterSwitcher } from "features";
 import { MultiRangeSlider, DateField, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi } from "shared";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,8 +28,16 @@ export default function TicketFilterForm() {
       </div>
       <div className={`${className}__section`}>
         <div className={`${className}__section-header`}>Стоимость</div>
-        <MultiRangeSlider type='price' min={850} max={2950} />
+        <MultiRangeSlider bemClass={className} type='price' min={850} max={2950} />
       </div>
+      <div className={`${className}__section`} >
+        <TimeClarification direction="Туда" filterNameAlign="right"/>
+      </div>
+      <div className={`${className}__section`} >
+        <TimeClarification direction="Обратно" filterNameAlign="left"/>
+
+      </div>
+
     </div>
   );
 }

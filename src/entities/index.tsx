@@ -1,3 +1,4 @@
 import LoadingBar from "./LoadingBar/LoadingBar";
+import TimeClarification from "./TimeClarification/TimeClarification";
 
-export { LoadingBar };
+export { LoadingBar, TimeClarification };

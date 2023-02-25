@@ -5,6 +5,7 @@ import Slogan from "./components/Slogan/Slogan";
 import MultiRangeSlider from "./components/MultiRangeSlider/MultiRangeSlider";
 import TextField from "./components/TextField/TextField";
 import DateField from "./components/DateField/DateField";
+import ToggleButton from "./components/ToggleButton/ToggleButton";
 
 import { ReactComponent as Coupe } from './assets/icons/ticketFiltersIcons/coupe.svg';
 import { ReactComponent as Express } from './assets/icons/ticketFiltersIcons/express.svg';
@@ -16,7 +17,7 @@ import { ReactComponent as WiFi } from './assets/icons/ticketFiltersIcons/wifi.s
 import { globalURL } from "./API/globalUrl";
 
 //components
-export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField };
+export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton };
 
 //icons
 export { Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi };

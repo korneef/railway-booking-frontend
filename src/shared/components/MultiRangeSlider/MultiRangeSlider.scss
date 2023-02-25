@@ -1,7 +1,14 @@
 .multi-slider__container {
-  height: 100px;
   width: 100%;
   position: relative;
+}
+
+.multi-slider__container_price {
+  height: 85px;
+}
+
+.multi-slider__container_time {
+  height: 60px;
 }
 
 .multi-slider__header-wrapper {

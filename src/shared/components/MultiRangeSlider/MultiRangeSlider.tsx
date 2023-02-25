@@ -5,10 +5,11 @@ interface MultiRangeSliderProps {
   type: 'price' | 'time';
   min: number;
   max: number;
+  bemClass: string
 }
 
 export default function MultiRangeSlider(props: MultiRangeSliderProps) {
-  const { type, min, max } = props;
+  const { type, min, max, bemClass } = props;
 
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
@@ -44,7 +45,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
   const className = 'multi-slider'
 
   return (
-    <div className={classNames(className + `__container`, className + `__container_${type}`)}>
+    <div className={classNames(bemClass+`__${className}`, className + `__container`, className + `__container_${type}`)}>
       <div className={classNames(className + `__header-wrapper`, className + `__header-wrapper_${type}`)}>
         <div className={classNames(className + `__header-range`)}>от</div>
         <div className={classNames(className + `__header-range`)}>до</div>
