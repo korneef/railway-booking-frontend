@@ -1,31 +1,23 @@
 import classNames from "classnames";
 import { Express, WiFi, Coffee } from "shared";
 import { toUpperCaseFirst, Panel } from "shared";
+import ITrainInformation from "entities/Interfasec/ITrainInformation";
+import { IDirectionInfo } from "shared";
 
-interface DirectionInfo {
-  railway_station_name: string,
-  city: string
+interface ILastTicketCardProps extends Pick<ITrainInformation, 'min_price' | 'have_air_conditioning' | 'have_wifi' | 'is_express'> {
+  from: Omit<IDirectionInfo, 'datetime'>,
+  to: Omit<IDirectionInfo, 'datetime'>
 }
 
 
-interface LastTicketCardProps {
-  from: DirectionInfo,
-  to: DirectionInfo,
-  minPrice: number,
-  airConditioning: boolean,
-  wifi: boolean,
-  isExpress: boolean,
-}
-
-
-function LastTicketCard(props: LastTicketCardProps) {
+function LastTicketCard(props: ILastTicketCardProps) {
   const {
     from,
     to,
-    minPrice,
-    airConditioning,
-    wifi,
-    isExpress } = props;
+    min_price,
+    have_air_conditioning,
+    have_wifi,
+    is_express } = props;
 
   const className = 'last-ticket-card'
 
@@ -43,13 +35,13 @@ function LastTicketCard(props: LastTicketCardProps) {
       </div>
       <div className={classNames(className + '__options-wrapper')}>
         <div className={classNames(className + '__options')} >
-          {airConditioning && <Coffee className={classNames(className + '__option-icon')} />}
-          {wifi && <WiFi />}
-          {isExpress && <Express />}
+          {have_air_conditioning && <Coffee className={classNames(className + '__option-icon')} />}
+          {have_wifi && <WiFi />}
+          {is_express && <Express />}
         </div>
         <div className={classNames(className + '__price-container')}>
           <span className={classNames(className + '__price-from')}>от</span>
-          <span className={classNames(className + '__price')} >{minPrice}</span>
+          <span className={classNames(className + '__price')} >{min_price}</span>
           <span className={classNames(className + '__price-valute')} >&#8381;</span>
 
         </div>

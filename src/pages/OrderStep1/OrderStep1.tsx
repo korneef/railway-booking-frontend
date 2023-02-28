@@ -1,5 +1,5 @@
 import { TicketFilterForm } from "widgets";
-import { LastTicketCard } from "features";
+import { LastTicketCard, TicketCard } from "features";
 
 export default function OrderStep1() {
   const from = {
@@ -12,31 +12,7 @@ export default function OrderStep1() {
   }
   return (
     <div className="wrapped">
-      <TicketFilterForm />
-      <LastTicketCard
-        from={from}
-        to={to}
-        minPrice={2700}
-        airConditioning={true}
-        wifi={false}
-        isExpress={true}
-      />
-      <LastTicketCard
-        from={from}
-        to={to}
-        minPrice={2700}
-        airConditioning={true}
-        wifi={false}
-        isExpress={true}
-      />
-      <LastTicketCard
-        from={from}
-        to={to}
-        minPrice={2700}
-        airConditioning={true}
-        wifi={false}
-        isExpress={true}
-      />
+      <TicketCard/>
     </div>
   );
 }
