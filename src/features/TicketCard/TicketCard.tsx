@@ -2,28 +2,29 @@ import classNames from "classnames";
 import { Panel } from "shared";
 import { ITrainInformation } from "entities";
 import { TrainGeneralInfo, TrainTimeTableInfo} from "../../entities/index";
-import PointInfo from "shared/components/PointInfo/PointInfo";
 
 interface TicketCardProps {
   ticket: {
     departure: ITrainInformation,
     arrival?: ITrainInformation,
 
-    have_first_class?: boolean,
-    have_second_class?: boolean,
-    have_third_class?: boolean,
-    have_fourth_class?: boolean,
-    have_wifi?: boolean,
-    have_air_conditioning?: boolean,
-    is_express?: boolean,
-    min_price?: number,
-    available_seats?: number,
+    have_first_class: boolean,
+    have_second_class: boolean,
+    have_third_class: boolean,
+    have_fourth_class: boolean,
+    have_wifi: boolean,
+    have_air_conditioning: boolean,
+    is_express: boolean,
+    min_price: number,
+    available_seats: number,
   }
 }
 
 function TicketCard(props: TicketCardProps) {
   const { ticket } = props
-  const className = 'ticket-card'
+  const className = 'ticket-card';
+  console.log(ticket)
+
   return (
     <Panel bemClass={className} >
       <TrainGeneralInfo 
@@ -34,6 +35,7 @@ function TicketCard(props: TicketCardProps) {
       toStation={ticket.departure.to.railway_station_name} />
       <div className={classNames(className + '__shedule')}>
       <TrainTimeTableInfo bemClass={className} direction="departure" duration={ticket.departure.duration} from={ticket.departure.from} to={ticket.departure.to} />
+      {ticket.arrival ? <TrainTimeTableInfo bemClass={className} direction="arrival" duration={ticket.arrival.duration} from={ticket.arrival.from} to={ticket.arrival.to} /> : false}
 
       </div>
       <div className={classNames(className + '__aside-wrapper')}>

@@ -5,3 +5,12 @@
   flex-wrap: nowrap;
   margin: 15px;
 }
+
+.ticket-card__shedule {
+  padding: 50px 40px;
+  border-right: 1px dashed #E5E5E5;
+}
+
+.ticket-card__train-time-table-info:first-child {
+  margin-bottom: 40px;
+}
