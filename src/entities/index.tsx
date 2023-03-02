@@ -1,7 +1,12 @@
+//components
 import LoadingBar from "./LoadingBar/LoadingBar";
 import TimeClarification from "./TimeClarification/TimeClarification";
-import ITrainInformation from "./Interfasec/ITrainInformation";
 import TrainGeneralInfo from "./TrainGeneralInfo/TrainGeneralInfo";
+import TrainTimeTableInfo from "./TrainTimeTableInfo/TrainTimeTableInfo";
 
-export { LoadingBar, TimeClarification, TrainGeneralInfo };
+
+//interfaces
+import ITrainInformation from "./Interfaces/ITrainInformation";
+
+export { LoadingBar, TimeClarification, TrainGeneralInfo, TrainTimeTableInfo };
 export type { ITrainInformation }

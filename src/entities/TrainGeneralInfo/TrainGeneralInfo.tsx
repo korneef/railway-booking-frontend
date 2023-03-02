@@ -1,11 +1,13 @@
 import classNames from "classnames";
 import { TrainLogo } from "shared";
+import { toUpperCaseFirst } from "shared";
 
 interface TrainGeneralInfoProps {
   bemClass: string,
   trainNumber: string,
   fromCity: string,
-  toCity: string
+  toCity: string,
+  toStation: string,
 }
 
 function TrainGeneralInfo(props: TrainGeneralInfoProps) {
@@ -13,18 +15,20 @@ function TrainGeneralInfo(props: TrainGeneralInfoProps) {
     bemClass,
     trainNumber,
     fromCity,
-    toCity
+    toCity,
+    toStation
   } = props;
 
   const className = 'train-info'
 
   return (
-    <div className={classNames(bemClass + '__general')}>
+    <div className={classNames(bemClass + '__general', className)}>
       <div><TrainLogo /></div>
-      <div className={classNames(bemClass + '__train-number')}>{trainNumber}</div>
-      <div className={classNames(bemClass + '__direction')}>
-        <div className={classNames(bemClass + '__direction-city', bemClass + '__direction-city_from')}>{fromCity}</div>
-        <div className={classNames(bemClass + '__direction-city', bemClass + '__direction-city_to')}>{toCity}</div>
+      <div className={classNames(className + '__train-number')}>{trainNumber}</div>
+      <div className={classNames(className + '__direction')}>
+        <div className={classNames(className + '__direction-city', className + '__direction-city_from')}>{toUpperCaseFirst(fromCity)}</div>
+        <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>{toUpperCaseFirst(toCity)}</div>
+        <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>«{toUpperCaseFirst(toStation)}»</div>
       </div>
     </div>
   );

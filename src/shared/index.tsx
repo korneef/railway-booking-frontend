@@ -8,6 +8,8 @@ import TextField from "./components/TextField/TextField";
 import DateField from "./components/DateField/DateField";
 import ToggleButton from "./components/ToggleButton/ToggleButton";
 import Panel from "./components/Panel/Panel";
+import PointInfo from "./components/PointInfo/PointInfo";
+import TrainDirection from "./components/TrainDirection/TrainDirection";
 //assests
 import { ReactComponent as TrainLogo } from './assets/icons/train-logo.svg';
 import { ReactComponent as Coupe } from './assets/icons/ticketFiltersIcons/coupe.svg';
@@ -17,6 +19,8 @@ import { ReactComponent as SeatClass } from './assets/icons/ticketFiltersIcons/s
 import { ReactComponent as SecondClass } from './assets/icons/ticketFiltersIcons/second-class.svg';
 import { ReactComponent as WiFi } from './assets/icons/ticketFiltersIcons/wifi.svg';
 import { ReactComponent as Coffee } from './assets/icons/ticketFiltersIcons/coffee.svg';
+import { ReactComponent as OrangeArrow } from './assets/icons/orange-arrow.svg';
+
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
 import IDirectionInfo from "./interfaces/IDirectionInfo";
@@ -27,12 +31,13 @@ import ISeatPriceInfo from "./interfaces/ISeatPriceInfo";
 import { globalURL } from "./API/globalUrl";
 //helpers
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
+import getDuration from "./helpers/getDuration";
 
 //components
-export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton, Panel };
+export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton, Panel, PointInfo, TrainDirection };
 
 //assets
-export {TrainLogo, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, Coffee };
+export {TrainLogo, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, Coffee, OrangeArrow };
 
 //interfaces
 export type { IAviableSeatsInfo, IDirectionInfo, IPriceInfo, ISeatPriceInfo};
@@ -41,4 +46,4 @@ export type { IAviableSeatsInfo, IDirectionInfo, IPriceInfo, ISeatPriceInfo};
 export { globalURL };
 
 //helpers 
-export { toUpperCaseFirst };
+export { toUpperCaseFirst, getDuration };

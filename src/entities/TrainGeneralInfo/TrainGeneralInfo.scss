@@ -1,0 +1,30 @@
+.train-info {
+  width: 200px;
+  background-color: #E4E0E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.train-info__train-number {
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.train-info__direction-city {
+  font-weight: 400;
+  font-size: 16px;
+  position: relative;
+  max-width: 180px;
+  word-wrap: break-word;
+
+  &_from::after {
+    position: relative;
+    content: "→";
+    top: 1px;
+    left: 8px;
+  }
+}

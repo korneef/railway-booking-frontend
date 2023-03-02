@@ -1,0 +1,20 @@
+.train-direction-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 40px;
+}
+
+.train-direction-info__duration {
+  font-weight: 400;
+  font-size: 18px;
+  color: #C4C4C4;
+  margin-bottom: 8px;
+}
+
+.train-direction-info__arrow {
+  &_arrival {
+    transform: rotate(180deg)  }
+}

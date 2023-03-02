@@ -1,8 +1,8 @@
 import { IAviableSeatsInfo, IDirectionInfo, ISeatPriceInfo } from "shared";
 
 export default interface ITrainInformation {
-  aviable_seats: number,
-  aviable_seats_info: IAviableSeatsInfo,
+  available_seats: number,
+  available_seats_info: IAviableSeatsInfo,
   duration: number,
   from: IDirectionInfo,
   to: IDirectionInfo,
@@ -15,4 +15,9 @@ export default interface ITrainInformation {
   is_express: boolean,
   min_price: number,
   price_info: ISeatPriceInfo,
+  _id: string
+  train: {
+    _id: string,
+    name: string,
+  },
 }
