@@ -17,7 +17,7 @@ function TrainTimeTableInfo(props: TrainTimeTableInfoProps) {
   return (
     <div className={classNames({[`${bemClass}__${className}`]: bemClass}, className)}>
       {direction === 'departure' ? <PointInfo bemClass={className} {...from}/> : <PointInfo bemClass={className} {...to}/>}
-      <TrainDirection duration={duration} direciton={direction} />
+      <TrainDirection duration={duration} direciton={direction} bemClass={className}/>
       {direction === 'departure' ? <PointInfo bemClass={className} {...to}/> : <PointInfo bemClass={className} {...from}/>}
     </div>
   );
