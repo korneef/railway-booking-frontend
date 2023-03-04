@@ -36,8 +36,8 @@ function LastTicketCard(props: ILastTicketCardProps) {
       <div className={classNames(className + '__options-wrapper')}>
         <div className={classNames(className + '__options')} >
           {have_air_conditioning && <Coffee className={classNames(className + '__option-icon')} />}
-          {have_wifi && <WiFi />}
-          {is_express && <Express />}
+          {have_wifi && <WiFi className={classNames(className + '__option-icon')} />}
+          {is_express && <Express className={classNames(className + '__option-icon')} />}
         </div>
         <div className={classNames(className + '__price-container')}>
           <span className={classNames(className + '__price-from')}>от</span>

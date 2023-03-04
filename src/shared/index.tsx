@@ -32,6 +32,7 @@ import { globalURL } from "./API/globalUrl";
 //helpers
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
 import getDuration from "./helpers/getDuration";
+import numberWithSpaces from "./helpers/numberWithSpaces";
 
 //components
 export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton, Panel, PointInfo, TrainDirection };
@@ -46,4 +47,4 @@ export type { IAviableSeatsInfo, IDirectionInfo, IPriceInfo, ISeatPriceInfo};
 export { globalURL };
 
 //helpers 
-export { toUpperCaseFirst, getDuration };
+export { toUpperCaseFirst, getDuration, numberWithSpaces };

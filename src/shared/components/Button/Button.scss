@@ -39,6 +39,8 @@
 .button__standart-white {
   @extend %button-shared;
   color: #ffffff;
+  text-transform: none;
+
 }
 
 .button__small {
@@ -47,6 +49,7 @@
   padding: 0 10px;
   color: #ffffff;
   min-width: 228px;
+  text-transform: none;
 }
 
 .button__transparent {

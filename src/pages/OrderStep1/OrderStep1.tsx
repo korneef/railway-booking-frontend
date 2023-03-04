@@ -7,9 +7,9 @@ export default function OrderStep1() {
     have_second_class: false,
     have_third_class: false,
     have_fourth_class: false,
-    have_wifi: false,
-    have_air_conditioning: false,
-    is_express: false,
+    have_wifi: true,
+    have_air_conditioning: true,
+    is_express: true,
     min_price: 723,
     available_seats: 80,
     available_seats_info: {
@@ -118,6 +118,10 @@ export default function OrderStep1() {
   return (
     <div className="wrapped">
       <TicketCard ticket={ticket}/>
+      <TicketCard ticket={ticket}/>
+      <TicketCard ticket={ticket}/>
+      <TicketCard ticket={ticket}/>
+
     </div>
   );
 }
