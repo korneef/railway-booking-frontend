@@ -4,7 +4,7 @@ import classNames from "classnames";
 interface ButtonProps extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'>{
   variant: 'standart' | 'standart-white' | 'small' | 'transparent' | 'transparent-white';
   disabled?: boolean;
-  children: string;
+  children?: string;
   className: string;
 }
 

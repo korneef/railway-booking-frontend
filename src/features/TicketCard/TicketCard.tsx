@@ -24,7 +24,6 @@ interface TicketCardProps {
 function TicketCard(props: TicketCardProps) {
   const { ticket } = props
   const className = 'ticket-card';
-  console.log(ticket)
 
   return (
     <Panel bemClass={className} >
