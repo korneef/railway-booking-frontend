@@ -1,6 +1,6 @@
 import { TicketCard } from "features";
 import { ITrainInformation } from "entities";
-import { IAviableSeatsInfo, Button } from "shared";
+import { IAviableSeatsInfo } from "shared";
 
 interface Ticket {
   available_seats: number,
