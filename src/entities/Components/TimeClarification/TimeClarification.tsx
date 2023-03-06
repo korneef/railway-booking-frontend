@@ -1,17 +1,14 @@
-import arrowLeft from './icons/arrow-left.svg';
-import arrowRight from './icons/arrow-right.svg';
 import classNames from 'classnames';
-import { ToggleButton, MultiRangeSlider } from 'shared';
+import { ToggleButton, MultiRangeSlider, ArrowLeft, ArrowRight } from 'shared';
 import { useState, ChangeEventHandler } from 'react';
 
 interface TimeClarificationProps {
-  direction: string;
-  filterNameAlign: 'left' | 'right';
+  direction: 'departure' | 'arrival';
 }
 
 function TimeClarification(props: TimeClarificationProps) {
   const [isChecked, setIsChecked] = useState(false);
-  const { direction, filterNameAlign } = props;
+  const { direction } = props;
 
   const handleClick: ChangeEventHandler<HTMLInputElement> = (): void => {
     setIsChecked(!isChecked);
@@ -21,11 +18,11 @@ function TimeClarification(props: TimeClarificationProps) {
   return (
     <>
       <div className={classNames(className + '__header-wrapper')}>
-        <img src={filterNameAlign === 'left' ? arrowLeft : arrowRight}
+        <img src={direction === 'departure' ? ArrowRight : ArrowLeft}
           alt=""
           className={classNames(className + '__header-image')} />
         <h2
-          className={classNames(className + '__header')}>{direction}
+          className={classNames(className + '__header')}>{direction === 'departure' ? "Туда" : "Обратно"}
         </h2>
         <ToggleButton bemClass={className} handeClick={handleClick} />
       </div>

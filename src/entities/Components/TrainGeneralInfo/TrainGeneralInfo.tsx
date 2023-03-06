@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { TrainLogo } from "shared";
-import { toUpperCaseFirst } from "shared";
+import { TrainPath } from "shared";
 
 interface TrainGeneralInfoProps {
   bemClass: string,
@@ -25,11 +25,7 @@ function TrainGeneralInfo(props: TrainGeneralInfoProps) {
     <div className={classNames(bemClass + '__general', className)}>
       <div><TrainLogo /></div>
       <div className={classNames(className + '__train-number')}>{trainNumber}</div>
-      <div className={classNames(className + '__direction')}>
-        <div className={classNames(className + '__direction-city', className + '__direction-city_from')}>{toUpperCaseFirst(fromCity)}</div>
-        <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>{toUpperCaseFirst(toCity)}</div>
-        <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>«{toUpperCaseFirst(toStation)}»</div>
-      </div>
+      <TrainPath fromCity={fromCity} toCity={toCity} toStation={toStation}/>
     </div>
   );
 }

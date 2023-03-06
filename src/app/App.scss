@@ -1,11 +1,11 @@
 @import './styles/normalize.scss';
 @import './styles/vars.scss';
 @import './styles/fonts.scss';
-@import '../pages/index.scss';
-@import '../widgets/index.scss';
-@import '../entities/index.scss';
 @import '../shared/index.scss';
+@import '../entities/index.scss';
 @import '../features/index.scss';
+@import '../widgets/index.scss';
+@import '../pages/index.scss';
 
 *, *:before, *:after {
   box-sizing: inherit;

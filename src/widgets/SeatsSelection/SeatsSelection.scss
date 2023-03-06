@@ -1,0 +1,23 @@
+.seats-selection {}
+
+.seats-selection__train-choise {
+  display: flex;
+  align-items: flex-start;
+  padding: 35px 20px;
+  &_departure {
+    justify-content: flex-start;
+  }
+  &_arrival {
+    justify-content: flex-end;
+  }
+}
+
+.seats-selection__direction-arrow-image {
+  display: block;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.seats-selection__button {
+  height: 60px;
+}

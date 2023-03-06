@@ -1,4 +1,4 @@
-import { TicketFilterForm, TicketsList } from "widgets";
+import { TicketFilterForm, TicketsList, SeatsSelection } from "widgets";
 import { LastTicketCard } from "features";
 
 export default function OrderStep1() {
@@ -15,9 +15,10 @@ export default function OrderStep1() {
           {last.map(item => <LastTicketCard key={item.departure._id} {...item.departure}/>)}
         </div>
         </div>
-        <TicketsList total_count={tickets.total_count}>
+        <SeatsSelection direciton="departure"/>
+        {/* <TicketsList total_count={tickets.total_count}>
           {tickets.items}
-        </TicketsList>
+        </TicketsList> */}
       </div>
     </div>
   );

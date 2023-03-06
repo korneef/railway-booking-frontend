@@ -10,6 +10,8 @@ import ToggleButton from "./components/ToggleButton/ToggleButton";
 import Panel from "./components/Panel/Panel";
 import PointInfo from "./components/PointInfo/PointInfo";
 import TrainDirection from "./components/TrainDirection/TrainDirection";
+import TrainPath from "./components/TrainPath/TrainPath";
+
 //assests
 import { ReactComponent as TrainLogo } from './assets/icons/train-logo.svg';
 import { ReactComponent as Coupe } from './assets/icons/ticketFiltersIcons/coupe.svg';
@@ -19,7 +21,11 @@ import { ReactComponent as SeatClass } from './assets/icons/ticketFiltersIcons/s
 import { ReactComponent as SecondClass } from './assets/icons/ticketFiltersIcons/second-class.svg';
 import { ReactComponent as WiFi } from './assets/icons/ticketFiltersIcons/wifi.svg';
 import { ReactComponent as Coffee } from './assets/icons/ticketFiltersIcons/coffee.svg';
-import { ReactComponent as OrangeArrow } from './assets/icons/orange-arrow.svg';
+import { ReactComponent as OrangeArrow } from './assets/icons/arrows/small-orange-arrow.svg';
+import ArrowLeft from './assets/icons/arrows/arrow-left.svg';
+import ArrowRight from './assets/icons/arrows/arrow-right.svg';
+
+
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -35,10 +41,10 @@ import getDuration from "./helpers/getDuration";
 import numberWithSpaces from "./helpers/numberWithSpaces";
 
 //components
-export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton, Panel, PointInfo, TrainDirection };
+export { Button, OrderStepElement, Switcher, Slogan, MultiRangeSlider, TextField, DateField, ToggleButton, Panel, PointInfo, TrainDirection, TrainPath };
 
 //assets
-export {TrainLogo, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, Coffee, OrangeArrow };
+export {TrainLogo, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, Coffee, OrangeArrow, ArrowRight, ArrowLeft };
 
 //interfaces
 export type { IAviableSeatsInfo, IDirectionInfo, IPriceInfo, ISeatPriceInfo};
