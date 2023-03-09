@@ -28,6 +28,7 @@
   font-size: 30px;
   font-weight: 300;
   margin-top: 60px;
+
   &_variant-1 {
     padding-left: 10px;
   }
@@ -40,13 +41,24 @@
 }
 
 .ticket-search-form__date-input-wrapper {
-  &:first-child {
-      margin-right: 40px;
+  margin-right: 40px;
+
+  @media screen and (max-width: 1919px) {
+    margin-right: 20px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
   }
 }
 
 .ticket-search-form__textfield-input {
   margin-right: 40px;
+
+  @media screen and (max-width: 1919px) {
+    margin-right: 20px;
+  }
 
   &:last-child {
     margin-right: 0px;
