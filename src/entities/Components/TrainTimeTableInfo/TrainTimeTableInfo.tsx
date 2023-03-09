@@ -4,7 +4,7 @@ import { IDirectionInfo, PointInfo, TrainDirection } from "shared";
 
 interface TrainTimeTableInfoProps {
   direction: 'departure' | 'arrival',
-  duration: number,
+  duration?: number,
   from: IDirectionInfo,
   to: IDirectionInfo,
   bemClass?: string,

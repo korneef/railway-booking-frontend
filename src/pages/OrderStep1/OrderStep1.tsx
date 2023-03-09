@@ -15,7 +15,7 @@ export default function OrderStep1() {
           {last.map(item => <LastTicketCard key={item.departure._id} {...item.departure}/>)}
         </div>
         </div>
-        <SeatsSelection direciton="departure"/>
+        <SeatsSelection ticket={tickets.items[0].departure} direciton="departure"/>
         {/* <TicketsList total_count={tickets.total_count}>
           {tickets.items}
         </TicketsList> */}

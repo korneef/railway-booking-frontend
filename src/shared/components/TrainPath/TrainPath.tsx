@@ -5,7 +5,7 @@ interface TrainPathProps {
   bemClass?: string;
   fromCity: string,
   toCity: string,
-  toStation: string,
+  toStation?: string,
 }
 
 function TrainPath(props: TrainPathProps) {
@@ -17,7 +17,7 @@ function TrainPath(props: TrainPathProps) {
     <div className={classNames(className, {[`${bemClass}__${className}`]: bemClass})}>
       <div className={classNames(className + '__direction-city', className + '__direction-city_from')}>{toUpperCaseFirst(fromCity)}</div>
       <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>{toUpperCaseFirst(toCity)}</div>
-      <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>«{toUpperCaseFirst(toStation)}»</div>
+      {toStation ? <div className={classNames(className + '__direction-city', className + '__direction-city_to')}>«{toUpperCaseFirst(toStation)}»</div> : null}
     </div>
   );
 }
