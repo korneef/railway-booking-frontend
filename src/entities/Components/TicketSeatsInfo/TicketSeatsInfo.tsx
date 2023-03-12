@@ -1,6 +1,5 @@
 import classNames from "classnames";
-import { numberWithSpaces } from "shared";
-
+import { Price } from "shared";
 
 interface TicketSeatsInfoProps {
   seatsType: string,
@@ -18,8 +17,7 @@ function TicketSeatsInfo(props: TicketSeatsInfoProps) {
       <div className={`${className}__seats-type`}>{seatsType}</div>
       <div className={`${className}__seats-count`}>{seatsCount}</div>
       <div className={`${className}__seats-text`}>от</div>
-      <div className={`${className}__seats-price`}>{numberWithSpaces(seatsPrice)}</div>
-      <div className={`${className}__seats-valute`}>&#8381;</div>
+      <Price price={seatsPrice}/>
     </div>
   );
 }

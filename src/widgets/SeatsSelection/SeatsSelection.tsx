@@ -7,9 +7,10 @@ import {
   TrainLogoSmall,
   OrangeClockIcon,
   getDuration,
-  InputWithLabelOnInput
+  InputWithLabelOnInput,
 } from 'shared';
 import { TrainTimeTableInfo, WagonTypeSelect } from 'entities/index';
+import { Coach } from 'features';
 import classNames from 'classnames';
 
 interface SeatsSelectionProps {
@@ -21,7 +22,9 @@ function SeatsSelection(props: SeatsSelectionProps) {
   const { direciton, ticket } = props;
   const className = 'seats-selection';
   const duration = getDuration(ticket.duration);
+
   console.log(ticket)
+
   return (
     <Panel bemClass={className}>
 
@@ -71,13 +74,26 @@ function SeatsSelection(props: SeatsSelectionProps) {
       <div className="wagons-type">
         <h2 className="wagons-type__header">Тип вагона</h2>
         <div className="wagons-type__wrapper">
-          {(ticket.have_first_class || true) && <WagonTypeSelect bemClass='wagons-type' type={1} active={true} />}
-          {(ticket.have_second_class || true) && <WagonTypeSelect bemClass='wagons-type' type={2} active={false} />}
-          {(ticket.have_third_class || true) && <WagonTypeSelect bemClass='wagons-type' type={3} active={false} />}
-          {(ticket.have_fourth_class || true) && <WagonTypeSelect bemClass='wagons-type' type={4} active={false} />}
+          {(ticket.have_first_class) && <WagonTypeSelect bemClass='wagons-type' type={1} active={true} />}
+          {(ticket.have_second_class) && <WagonTypeSelect bemClass='wagons-type' type={2} active={false} />}
+          {(ticket.have_third_class) && <WagonTypeSelect bemClass='wagons-type' type={3} active={false} />}
+          {(ticket.have_fourth_class) && <WagonTypeSelect bemClass='wagons-type' type={4} active={false} />}
         </div>
       </div>
 
+      <div className="train-wagons-information">
+        <div className='train-wagons-information__select-wagon-section'>
+          <div className="train-wagons-information__wagons-numbers-header">Вагоны</div>
+          <div className="train-wagons-information__wagons-numbers">
+            <div className='train-wagons-information__wagon-number'>01</div>
+            <div className='train-wagons-information__wagon-number train-wagons-information__wagon-number_active'>02</div>
+            <div className='train-wagons-information__wagon-number'>05</div>
+            <div className='train-wagons-information__wagon-number'>06</div>
+            <div className='train-wagons-information__wagon-number'>09</div>
+          </div>
+        </div>
+      </div>
+      <Coach/>
     </Panel>
   );
 }

@@ -12,6 +12,7 @@ import PointInfo from "./components/PointInfo/PointInfo";
 import TrainDirection from "./components/TrainDirection/TrainDirection";
 import TrainPath from "./components/TrainPath/TrainPath";
 import InputWithLabelOnInput from "./components/InputWithLabelOnInput/InputWithLabelOnInput";
+import Price from "./components/Price/Price";
 
 //assests
 import { ReactComponent as TrainLogo } from './assets/icons/train-logo.svg';
@@ -49,7 +50,6 @@ import { globalURL } from "./API/globalUrl";
 //helpers
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
 import getDuration from "./helpers/getDuration";
-import numberWithSpaces from "./helpers/numberWithSpaces";
 
 //components
 export {
@@ -64,7 +64,8 @@ export {
   PointInfo,
   TrainDirection,
   TrainPath,
-  InputWithLabelOnInput
+  InputWithLabelOnInput,
+  Price
 };
 
 //assets
@@ -109,5 +110,4 @@ export {
 export {
   toUpperCaseFirst,
   getDuration,
-  numberWithSpaces
 };

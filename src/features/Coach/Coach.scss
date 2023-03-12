@@ -1,0 +1,52 @@
+.wagon-information {
+  display: flex;
+
+  &__wagon-number-section {
+    width: 190px;
+    min-height: 140px;
+    margin-right: 85px;
+    background-color: rgba(255, 168, 0, 0.44);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__wagon-number {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 0.8;
+  }
+
+  &__wagon-text {
+    font-weight: 400;
+    font-size: 24px;
+  }
+
+  &__seats-types-header-section {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 30px;
+
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #928F94;
+  }
+
+  &__seats-types-header {
+    width: 240px;
+  }
+
+  &__seats-price-header {
+    width: 200px;
+  }
+
+  &__seat-element {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
