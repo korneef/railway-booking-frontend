@@ -12,6 +12,7 @@ import {
 import { TrainTimeTableInfo, WagonTypeSelect } from 'entities/index';
 import { Coach } from 'features';
 import classNames from 'classnames';
+import { useState } from 'react';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',
@@ -23,7 +24,436 @@ function SeatsSelection(props: SeatsSelectionProps) {
   const className = 'seats-selection';
   const duration = getDuration(ticket.duration);
 
-  console.log(ticket)
+  const seatsInfo = [
+    {
+      "coach": {
+        "_id": "63329d7d591d1e00467e8db7",
+        "name": "БЙГИТЗ-42",
+        "class_type": 'first',
+        "have_wifi": true,
+        "have_air_conditioning": true,
+        "price": 3220,
+        "top_price": 3455,
+        "bottom_price": 3160,
+        "side_price": 0,
+        "linens_price": 216,
+        "wifi_price": 248,
+        "is_linens_included": true,
+        "available_seats": 6,
+        "train": "63329d80591d1e00467e941a"
+      },
+      "seats": [
+        {
+          "index": 1,
+          "available": true
+        },
+        {
+          "index": 2,
+          "available": true
+        },
+        {
+          "index": 3,
+          "available": true
+        },
+        {
+          "index": 4,
+          "available": true
+        },
+        {
+          "index": 5,
+          "available": true
+        },
+        {
+          "index": 6,
+          "available": true
+        }
+      ]
+    },
+    {
+      "coach": {
+        "_id": "63329d7d591d1e00467e8db8",
+        "name": "ИМЙДК-41",
+        "class_type": "third",
+        "have_wifi": true,
+        "have_air_conditioning": false,
+        "price": 0,
+        "top_price": 3635,
+        "bottom_price": 2650,
+        "side_price": 4505,
+        "linens_price": 134,
+        "wifi_price": 65,
+        "is_linens_included": false,
+        "available_seats": 36,
+        "train": "63329d80591d1e00467e941a"
+      },
+      "seats": [
+        {
+          "index": 1,
+          "available": true
+        },
+        {
+          "index": 2,
+          "available": true
+        },
+        {
+          "index": 3,
+          "available": true
+        },
+        {
+          "index": 4,
+          "available": true
+        },
+        {
+          "index": 5,
+          "available": true
+        },
+        {
+          "index": 6,
+          "available": true
+        },
+        {
+          "index": 7,
+          "available": true
+        },
+        {
+          "index": 8,
+          "available": true
+        },
+        {
+          "index": 9,
+          "available": true
+        },
+        {
+          "index": 10,
+          "available": true
+        },
+        {
+          "index": 11,
+          "available": true
+        },
+        {
+          "index": 12,
+          "available": true
+        },
+        {
+          "index": 13,
+          "available": true
+        },
+        {
+          "index": 14,
+          "available": true
+        },
+        {
+          "index": 15,
+          "available": true
+        },
+        {
+          "index": 16,
+          "available": true
+        },
+        {
+          "index": 17,
+          "available": true
+        },
+        {
+          "index": 18,
+          "available": true
+        },
+        {
+          "index": 19,
+          "available": true
+        },
+        {
+          "index": 20,
+          "available": true
+        },
+        {
+          "index": 21,
+          "available": true
+        },
+        {
+          "index": 22,
+          "available": true
+        },
+        {
+          "index": 23,
+          "available": true
+        },
+        {
+          "index": 24,
+          "available": true
+        },
+        {
+          "index": 25,
+          "available": true
+        },
+        {
+          "index": 26,
+          "available": true
+        },
+        {
+          "index": 27,
+          "available": true
+        },
+        {
+          "index": 28,
+          "available": true
+        },
+        {
+          "index": 29,
+          "available": true
+        },
+        {
+          "index": 30,
+          "available": true
+        },
+        {
+          "index": 31,
+          "available": true
+        },
+        {
+          "index": 32,
+          "available": true
+        },
+        {
+          "index": 33,
+          "available": true
+        },
+        {
+          "index": 34,
+          "available": true
+        },
+        {
+          "index": 35,
+          "available": true
+        },
+        {
+          "index": 36,
+          "available": true
+        }
+      ]
+    },
+    {
+      "coach": {
+        "_id": "63329d7d591d1e00467e8db9",
+        "name": "СИК-41",
+        "class_type": "fourth",
+        "have_wifi": false,
+        "have_air_conditioning": false,
+        "price": 0,
+        "top_price": 984,
+        "bottom_price": 577,
+        "side_price": 0,
+        "linens_price": 0,
+        "wifi_price": 262,
+        "is_linens_included": false,
+        "available_seats": 50,
+        "train": "63329d80591d1e00467e941a"
+      },
+      "seats": [
+        {
+          "index": 1,
+          "available": true
+        },
+        {
+          "index": 2,
+          "available": true
+        },
+        {
+          "index": 3,
+          "available": true
+        },
+        {
+          "index": 4,
+          "available": true
+        },
+        {
+          "index": 5,
+          "available": true
+        },
+        {
+          "index": 6,
+          "available": true
+        },
+        {
+          "index": 7,
+          "available": true
+        },
+        {
+          "index": 8,
+          "available": true
+        },
+        {
+          "index": 9,
+          "available": true
+        },
+        {
+          "index": 10,
+          "available": true
+        },
+        {
+          "index": 11,
+          "available": true
+        },
+        {
+          "index": 12,
+          "available": true
+        },
+        {
+          "index": 13,
+          "available": true
+        },
+        {
+          "index": 14,
+          "available": true
+        },
+        {
+          "index": 15,
+          "available": true
+        },
+        {
+          "index": 16,
+          "available": true
+        },
+        {
+          "index": 17,
+          "available": true
+        },
+        {
+          "index": 18,
+          "available": true
+        },
+        {
+          "index": 19,
+          "available": true
+        },
+        {
+          "index": 20,
+          "available": true
+        },
+        {
+          "index": 21,
+          "available": true
+        },
+        {
+          "index": 22,
+          "available": true
+        },
+        {
+          "index": 23,
+          "available": true
+        },
+        {
+          "index": 24,
+          "available": true
+        },
+        {
+          "index": 25,
+          "available": true
+        },
+        {
+          "index": 26,
+          "available": true
+        },
+        {
+          "index": 27,
+          "available": true
+        },
+        {
+          "index": 28,
+          "available": true
+        },
+        {
+          "index": 29,
+          "available": true
+        },
+        {
+          "index": 30,
+          "available": true
+        },
+        {
+          "index": 31,
+          "available": true
+        },
+        {
+          "index": 32,
+          "available": true
+        },
+        {
+          "index": 33,
+          "available": true
+        },
+        {
+          "index": 34,
+          "available": true
+        },
+        {
+          "index": 35,
+          "available": true
+        },
+        {
+          "index": 36,
+          "available": true
+        },
+        {
+          "index": 37,
+          "available": true
+        },
+        {
+          "index": 38,
+          "available": true
+        },
+        {
+          "index": 39,
+          "available": true
+        },
+        {
+          "index": 40,
+          "available": true
+        },
+        {
+          "index": 41,
+          "available": true
+        },
+        {
+          "index": 42,
+          "available": true
+        },
+        {
+          "index": 43,
+          "available": true
+        },
+        {
+          "index": 44,
+          "available": true
+        },
+        {
+          "index": 45,
+          "available": true
+        },
+        {
+          "index": 46,
+          "available": true
+        },
+        {
+          "index": 47,
+          "available": true
+        },
+        {
+          "index": 48,
+          "available": true
+        },
+        {
+          "index": 49,
+          "available": true
+        },
+        {
+          "index": 50,
+          "available": true
+        }
+      ]
+    }
+  ]
 
   return (
     <Panel bemClass={className}>
@@ -93,7 +523,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
           </div>
         </div>
       </div>
-      <Coach/>
+      <Coach coach={seatsInfo[1].coach} seats={seatsInfo[0].seats} />
     </Panel>
   );
 }

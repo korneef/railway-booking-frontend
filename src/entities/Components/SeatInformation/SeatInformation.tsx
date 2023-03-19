@@ -5,15 +5,16 @@ interface SeatInformationProps {
   price: number,
   type: string,
   count: number,
-  bemClass: string
+  bemClass: string,
+  onlyPrice: boolean,
 }
 
-function SeatInformation({ price, type, count, bemClass }: SeatInformationProps) {
+function SeatInformation({ price, type, count, bemClass, onlyPrice }: SeatInformationProps) {
 
   const className = 'seat-element';
   return (
     <div className={classNames(className, `${bemClass}__${className}`)}>
-      <div className={`${className}__name`}>{type}<span className={`${className}__count`}>{count}</span></div>
+      <div className={`${className}__name`}>{onlyPrice && type}<span className={`${className}__count`}>{onlyPrice && count}</span></div>
       <Price price={price} bemClass={className}></Price>
     </div>
   );

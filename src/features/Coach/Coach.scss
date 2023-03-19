@@ -36,6 +36,10 @@
 
   &__seats-types-header {
     width: 240px;
+
+    &>span {
+      color: #000000
+    }
   }
 
   &__seats-price-header {
@@ -44,9 +48,5 @@
 
   &__seat-element {
     margin-bottom: 24px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 }
