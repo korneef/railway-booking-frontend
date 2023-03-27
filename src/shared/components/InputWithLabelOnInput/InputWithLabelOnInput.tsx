@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import classNames from "classnames";
-import { ChangeEvent, useState, useRef, useEffect } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface InputWithLabelOnInputProps {
   label: string,
@@ -9,20 +9,9 @@ interface InputWithLabelOnInputProps {
 
 function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
   const [value, setValue] = useState('0');
-  const [labelPadding, setLabelPadding] = useState(0)
-  const labelEl = useRef<HTMLLabelElement>(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      if (labelEl.current !== null) {
-        setLabelPadding(labelEl.current.offsetWidth)
-      }
-    }, 30)
-  }, [labelEl])
 
   const { label, bemClass } = props;
   const id = nanoid();
-
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue((prevValue) => {
@@ -44,15 +33,13 @@ function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
       setValue('0')
     }
   }
-  //console.log(labelEl.current)
   const className = 'input-with-label';
   return (
     <div className={classNames(className, { [`${bemClass}__${className}`]: bemClass })}>
       <label
-        ref={labelEl}
         className={`${className}__label`}
         htmlFor={id}>
-        {label}
+        <span>{label}</span>
       </label>
       <input
         className={`${className}__input`}
@@ -62,7 +49,6 @@ function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        style={{ paddingLeft: `${labelPadding + 18}px` }}
       />
     </div>
   );

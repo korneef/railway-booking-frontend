@@ -46,6 +46,10 @@
     width: 200px;
   }
 
+  &__content-section {
+    display: flex;
+  }
+
   &__seat-element {
     margin-bottom: 24px;
   }

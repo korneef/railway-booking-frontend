@@ -36,6 +36,13 @@ import ThirdClassIcon from './assets/icons/wagon-type-icons/third-class.svg';
 import ThirdClassIconActive from './assets/icons/wagon-type-icons/third-class-active.svg';
 import FourthClassIcon from './assets/icons/wagon-type-icons/fourth-class.svg';
 import FourthClassIconActive from './assets/icons/wagon-type-icons/fourth-class-active.svg';
+import AirConditionerServiceUntouchable from './assets/icons/wagon-service-icons/air-conditioner-untouchable.svg';
+import LinensService from './assets/icons/wagon-service-icons/linens.svg';
+import LinensServiceActive from './assets/icons/wagon-service-icons/linens-active.svg';
+import LinensServiceActiveUntouchable from './assets/icons/wagon-service-icons/linens-active-untouchable.svg';
+import WiFiService from './assets/icons/wagon-service-icons/wifi.svg';
+import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.svg';
+
 
 
 //interfaces
@@ -91,6 +98,12 @@ export {
   ThirdClassIconActive,
   FourthClassIcon,
   FourthClassIconActive,
+  AirConditionerServiceUntouchable,
+  LinensService,
+  LinensServiceActive,
+  LinensServiceActiveUntouchable,
+  WiFiService,
+  WifiServiseActive,
 };
 
 //interfaces

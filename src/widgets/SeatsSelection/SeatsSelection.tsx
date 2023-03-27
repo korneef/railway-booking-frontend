@@ -12,7 +12,6 @@ import {
 import { TrainTimeTableInfo, WagonTypeSelect } from 'entities/index';
 import { Coach } from 'features';
 import classNames from 'classnames';
-import { useState } from 'react';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',

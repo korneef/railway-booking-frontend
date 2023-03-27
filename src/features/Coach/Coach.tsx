@@ -1,5 +1,5 @@
-import { SeatInformation } from "entities/index";
-
+import { SeatInformation, WagonSeatsServices } from "entities/index";
+import CoachMap from "features/CoachMap/CoachMap";
 interface CoachProps {
   coach: {
     _id: string,
@@ -29,7 +29,7 @@ function Coach({ coach, seats }: CoachProps) {
 
   const onlyPrice = coach.class_type === 'first' || coach.class_type === 'fourth' ? false : true
 
-  console.log(coach)
+  console.log(seats)
   return (
     <div className="train-wagons-information__wagon-information wagon-information">
       <div className="wagon-information__wagon-number-section">
@@ -39,20 +39,24 @@ function Coach({ coach, seats }: CoachProps) {
         </div>
       </div>
       <div className="wagon-information__seats-information">
-        <div className="wagon-information__seats-types">
-          <div className="wagon-information__seats-types-header-section">
-            <div className="wagon-information__seats-types-header">Места <span>{seats.length}</span></div>
-            <div className="wagon-information__seats-price-header">Стоимость</div>
-            <div className="wagon-information__service-header">Обслуживание <span>ФПК</span></div>
-          </div >
-          <div className="wagon-information__seats-list">
+        <div className="wagon-information__seats-types-header-section">
+          <div className="wagon-information__seats-types-header">Места <span>{seats.length}</span></div>
+          <div className="wagon-information__seats-price-header">Стоимость</div>
+          <div className="wagon-information__service-header">Обслуживание <span>ФПК</span></div>
+        </div >
+        <div className="wagon-information__content-section">
+          <div className="wagon-information__seats-types">
             <SeatInformation onlyPrice={onlyPrice} bemClass="wagon-information" type="Нижние" count={10} price={coach.bottom_price} />
             {(coach.class_type === 'second' || coach.class_type === 'third') && <SeatInformation onlyPrice={onlyPrice} bemClass="wagon-information" type="Верхние" count={4} price={coach.top_price} />}
             {coach.class_type === 'third' && <SeatInformation onlyPrice={onlyPrice} bemClass="wagon-information" type="Боковые" count={17} price={coach.side_price} />}
           </div>
-        </div>
-        <div className="wagon-information__seats-service">
-
+          <WagonSeatsServices
+            bemClass='wagon-information__services'
+            have_wifi={coach.have_wifi}
+            have_air_conditioning={coach.have_air_conditioning}
+            is_linens_included={coach.is_linens_included}
+            linens_needed={coach.class_type !== 'fourth'}
+          />
         </div>
       </div>
     </div>

@@ -6,9 +6,10 @@ import TrainTimeTableInfo from "./components/TrainTimeTableInfo/TrainTimeTableIn
 import TicketSeatsInfo from "./components/TicketSeatsInfo/TicketSeatsInfo";
 import WagonTypeSelect from "./components/WagonTypeSelect/WagonTypeSelect";
 import SeatInformation from "./components/SeatInformation/SeatInformation";
+import WagonSeatsServices from "./components/WagonSeatsServices/WagonSeatsServices";
 
 //interfaces
 import ITrainInformation from "./Interfaces/ITrainInformation";
 
-export { LoadingBar, TimeClarification, TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo, WagonTypeSelect, SeatInformation };
+export { LoadingBar, TimeClarification, TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo, WagonTypeSelect, SeatInformation, WagonSeatsServices };
 export type { ITrainInformation }
