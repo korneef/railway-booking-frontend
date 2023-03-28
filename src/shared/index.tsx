@@ -43,13 +43,12 @@ import LinensServiceActiveUntouchable from './assets/icons/wagon-service-icons/l
 import WiFiService from './assets/icons/wagon-service-icons/wifi.svg';
 import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.svg';
 
-
-
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
 import IDirectionInfo from "./interfaces/IDirectionInfo";
 import IPriceInfo from "./interfaces/IPriceInfo";
 import ISeatPriceInfo from "./interfaces/ISeatPriceInfo";
+import ISeat from "./interfaces/ISeat";
 
 //APIes
 import { globalURL } from "./API/globalUrl";
@@ -111,7 +110,8 @@ export type {
   IAviableSeatsInfo,
   IDirectionInfo,
   IPriceInfo,
-  ISeatPriceInfo
+  ISeatPriceInfo,
+  ISeat,
 };
 
 //apies

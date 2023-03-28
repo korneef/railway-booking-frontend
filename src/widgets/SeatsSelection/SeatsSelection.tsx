@@ -10,7 +10,7 @@ import {
   InputWithLabelOnInput,
 } from 'shared';
 import { TrainTimeTableInfo, WagonTypeSelect } from 'entities/index';
-import { Coach } from 'features';
+import { Coach, FirstClassCoachMap, SecondClassCoachMap, ThirdClassCoachMap, FourthClassCoachMap } from 'features';
 import classNames from 'classnames';
 
 interface SeatsSelectionProps {
@@ -522,7 +522,11 @@ function SeatsSelection(props: SeatsSelectionProps) {
           </div>
         </div>
       </div>
-      <Coach coach={seatsInfo[1].coach} seats={seatsInfo[0].seats} />
+      <Coach coach={seatsInfo[0].coach} seats={seatsInfo[0].seats} />
+      <FirstClassCoachMap vacancySeats={seatsInfo[2].seats}/>
+      <SecondClassCoachMap vacancySeats={seatsInfo[2].seats}/>
+      <ThirdClassCoachMap vacancySeats={seatsInfo[2].seats}/>
+      <FourthClassCoachMap vacancySeats={seatsInfo[2].seats}/>
     </Panel>
   );
 }
