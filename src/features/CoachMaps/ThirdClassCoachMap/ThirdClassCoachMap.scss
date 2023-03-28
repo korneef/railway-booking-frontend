@@ -1,0 +1,256 @@
+$even-top: 106px;
+$odd-top: 137px;
+$side-top: 191px;
+
+
+.coach-map {
+  height: 300px;
+  background-image: url('../../../shared/assets/images/wagon-scheme/third.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+
+  &__seat {
+    
+    &-1 {
+      left: 152px;
+      top: $odd-top;
+    }
+
+    &-2 {
+      top: $even-top;
+      left: 152px;
+    }
+
+    &-3 {
+      left: 208px;
+      top: $odd-top;
+    }
+
+    &-4 {
+      top: $even-top;
+      left: 208px;
+    }
+
+    &-5 {
+      top: $odd-top;
+      left: 241px;
+    }
+
+    &-6 {
+      top: $even-top;
+      left: 241px;
+    }
+
+    &-7 {
+      top: $odd-top;
+      left: 297px;
+    }
+
+    &-8 {
+      top: $even-top;
+      left: 297px;
+    }
+
+    &-9 {
+      top: $odd-top;
+      left: 331px;
+    }
+
+    &-10 {
+      top: $even-top;
+      left: 331px;
+    }
+
+    &-11 {
+      top: $odd-top;
+      left: 387px;
+    }
+
+    &-12 {
+      top: $even-top;
+      left: 387px;
+    }
+
+    &-13 {
+      top: $odd-top;
+      left: 421px;
+    }
+
+    &-14 {
+      top: $even-top;
+      left: 421px;
+    }
+
+    &-15 {
+      top: $odd-top;
+      left: 477px;
+    }
+
+    &-16 {
+      top: $even-top;
+      left: 477px;
+    }
+
+    &-17 {
+      top: $odd-top;
+      left: 510px;
+    }
+
+    &-18 {
+      top: $even-top;
+      left: 510px;
+    }
+
+    &-19 {
+      top: $odd-top;
+      left: 567px;
+    }
+
+    &-20 {
+      top: $even-top;
+      left: 567px;
+    }
+
+    &-21 {
+      top: $odd-top;
+      left: 599px;
+    }
+
+    &-22 {
+      top: $even-top;
+      left: 599px;
+    }
+
+    &-23 {
+      top: $odd-top;
+      left: 655px;
+    }
+
+    &-24 {
+      top: $even-top;
+      left: 655px;
+    }
+
+    &-25 {
+      top: $odd-top;
+      left: 689px;
+    }
+
+    &-26 {
+      top: $even-top;
+      left: 689px;
+    }
+
+    &-27 {
+      top: $odd-top;
+      left: 745px;
+    }
+
+    &-28 {
+      top: $even-top;
+      left: 745px;
+    }
+
+    &-29 {
+      top: $odd-top;
+      left: 779px;
+    }
+
+    &-30 {
+      top: $even-top;
+      left: 779px;
+    }
+
+    &-31 {
+      top: $odd-top;
+      left: 835px;
+    }
+
+    &-32 {
+      top: $even-top;
+      left: 835px;
+    }
+
+    &-33 {
+      top: $side-top;
+      left: 152px;
+    }
+
+    &-34 {
+      top: $side-top;
+      left: 195px;
+    }
+
+    &-35 {
+      top: $side-top;
+      left: 241px;
+    }
+
+    &-36 {
+      top: $side-top;
+      left: 284px;
+    }
+
+    &-37 {
+      top: $side-top;
+      left: 331px;
+    }
+
+    &-38 {
+      top: $side-top;
+      left: 374px;
+    }
+
+    &-39 {
+      top: $side-top;
+      left: 421px;
+    }
+
+    &-40 {
+      top: $side-top;
+      left: 464px;
+    }
+
+    &-41 {
+      top: $side-top;
+      left: 510px;
+    }
+
+    &-42 {
+      top: $side-top;
+      left: 553px;
+    }
+
+    &-43 {
+      top: $side-top;
+      left: 599px;
+    }
+
+    &-44 {
+      top: $side-top;
+      left: 642px;
+    }
+
+    &-45 {
+      top: $side-top;
+      left: 689px;
+    }
+
+    &-46 {
+      top: $side-top;
+      left: 732px;
+    }
+
+    &-47 {
+      top: $side-top;
+      left: 779px;
+    }
+
+    &-48 {
+      top: $side-top;
+      left: 822px;
+    }
+  }
+
+}

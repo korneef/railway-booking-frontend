@@ -1,0 +1,80 @@
+$top: 107px;
+
+
+.coach-map-first {
+  height: 300px;
+  background-image: url('../../../shared/assets/images/wagon-scheme/first.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+
+  &__seat {
+
+    top: 106px;
+    &-1 {
+      left: 152px;
+    }
+
+    &-2 {
+      left: 211px;
+    }
+
+    &-3 {
+      left: 242px;
+    }
+
+    &-4 {
+      left: 301px;
+    }
+
+    &-5 {
+      left: 331px;
+    }
+
+    &-6 {
+      left: 390px;
+    }
+
+    &-7 {
+      left: 420px;
+    }
+
+    &-8 {
+      left: 480px;
+    }
+
+    &-9 {
+      left: 510px;
+    }
+
+    &-10 {
+      left: 570px;
+    }
+
+    &-11 {
+      left: 599px;
+    }
+
+    &-12 {
+      left: 659px;
+    }
+
+    &-13 {
+      left: 689px;
+    }
+
+    &-14 {
+      left: 749px;
+    }
+
+    &-15 {
+      left: 778px;
+    }
+
+    &-16 {
+
+      left: 838px;
+    }
+  }
+
+}
