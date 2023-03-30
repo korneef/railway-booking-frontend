@@ -1,13 +1,13 @@
 import { TimeClarification } from "entities/index";
 import { FilterSwitcher } from "features";
-import { MultiRangeSlider, DateField, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi } from "shared";
+import { Panel, MultiRangeSlider, DateField, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi } from "shared";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function TicketFilterForm() {
   const className = 'ticket-fiter-form';
 
   return (
-    <div className={className}>
+    <Panel variant='black' bemClass={className}>
       <div className={`${className}__section`}>
         <div className={`${className}__date-section-group`}>
           <div className={`${className}__section-header`}>Дата поездки</div>
@@ -38,6 +38,6 @@ export default function TicketFilterForm() {
 
       </div>
 
-    </div>
+    </Panel>
   );
 }

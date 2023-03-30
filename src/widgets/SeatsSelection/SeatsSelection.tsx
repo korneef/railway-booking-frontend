@@ -455,7 +455,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
   ]
 
   return (
-    <Panel bemClass={className}>
+    <Panel variant='white' bemClass={className}>
 
       <div className={classNames(`${className}__train-choise`, { [`${className}__train-choise_${direciton}`]: direciton })}>
         <img src={direciton === 'departure' ? ArrowRight : ArrowLeft} alt="direction-arrow" className={`${className}__direction-arrow-image`}></img>

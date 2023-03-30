@@ -26,7 +26,7 @@ function TicketCard(props: TicketCardProps) {
   const className = 'ticket-card';
 
   return (
-    <Panel bemClass={className} >
+    <Panel variant='white' bemClass={className} >
       <TrainGeneralInfo
         bemClass={className}
         trainNumber={ticket.departure.train.name}

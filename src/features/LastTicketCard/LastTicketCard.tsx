@@ -22,7 +22,7 @@ function LastTicketCard(props: ILastTicketCardProps) {
   const className = 'last-ticket-card'
 
   return (
-    <Panel bemClass={className} >
+    <Panel variant='white' bemClass={className} >
       <div className={classNames(className + '__direction-wrapper')}>
         <div className={classNames(className + '__from')}>
           <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(from.city.name)}</h2>
