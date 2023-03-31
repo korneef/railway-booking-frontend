@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button, TextField, DateField } from "shared";
+import CitiesSearchInput from "entities/components/CitiesSearchInput/CitiesSearchInput";
 
 interface TicketSearchFormProps {
   bemClass: string,
@@ -17,7 +18,8 @@ function TicketSearchForm(props: TicketSearchFormProps) {
         <div className={`ticket-search-form__group_${variant}`}>
           <h1 className={classNames("ticket-search-form__header", `ticket-search-form__header_${variant}`)}>Направление</h1>
           <div className="ticket-search-form__input-wrapper">
-            <TextField bemClass={className} type="text" placeholder="Откуда" />
+            {/* <TextField bemClass={className} type="text" placeholder="Откуда" /> */}
+            <CitiesSearchInput/>
             <TextField bemClass={className} type="text" placeholder="Куда" />
           </div>
         </div>
