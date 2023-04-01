@@ -51,7 +51,7 @@ import ISeatPriceInfo from "./interfaces/ISeatPriceInfo";
 import ISeat from "./interfaces/ISeat";
 
 //APIes
-import { globalURL } from "./API/globalUrl";
+import { globalURL, backendURL } from "./API/globalUrl";
 
 //helpers
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
@@ -116,7 +116,8 @@ export type {
 
 //apies
 export {
-  globalURL
+  globalURL,
+  backendURL
 };
 
 //helpers 
