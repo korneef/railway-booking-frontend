@@ -57,6 +57,12 @@ import { globalURL, backendURL } from "./API/globalUrl";
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
 import getDuration from "./helpers/getDuration";
 
+//customHooks
+import useTicketsSearchRequest from "./customHooks/useTicketsSearchRequest";
+import useFindTicketRequest from "./customHooks/useFindTicketsRequest";
+import useOffsetReset from "./customHooks/useOffsetReset";
+import useWagonInformationRequest from "./customHooks/useWagonInformationRequest";
+
 //components
 export {
   Button,
@@ -114,7 +120,7 @@ export type {
   ISeat,
 };
 
-//apies
+//APIes
 export {
   globalURL,
   backendURL
@@ -125,3 +131,6 @@ export {
   toUpperCaseFirst,
   getDuration,
 };
+
+//customHooks
+export { useTicketsSearchRequest, useFindTicketRequest, useOffsetReset, useWagonInformationRequest }

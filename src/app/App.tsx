@@ -1,7 +1,8 @@
 import './App.scss';
-import { HomePage, Layout, OrderStep1 } from '../pages/index';
+import { HomePage, Layout } from '../pages/index';
 import { Routes, Route } from 'react-router-dom';
 import { TicketOrderLayout } from ' processes';
+import Order from ' processes/ Order/Order';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route element={<TicketOrderLayout />} >
-            <Route path='order/step/1' element={<OrderStep1 />}/>
+            <Route path='order/step/:step' element={<Order/>}/>
           </Route>
         </Route>
       </Routes>

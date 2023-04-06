@@ -26,13 +26,14 @@
   color: #928F94;
 }
 
-.tickets-list__displayed-count {
-  &>button {
-    border: none;
-    background-color: inherit;
-    font-weight: 400;
-    font-size: 18px;
-    color: #928F94;
+.tickets-list__sort-selection-option-button {
+  border: none;
+  background-color: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  color: #928F94;
+  &_active {
+    color: #000000;
   }
 }
 
@@ -56,6 +57,7 @@
     border-color: $orange;
     background-color: $orange;
   }
+
   &_active {
     color: $orange;
     border-color: $orange;

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAviableSeatsInfo } from "shared";
 import { ITrainInformation } from "entities";
 
-interface Ticket {
+export interface ITicket {
   available_seats: number,
   available_seats_info: IAviableSeatsInfo,
   departure: ITrainInformation,
@@ -17,27 +17,77 @@ interface Ticket {
   min_price: number
 }
 
+interface ISeat {
+  index: number,
+  avaiable: boolean,
+}
+
+interface IWagon {
+  coach: {
+    _id: string,
+    name: string,
+    class_type: string,
+    have_wifi: true,
+    have_air_conditioning: true,
+    price: number,
+    top_price: number,
+    bottom_price: number,
+    side_price: number,
+    linens_price: number,
+    wifi_price: number,
+    avaliable_seats: number,
+    is_linens_included: true,
+  }
+  seats: Array<ISeat>
+}
+
 interface TicketsList {
   total_count: number,
-  tickets: Array<Ticket>,
+  items: Array<ITicket>,
+  selectedTicket: ITicket | null,
+  wagonInformation: Array<IWagon> | null,
 }
 
 const initialState: TicketsList = {
   total_count: 0,
-  tickets: [],
+  items: [],
+  selectedTicket: null,
+  wagonInformation: null,
+
 }
 
 export const ticketsSlice = createSlice({
-  name: 'counter',
-  // `createSlice` will infer the state type from the `initialState` argument
+  name: 'ticketsList',
   initialState,
   reducers: {
     refreshTicketsList: (state, action: PayloadAction<TicketsList>) => {
-      state = action.payload
+      return state = action.payload
     },
+    setSelectedTicket: (state, action: PayloadAction<ITicket>) => {
+      state.selectedTicket = action.payload;
+      return state;
+    },
+    unselectTicket: (state) => {
+      state.selectedTicket = null;
+      return state
+    },
+    setWagonInformaiton: (state, action: PayloadAction<Array<IWagon>>) => {
+      state.wagonInformation = action.payload;
+      return state;
+    },
+    deleteWagonInformation: (state) => {
+      state.wagonInformation = null;
+      return state;
+    }
   },
 })
 
-export const { refreshTicketsList } = ticketsSlice.actions
+export const {
+  refreshTicketsList,
+  setSelectedTicket,
+  unselectTicket,
+  setWagonInformaiton,
+  deleteWagonInformation
+} = ticketsSlice.actions
 
 export default ticketsSlice.reducer

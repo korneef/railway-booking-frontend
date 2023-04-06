@@ -1,4 +1,5 @@
 import { SeatInformation, WagonSeatsServices } from "entities/index";
+import { useAppSelector } from "app/store/hooks";
 interface CoachProps {
   coach: {
     _id: string,
@@ -25,7 +26,7 @@ interface ISeats {
 }
 
 function Coach({ coach, seats }: CoachProps) {
-
+  
   const onlyPrice = coach.class_type === 'first' || coach.class_type === 'fourth' ? false : true
   return (
     <div className="train-wagons-information__wagon-information wagon-information">

@@ -1,18 +1,22 @@
 import { TextField, backendURL } from "shared";
-import { KeyboardEventHandler, useState, useRef, useEffect } from "react";
+import React, { KeyboardEventHandler, useState, useRef, useEffect } from "react";
 import { fromEvent, Subscription } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
 import classNames from "classnames";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { updateRequestParameter } from "app/store/ticketSearchRequestSlices";
 
 
 interface CitiesSearchInputProps {
-  bemClass?: string
-  placeholder: string
+  bemClass?: string,
+  placeholder: string,
+  requestKey: 'from_city_id' | 'to_city_id'
 }
 
-function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
+// TODO отрефакторить компонент
+function CitiesSearchInput({ placeholder, bemClass, requestKey }: CitiesSearchInputProps) {
   interface City {
-    id: string,
+    _id: string,
     name: string
   }
   interface ICityList {
@@ -33,6 +37,22 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const subscriptionRef = useRef<Subscription | null>(null);
 
+  const dispatch = useAppDispatch();
+  const request = useAppSelector(state => state.ticketsSearchRequest.params[requestKey]);
+
+  const citySelect = (item: City) => {
+    const id = item ? item._id : false
+    dispatch(updateRequestParameter({ key: requestKey, value: id }))
+    setCityList(prevValue => {
+      return {
+        ...prevValue,
+        selectedCity: item,
+        list: [],
+        inputValue: item.name.toUpperCase()
+      }
+    })
+  }
+
   useEffect(() => {
     ulElement.current?.children[0] && (ulElement.current?.children[selectedIndex] as HTMLElement).focus();
   }, [selectedIndex])
@@ -51,24 +71,18 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
             return response.json();
           })
           .then((data) => {
-            data.length === 1 && value.toLowerCase() === data[0].name.toLowerCase() ?
-              setCityList(prevValue => {
-                return {
-                  ...prevValue,
-                  selectedCity: data[0],
-                  list: [],
-                  inputValue: value.toUpperCase()
-                }
-              })
-              :
+            if (data.length === 1 && value.toLowerCase() === data[0].name.toLowerCase()) {
+              citySelect(data[0])
+            } else {
+              !request && dispatch(updateRequestParameter({ key: requestKey, value: false }));
               setCityList(prevValue => {
                 return {
                   ...prevValue,
                   selectedCity: null,
                   list: data,
-                }
+                };
               })
-              ;
+            }
           });
       });
     }
@@ -81,7 +95,7 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
   }, [inputRef]);
 
   const handleChange = (value: string) => {
-
+    !request && dispatch(updateRequestParameter({ key: requestKey, value: false }));
     setCityList(prevValue => {
       return {
         ...prevValue,
@@ -117,11 +131,7 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
         break;
       }
       case 'Enter': {
-        setCityList({
-          list: [],
-          selectedCity: null,
-          inputValue: city.name.toUpperCase(),
-        });
+        citySelect(city)
         break;
       }
     }
@@ -136,11 +146,7 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
   }
 
   const handleClick = (item: City) => {
-    setCityList({
-      selectedCity: item,
-      list: [],
-      inputValue: item.name.toUpperCase()
-    })
+    citySelect(item)
   }
 
   const className = 'cities-search-input';
@@ -157,7 +163,7 @@ function CitiesSearchInput({ placeholder, bemClass }: CitiesSearchInputProps) {
       />
       {cityList.list.length !== 0 && <ul ref={ulElement}
         className={`${className}__cities-list`}>
-        {cityList.list.map((item) => <li
+        {Array.isArray(cityList.list) && cityList.list.map((item) => <li
           tabIndex={0}
           key={item.name}
           onKeyDown={(e) => handleKeyDown(e, item)}

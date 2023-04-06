@@ -23,27 +23,28 @@ function LastTicketCard(props: ILastTicketCardProps) {
 
   return (
     <Panel variant='white' bemClass={className} >
-      <div className={classNames(className + '__direction-wrapper')}>
-        <div className={classNames(className + '__from')}>
-          <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(from.city.name)}</h2>
-          <span className={classNames(className + '__railway-station-name')}>{toUpperCaseFirst(from.railway_station_name)}</span>
+      <div className={`${className}__wrapper`} >
+        <div className={classNames(className + '__direction-wrapper')}>
+          <div className={classNames(className + '__from')}>
+            <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(from.city.name)}</h2>
+            <span className={classNames(className + '__railway-station-name')}>{toUpperCaseFirst(from.railway_station_name)}</span>
+          </div>
+          <div className={classNames(className + '__to')}>
+            <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(to.city.name)}</h2>
+            <span className={classNames(className + '__railway-station-name')}>{toUpperCaseFirst(to.railway_station_name)}</span>
+          </div>
         </div>
-        <div className={classNames(className + '__to')}>
-          <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(to.city.name)}</h2>
-          <span className={classNames(className + '__railway-station-name')}>{toUpperCaseFirst(to.railway_station_name)}</span>
-        </div>
-      </div>
-      <div className={classNames(className + '__options-wrapper')}>
-        <div className={classNames(className + '__options')} >
-          {have_air_conditioning && <Coffee className={classNames(className + '__option-icon')} />}
-          {have_wifi && <WiFi className={classNames(className + '__option-icon')} />}
-          {is_express && <Express className={classNames(className + '__option-icon')} />}
-        </div>
-        <div className={classNames(className + '__price-container')}>
-          <span className={classNames(className + '__price-from')}>от</span>
-          <span className={classNames(className + '__price')} >{min_price}</span>
-          <span className={classNames(className + '__price-valute')} >&#8381;</span>
-
+        <div className={classNames(className + '__options-wrapper')}>
+          <div className={classNames(className + '__options')} >
+            {have_air_conditioning && <Coffee className={classNames(className + '__option-icon')} />}
+            {have_wifi && <WiFi className={classNames(className + '__option-icon')} />}
+            {is_express && <Express className={classNames(className + '__option-icon')} />}
+          </div>
+          <div className={classNames(className + '__price-container')}>
+            <span className={classNames(className + '__price-from')}>от</span>
+            <span className={classNames(className + '__price')} >{min_price}</span>
+            <span className={classNames(className + '__price-valute')} >&#8381;</span>
+          </div>
         </div>
       </div>
     </Panel >

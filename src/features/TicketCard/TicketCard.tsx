@@ -1,31 +1,49 @@
 import classNames from "classnames";
-import { Panel } from "shared";
+import { IPriceInfo, Panel } from "shared";
 import { ITrainInformation } from "entities";
 import { TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo } from "../../entities/index";
 import { Button, Coffee, WiFi, Express } from "shared";
+import { useAppSelector, useAppDispatch } from "app/store/hooks";
+import { setSelectedTicket } from "app/store/ticketsListSlices";
+import { ITicket } from "app/store/ticketsListSlices";
+import { useEffect } from "react";
 
-interface TicketCardProps {
-  ticket: {
-    departure: ITrainInformation,
-    arrival?: ITrainInformation,
-
-    have_first_class: boolean,
-    have_second_class: boolean,
-    have_third_class: boolean,
-    have_fourth_class: boolean,
-    have_wifi: boolean,
-    have_air_conditioning: boolean,
-    is_express: boolean,
-    min_price: number,
-    available_seats: number,
-  }
+interface PropsInterface {
+  ticket: ITicket
 }
 
-function TicketCard(props: TicketCardProps) {
-  const { ticket } = props
+function TicketCard(props: PropsInterface) {
+  const dispatch = useAppDispatch()
+  const { ticket } = props;
   const className = 'ticket-card';
 
+  useEffect(() => {
+
+  },[])
+
+  function minPriceCoise(priceInfo: IPriceInfo | undefined): number | null {
+    if (priceInfo) return Math.min(...Object.values(priceInfo as number))
+    return null
+  }
+
+  const fourthClassPrice = minPriceCoise(ticket?.departure.price_info.fourth);
+  const fourthClassCount = ticket?.departure.available_seats_info.fourth
+
+  const tirhdClassPrice = minPriceCoise(ticket?.departure.price_info.third);
+  const thirdClassCount = ticket?.departure.available_seats_info.third;
+
+  const secondClassPrice = minPriceCoise(ticket?.departure.price_info.second);
+  const secondClassCount = ticket?.departure.available_seats_info.second;
+
+  const firstClassPrice = minPriceCoise(ticket?.departure.price_info.first);
+  const firstClassCount = ticket?.departure.available_seats_info.first;
+
+  const handleClick = (ticket: ITicket) => {
+    dispatch(setSelectedTicket(ticket))
+  }
+
   return (
+
     <Panel variant='white' bemClass={className} >
       <TrainGeneralInfo
         bemClass={className}
@@ -40,10 +58,10 @@ function TicketCard(props: TicketCardProps) {
       </div>
       <div className={classNames(className + '__aside-wrapper')}>
         <div className={classNames(className + '__seats-info')}>
-          <TicketSeatsInfo seatsType="Сидячий" seatsPrice={3480} seatsCount={80} bemClass={className} />
-          <TicketSeatsInfo seatsType="Плацкарт" seatsPrice={4870} seatsCount={112} bemClass={className} />
-          <TicketSeatsInfo seatsType="Люкс" seatsPrice={13480} seatsCount={80} bemClass={className} />
-          <TicketSeatsInfo seatsType="Купэ" seatsPrice={8200} seatsCount={657} bemClass={className} />
+          {fourthClassPrice && fourthClassCount && <TicketSeatsInfo seatsType="Сидячий" seatsPrice={fourthClassPrice} seatsCount={fourthClassCount} bemClass={className} />}
+          {tirhdClassPrice && thirdClassCount && <TicketSeatsInfo seatsType="Плацкарт" seatsPrice={tirhdClassPrice} seatsCount={thirdClassCount} bemClass={className} />}
+          {secondClassPrice && secondClassCount && <TicketSeatsInfo seatsType="Купэ" seatsPrice={secondClassPrice} seatsCount={secondClassCount} bemClass={className} />}
+          {firstClassPrice && firstClassCount && <TicketSeatsInfo seatsType="Люкс" seatsPrice={firstClassPrice} seatsCount={firstClassCount} bemClass={className} />}
         </div>
         <div className={classNames(className + '__additional-services')}>
           {ticket.have_air_conditioning && <Coffee className={classNames(className + '__option-icon')} />}
@@ -51,7 +69,7 @@ function TicketCard(props: TicketCardProps) {
           {ticket.is_express && <Express className={classNames(className + '__option-icon')} />}
         </div>
         <div className={classNames(className + '__take-seats-button-wrapper')}>
-          <Button variant='small' className={className}>Выбрать места</Button>
+          <Button variant='small' className={className} onClick={() => handleClick(ticket)}>Выбрать места</Button>
         </div>
       </div>
     </Panel >

@@ -1,12 +1,16 @@
 import DatePicker from "react-datepicker";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 import ru from 'date-fns/locale/ru';
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { updateRequestParameter } from "app/store/ticketSearchRequestSlices";
+import moment from "moment";
 
 interface DateFieldProps {
   bemClass: string,
   placeholder?: string,
-  size?: 'normal' | 'small'
+  size?: 'normal' | 'small',
+  requestKey: 'date_start' | 'date_end',
 }
 
 function DateField(props: DateFieldProps) {
@@ -14,9 +18,18 @@ function DateField(props: DateFieldProps) {
     bemClass, 
     placeholder,
     size,
+    requestKey
   } = props;
-
   const [date, setDate] = useState<Date | null>(null);
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    (date !== null) ? 
+    dispatch(updateRequestParameter({key: requestKey, value: moment(date).format('YYYY-MM-DD')}))
+    :
+    dispatch(updateRequestParameter({key: requestKey, value: false}))
+
+  }, [date])
 
   const className = `datefield-input_${size}`;
 

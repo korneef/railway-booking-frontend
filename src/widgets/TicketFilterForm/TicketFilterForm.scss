@@ -9,6 +9,8 @@
 
   border-bottom: 1px solid #ffffff;
 
+  user-select: none;
+
   &:last-child {
     border-bottom: none;
   }

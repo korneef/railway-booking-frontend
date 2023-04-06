@@ -1,9 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { OrderSteps } from "widgets";
 import { useParams } from "react-router-dom";
+import { OrderStep1 } from "pages";
 
-
-function TicketOrderLayout() {
+function Order() {
   const { step } = useParams();
   let stepNumber: 1 | 2 | 3 | 4;
   switch (step) {
@@ -24,11 +22,10 @@ function TicketOrderLayout() {
       break
   }
   return (
-    <>
-      <OrderSteps step={stepNumber} />
-      <Outlet />
-    </>
+    <div>
+            {step === '1' && <OrderStep1/>}
+    </div>
   );
 }
 
-export default TicketOrderLayout;
+export default Order;
