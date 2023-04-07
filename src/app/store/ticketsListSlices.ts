@@ -17,27 +17,29 @@ export interface ITicket {
   min_price: number
 }
 
-interface ISeat {
+export interface ISeat {
   index: number,
-  avaiable: boolean,
+  available: boolean,
+}
+
+export interface ICoach {
+  _id: string,
+  name: string,
+  class_type: string,
+  have_wifi: true,
+  have_air_conditioning: true,
+  price: number,
+  top_price: number,
+  bottom_price: number,
+  side_price: number,
+  linens_price: number,
+  wifi_price: number,
+  avaliable_seats: number,
+  is_linens_included: true,
 }
 
 interface IWagon {
-  coach: {
-    _id: string,
-    name: string,
-    class_type: string,
-    have_wifi: true,
-    have_air_conditioning: true,
-    price: number,
-    top_price: number,
-    bottom_price: number,
-    side_price: number,
-    linens_price: number,
-    wifi_price: number,
-    avaliable_seats: number,
-    is_linens_included: true,
-  }
+  coach: ICoach
   seats: Array<ISeat>
 }
 
@@ -53,7 +55,6 @@ const initialState: TicketsList = {
   items: [],
   selectedTicket: null,
   wagonInformation: null,
-
 }
 
 export const ticketsSlice = createSlice({

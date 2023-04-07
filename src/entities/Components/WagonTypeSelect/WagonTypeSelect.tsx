@@ -13,13 +13,14 @@ import classNames from 'classnames'
 interface WagonTypeSelectProps {
   type: 1 | 2 | 3 | 4,
   active: boolean,
-  bemClass?: string
+  bemClass?: string,
+  handleClick?: () => void
 }
 
 
 
 function WagonTypeSelect(props: WagonTypeSelectProps) {
-  const { type, active, bemClass } = props;
+  const { type, active, bemClass, handleClick } = props;
 
   let icon;
   let text;
@@ -43,7 +44,10 @@ function WagonTypeSelect(props: WagonTypeSelectProps) {
 
   const className = 'wagon-type-select';
   return (
-    <div className={classNames(className, {[`${bemClass}__${className}`]: bemClass})}>
+    <div 
+    className={classNames(className, {[`${bemClass}__${className}`]: bemClass})}
+    onClick={handleClick}
+    >
       <img className={`${className}__icon`} src={icon} alt="" />
       <div className={`${className}__type`}>{text}</div>
     </div>

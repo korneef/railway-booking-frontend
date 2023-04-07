@@ -10,7 +10,8 @@ function FourthClassCoachMap(props: CoachMapProps) {
   const [seats, setSeats] = useState<Array<ISeat>>([])
 
   useEffect(() => {
-    const allSeats: Array<ISeat> = []
+    const allSeats: Array<ISeat> = [];
+
     for (let i = 1; i < 63; i++) {
       const seat = vacancySeats.find(item => item.index === i);
       if (seat) {

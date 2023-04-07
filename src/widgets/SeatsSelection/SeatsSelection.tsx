@@ -8,15 +8,15 @@ import {
   OrangeClockIcon,
   getDuration,
   InputWithLabelOnInput,
+  useWagonInformationRequest
 } from 'shared';
 import { TrainTimeTableInfo, WagonTypeSelect } from 'entities/index';
-import { Coach, FirstClassCoachMap, SecondClassCoachMap, ThirdClassCoachMap, FourthClassCoachMap } from 'features';
 import classNames from 'classnames';
-import { ITrainInformation } from 'entities';
+import { Coach } from 'features'
 import { unselectTicket } from 'app/store/ticketsListSlices';
 import { useAppDispatch, useAppSelector } from 'app/store/hooks';
 import { useState, useEffect } from 'react';
-import { useWagonInformationRequest } from 'shared';
+import { nanoid } from 'nanoid';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',
@@ -24,7 +24,7 @@ interface SeatsSelectionProps {
 
 function SeatsSelection(props: SeatsSelectionProps) {
   const ticket = useAppSelector(state => state.tickets.selectedTicket?.departure)
-  const [selectedWagons, setSelectedWagons] = useState<Array<number>>([]);
+  const [selectedWagonsIndex, setSelectedWagonsIndex] = useState<Array<number>>([0]);
   const [selectedWagonsTypes, setSelectedWagonsTypes] = useState<Array<string>>(() => {
     const wagonTypes: Array<string> = [];
     if (ticket === null || ticket === undefined) return wagonTypes;
@@ -43,6 +43,26 @@ function SeatsSelection(props: SeatsSelectionProps) {
   useEffect(() => {
     wagonInformationRequest(ticket?._id);
   }, [ticket?._id])
+
+  const handleSelectWagonType = (type: string): void => {
+    const isSelected = selectedWagonsTypes.findIndex((item) => item === type);
+    setSelectedWagonsTypes(prevValue => {
+      const newValue = Array.from(prevValue);
+      isSelected === -1 && newValue.push(type);
+      isSelected !== -1 && newValue.splice(isSelected, 1);
+      return newValue;
+    })
+  }
+
+  const handleSelectWagonIndex = (index: number) => {
+    const isSelected = selectedWagonsIndex.findIndex((item) => item === index);
+    setSelectedWagonsIndex(prevValue => {
+      const newValue = Array.from(prevValue);
+      isSelected === -1 && newValue.push(index);
+      isSelected !== -1 && newValue.splice(isSelected, 1);
+      return newValue;
+    })
+  }
 
   if (ticket === null || ticket === undefined) return <></>
 
@@ -100,10 +120,10 @@ function SeatsSelection(props: SeatsSelectionProps) {
       <div className="wagons-type">
         <h2 className="wagons-type__header">Тип вагона</h2>
         <div className="wagons-type__wrapper">
-          {(ticket.have_first_class) && <WagonTypeSelect bemClass='wagons-type' type={1} active={selectedWagonsTypes.includes('first')} />}
-          {(ticket.have_second_class) && <WagonTypeSelect bemClass='wagons-type' type={2} active={selectedWagonsTypes.includes('second')} />}
-          {(ticket.have_third_class) && <WagonTypeSelect bemClass='wagons-type' type={3} active={selectedWagonsTypes.includes('third')} />}
-          {(ticket.have_fourth_class) && <WagonTypeSelect bemClass='wagons-type' type={4} active={selectedWagonsTypes.includes('fourth')} />}
+          {(ticket.have_first_class) && <WagonTypeSelect bemClass='wagons-type' type={1} active={selectedWagonsTypes.includes('first')} handleClick={() => handleSelectWagonType('first')} />}
+          {(ticket.have_second_class) && <WagonTypeSelect bemClass='wagons-type' type={2} active={selectedWagonsTypes.includes('second')} handleClick={() => handleSelectWagonType('second')} />}
+          {(ticket.have_third_class) && <WagonTypeSelect bemClass='wagons-type' type={3} active={selectedWagonsTypes.includes('third')} handleClick={() => handleSelectWagonType('third')} />}
+          {(ticket.have_fourth_class) && <WagonTypeSelect bemClass='wagons-type' type={4} active={selectedWagonsTypes.includes('fourth')} handleClick={() => handleSelectWagonType('fourth')} />}
         </div>
       </div>
 
@@ -113,23 +133,23 @@ function SeatsSelection(props: SeatsSelectionProps) {
             <div className={`${wagonInfoClassName}__wagons-numbers-header`}>Вагоны</div>
             <div className={`${wagonInfoClassName}__wagons-numbers`}>
               {seatsInfo.map((item, index) => {
-                if(!selectedWagonsTypes.includes(item.coach.class_type)) return null;
+                if (!selectedWagonsTypes.includes(item.coach.class_type)) return null;
                 return (<div
                   key={item.coach._id}
-                  className={classNames(`${wagonInfoClassName}__wagon-number`, { [`${wagonInfoClassName}__wagon-number_active`]: selectedWagons.includes(index) })}>
+                  className={classNames(`${wagonInfoClassName}__wagon-number`, { [`${wagonInfoClassName}__wagon-number_active`]: selectedWagonsIndex.includes(index) })}
+                  onClick={() => handleSelectWagonIndex(index)}>
                   {index + 1}
                 </div>)
-              }
-
-              )}
+              })}
             </div>
           </div>
         </div>
-        {/* <Coach coach={seatsInfo[0].coach} seats={seatsInfo[0].seats} />
-        <FirstClassCoachMap vacancySeats={seatsInfo[2].seats} />
-        <SecondClassCoachMap vacancySeats={seatsInfo[2].seats} />
-        <ThirdClassCoachMap vacancySeats={seatsInfo[2].seats} />
-        <FourthClassCoachMap vacancySeats={seatsInfo[2].seats} /> */}
+        {seatsInfo.map((item, index) => {
+          if (!selectedWagonsTypes.includes(item.coach.class_type) || !selectedWagonsIndex.includes(index)) return null;
+          return <div key={nanoid()}>
+            <Coach index={index} />
+          </div>
+        })}
       </> : 'loading'
       }
     </Panel>
