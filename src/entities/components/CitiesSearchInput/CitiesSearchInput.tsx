@@ -92,6 +92,7 @@ function CitiesSearchInput({ placeholder, bemClass, requestKey }: CitiesSearchIn
         subscriptionRef.current.unsubscribe();
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputRef]);
 
   const handleChange = (value: string) => {

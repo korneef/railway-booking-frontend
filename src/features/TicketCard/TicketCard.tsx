@@ -1,12 +1,11 @@
 import classNames from "classnames";
 import { IPriceInfo, Panel } from "../../shared";
-import { ITrainInformation } from "../../entities";
 import { TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo } from "../../entities/index";
 import { Button, Coffee, WiFi, Express } from "../../shared";
-import { useAppSelector, useAppDispatch } from "../../app/store/hooks";
 import { setSelectedTicket } from "../../app/store/ticketsListSlices";
 import { ITicket } from "../../app/store/ticketsListSlices";
 import { useEffect } from "react";
+import { useAppDispatch } from "app/store/hooks";
 
 interface PropsInterface {
   ticket: ITicket

@@ -42,6 +42,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
 
   useEffect(() => {
     wagonInformationRequest(ticket?._id);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ticket?._id])
 
   const handleSelectWagonType = (type: string): void => {

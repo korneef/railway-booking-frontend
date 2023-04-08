@@ -1,13 +1,10 @@
 import {
   AirConditionerServiceUntouchable,
   LinensService,
-  LinensServiceActive,
   LinensServiceActiveUntouchable,
   WiFiService,
-  WifiServiseActive
 } from "../../../shared";
 import classNames from "classnames";
-import { useState } from "react";
 
 interface WagonSeatsSericesProps {
   bemClass?: string,
@@ -18,9 +15,9 @@ interface WagonSeatsSericesProps {
 }
 
 function WagonSeatsServices(props: WagonSeatsSericesProps) {
-  const [changedServices, setchangedServices] = useState({
-    
-  })
+  // const [changedServices, setchangedServices] = useState({
+  //
+  // })
   const {
     bemClass,
     have_wifi,
