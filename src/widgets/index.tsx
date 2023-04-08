@@ -1,6 +1,6 @@
 import About from "./About/About";
 import Header from "./Header/Header";
-import Footer from "./footer/Footer";
+import Footer from "./Footer/Footer";
 import HowItWorks from "./HowItWorks/HowItWorks";
 import Reviews from "./Reviews/Reviews";
 import OrderSteps from "./OrderSteps/OrderSteps";
