@@ -1,0 +1,19 @@
+.textfield-input {
+  width: 325px;
+  height: 60px;
+  border-radius: 3px;
+  padding: 0px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  border: none;
+
+  &::placeholder {
+    color: #d0d0d0;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}

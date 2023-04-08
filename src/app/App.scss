@@ -1,0 +1,35 @@
+@import './styles/normalize.scss';
+@import './styles/vars.scss';
+@import './styles/fonts.scss';
+@import '../shared/index.scss';
+@import '../entities/index.scss';
+@import '../features/index.scss';
+@import '../widgets/index.scss';
+@import '../pages/index.scss';
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wrapped {
+  padding-left: 240px;
+  padding-right: 240px;
+  @media screen and (max-width: 1919px){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

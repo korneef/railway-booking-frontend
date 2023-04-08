@@ -1,0 +1,45 @@
+.switcher {
+  display: inline-block;
+  position: relative;
+  width: 72px;
+  height: 20px;
+}
+
+.switcher__input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked+.switcher__slider {
+    background-color: #FCDC9D;
+  }
+  &:checked+.switcher__slider::before {
+    transform: translateX(calc(72px - 28px));
+    background-color: $orange;
+  }
+}
+
+.switcher__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  transition: 0.4s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    left: 0;
+    top: -5px;
+    height: 28px;
+    width: 28px;
+    background-color: #C4C4C4;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+}

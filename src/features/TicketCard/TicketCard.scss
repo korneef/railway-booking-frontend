@@ -1,0 +1,52 @@
+.ticket-card__panel-white {
+  min-height: 30px;
+  width: 960px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 50px;
+}
+
+.ticket-card__general {
+  min-width: 200px;
+}
+
+.ticket-card__shedule {
+  padding: 50px 40px;
+  border-right: 1px dashed #E5E5E5;
+}
+
+.ticket-card__train-time-table-info:first-child {
+  margin-bottom: 40px;
+
+}
+
+.ticket-card__aside-wrapper {
+  padding: 40px 20px 30px 30px;
+  flex-grow: 1;
+}
+
+.ticket-card__seats-info {
+  margin-bottom: 30px;
+}
+
+.ticket-card__ticket-seats-info {
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ticket-card__additional-services {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.ticket-card__option-icon {
+  margin-left: 15px;
+}
+
+.ticket-card__button {
+  padding: 0;
+  width: 100%;
+}

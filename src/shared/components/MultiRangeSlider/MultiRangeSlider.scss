@@ -1,0 +1,144 @@
+.multi-slider__container {
+  width: 100%;
+  position: relative;
+}
+
+.multi-slider__container_price {
+  height: 85px;
+}
+
+.multi-slider__container_time {
+  height: 60px;
+}
+
+.multi-slider__header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  padding: 0 1px;
+
+  &_time {
+    display: none;
+  }
+}
+
+.multi-slider__header-range {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.multi-slider {
+  width: 100%;
+}
+
+.multi-slider__track,
+.multi-slider__range,
+.multi-slider__value-wrapper {
+  position: absolute;
+}
+
+.multi-slider__track,
+.multi-slider__range {
+  border-radius: 8px;
+
+  &_price {
+    height: 20px;
+  }
+
+  &_time {
+    height: 10px;
+  }
+}
+
+.multi-slider__track {
+  background-color: none;
+  width: 100%;
+  z-index: 1;
+  border: 1px solid white;
+}
+
+.multi-slider__range {
+  background-color: $orange;
+  z-index: 2;
+}
+
+.multi-slider__value-wrapper {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.multi-slider__value {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Removing the default appearance */
+.multi-slider__input,
+.multi-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.multi-slider__input-wrapper {
+  width: 100%;
+}
+
+.multi-slider__input {
+  pointer-events: none;
+  position: absolute;
+  height: 0px;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+}
+
+.multi-slider__input--left {
+  z-index: 3;
+}
+
+.multi-slider__input--right {
+  z-index: 4;
+}
+
+@mixin slider-thumb-parameters($size, $margin-top) {
+  height: $size;
+  width: $size;
+  margin-top: $margin-top;
+}
+
+.multi-slider__input::-moz-range-thumb {
+  background-color: #f1f5f7;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #ced4da;
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+}
+
+.multi-slider__input::-webkit-slider-thumb {
+  background-color: #f1f5f7;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 1px #ced4da;
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+}
+
+.multi-slider__input_price::-webkit-slider-thumb {
+  @include slider-thumb-parameters(30px, 18px)
+}
+
+.multi-slider__input_price::-moz-range-thumb {
+  @include slider-thumb-parameters(30px, 18px)
+}
+
+.multi-slider__input_time::-webkit-slider-thumb {
+  @include slider-thumb-parameters(18px, 10px)
+}
+
+.multi-slider__input_time::-moz-range-thumb {
+  @include slider-thumb-parameters(18px, 10px)
+}

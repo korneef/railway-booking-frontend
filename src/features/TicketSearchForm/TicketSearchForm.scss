@@ -1,0 +1,75 @@
+.ticket-search-form {
+  background-color: #0000007e;
+  padding: 0px 20px 50px;
+}
+
+.ticket-search-form__group-wrapper {
+  &_variant-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_variant-2 {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.ticket-search-form__group {
+  &_variant-2 {
+    &:first-child {
+      margin-right: 35px;
+    }
+  }
+}
+
+.ticket-search-form__header {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 60px;
+
+  &_variant-1 {
+    padding-left: 10px;
+  }
+}
+
+.ticket-search-form__input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ticket-search-form__date-input-wrapper {
+  margin-right: 40px;
+
+  @media screen and (max-width: 1919px) {
+    margin-right: 20px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+
+  }
+}
+
+.ticket-search-form__cities-search-input {
+  margin-right: 40px;
+
+  @media screen and (max-width: 1919px) {
+    margin-right: 20px;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.ticket-search-form__button-wrapper {
+  text-align: right;
+}
+
+.ticket-search-form__button {
+  margin-top: 50px;
+  width: 325px;
+}

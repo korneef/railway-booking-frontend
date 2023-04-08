@@ -1,0 +1,43 @@
+.seat {
+  background-color: rgb(193, 193, 193);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(230, 230, 230);
+  user-select: none;
+
+  &__basic {
+    width: 30px;
+    height: 31px;
+  }
+
+  &__side {
+    height: 25px;
+    width: 43px;
+  }
+
+  &__chair {
+    height: 18px;
+    width: 26px;
+  }
+
+  &__luxury {
+    height: 58px;
+    width: 26px;
+  }
+
+  &_vacancy {
+    background-color: rgb(239, 239, 239);
+    color: #000000;
+    cursor: pointer;
+  }
+
+  &_selected {
+    background-color: rgb(239, 239, 239);
+    color: #000000;
+    border: 3px solid #FFA800;
+  }
+}

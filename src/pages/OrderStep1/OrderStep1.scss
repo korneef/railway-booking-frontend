@@ -1,0 +1,20 @@
+.order {
+  padding-top: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.order__aside {
+  margin-right: 80px;
+
+  @media screen and (max-width: 1919px) {
+    margin-right: 20px;
+  }
+}
+
+.last-tickets__header {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 30px;
+}

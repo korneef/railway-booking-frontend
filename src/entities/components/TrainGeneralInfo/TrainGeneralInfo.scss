@@ -1,0 +1,15 @@
+.train-info {
+  width: 200px;
+  background-color: #E4E0E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.train-info__train-number {
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}

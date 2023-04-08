@@ -1,0 +1,23 @@
+.point-info {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.point-info__time {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 7px;
+}
+
+.point-info__city {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.point-info__railway-station-name {
+  font-weight: 400;
+  font-size: 16px;
+  color: #928F94;
+}
