@@ -2,7 +2,7 @@
   "name": "diplom",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://korneef.github.io/",
+  "homepage": "https://korneef.github.io/railway-booking-frontend",
   "dependencies": {
     "@reactivex/rxjs": "^6.6.7",
     "@reduxjs/toolkit": "^1.9.3",
