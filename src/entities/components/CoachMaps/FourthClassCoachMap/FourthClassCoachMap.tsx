@@ -8,12 +8,13 @@ function FourthClassCoachMap(props: CoachMapProps) {
   const className = 'coach-map-fourth'
   return (
     <div className={classNames(`${className}`, { [`${bemClass}__${className}`]: bemClass })}>
-      {seats.map(item => <Seat
-        key={nanoid()}
-        bemClass={className}
-        item={item}
-        handleClick={() => handleClick(item)}
-        type='chair' />)}
+      {seats.map(item =>
+        <Seat
+          key={nanoid()}
+          bemClass={className}
+          item={item}
+          handleClick={() => handleClick(item)}
+          type='chair' />)}
     </div>
   );
 }

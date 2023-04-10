@@ -42,8 +42,8 @@ function SeatsSelectionWrapper(props: IProps) {
 
   return (
     <>
-      <SeatsSelection direciton='departure' />
-      {selectedTicket?.arrival && <SeatsSelection direciton='arrival' />}
+      <SeatsSelection direciton='departure' price={preOrder.departure.price}/>
+      {selectedTicket?.arrival && <SeatsSelection direciton='arrival' price={preOrder.arrival.price}/>}
       <div className={`${bemClass}__button-wrapper`}>
         <Button
           variant='standart'

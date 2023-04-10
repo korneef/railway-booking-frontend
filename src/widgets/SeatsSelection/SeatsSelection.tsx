@@ -20,14 +20,13 @@ import { cleanOrder } from 'app/store/orderSlices';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',
+  price?: number
 }
 
-function SeatsSelection(props: SeatsSelectionProps) {
-  const { direciton } = props;
+function SeatsSelection({ direciton, price}: SeatsSelectionProps) {
   const ticketInfo = useAppSelector(state => state.tickets.selectedTicket);
   const ticket = direciton === 'departure' ? ticketInfo?.departure : ticketInfo?.arrival;
 
-  const ticketId = ticket ? ticket._id : null;
   const [selectedWagonsIndex, setSelectedWagonsIndex] = useState<Array<number>>([0]);
   const [selectedWagonsTypes, setSelectedWagonsTypes] = useState<Array<string>>(() => {
     const wagonTypes: Array<string> = [];
@@ -38,16 +37,16 @@ function SeatsSelection(props: SeatsSelectionProps) {
     if (ticket.have_fourth_class) wagonTypes.push('fourth');
     return wagonTypes;
   })
-  
+
   const seatsAllInfo = useAppSelector(state => state.tickets.wagonInformation);
   const seatsInfo = direciton === 'departure' ? seatsAllInfo.departure : seatsAllInfo.arrival;
   const dispatch = useAppDispatch();
   const wagonInformationRequest = useWagonInformationRequest()
 
   useEffect(() => {
-    wagonInformationRequest(direciton, ticketId);
+    wagonInformationRequest(direciton, ticket?._id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ticketId])
+  }, [ticket])
 
   const handleSelectWagonType = (type: string): void => {
     const isSelected = selectedWagonsTypes.findIndex((item) => item === type);
@@ -83,7 +82,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
         <Button onClick={() => {
           dispatch(unselectTicket());
           dispatch(cleanOrder());
-          }} className={className} variant='transparent' >Выбрать другой поезд</Button>
+        }} className={className} variant='transparent' >Выбрать другой поезд</Button>
       </div>
 
       <div className={`${className}__train-schedule train-schedule`}>
@@ -104,7 +103,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
         </div>
       </div>
 
-      <TicketsCountSelector bemClass={className}/>
+      <TicketsCountSelector bemClass={className} />
 
       <div className="wagons-type">
         <h2 className="wagons-type__header">Тип вагона</h2>
@@ -139,6 +138,10 @@ function SeatsSelection(props: SeatsSelectionProps) {
             <Coach index={index} direction={direciton} />
           </div>
         })}
+        <div className={`${className}__price-wrapper`}>
+          <span className={`${className}__price`} >{price}</span>
+          <span className={`${className}__price-valute`} >&#8381;</span>
+        </div>
       </> : 'loading'
       }
     </Panel>

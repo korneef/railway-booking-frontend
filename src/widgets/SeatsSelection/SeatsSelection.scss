@@ -129,3 +129,21 @@
   display: flex;
 }
 
+//price 
+
+.seats-selection__price-wrapper {
+  padding: 0 15px 15px;
+  text-align: right;
+}
+
+.seats-selection__price {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FFA800;
+}
+
+.seats-selection__price-valute {
+  font-weight: 400;
+  font-size: 24px;
+  color: #928F94;
+}

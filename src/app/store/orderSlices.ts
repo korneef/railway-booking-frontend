@@ -25,7 +25,8 @@ interface ISeat {
   person_info: IPersonInfo,
   seat_number: number,
   is_child: true,
-  include_children_seat: true
+  include_children_seat: true,
+  price: number,
 }
 
 interface IDirection {
@@ -37,11 +38,14 @@ interface IOrderCreated {
   preOrder: {
     adultCount: number,
     childrenCount: number,
+
     departure: {
-      selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number'>>
+      selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>
+      price: number,
     }
     arrival: {
-      selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number'>>
+      selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>
+      price: number,
     }
   }
   order: {
@@ -51,6 +55,11 @@ interface IOrderCreated {
   }
 }
 
+interface IUnselectCoachSeats {
+  direction: string,
+  id: string,
+}
+
 export interface OrderSubmit extends Required<IOrderCreated> { };
 
 const initialState: IOrderCreated = {
@@ -58,13 +67,14 @@ const initialState: IOrderCreated = {
     adultCount: 0,
     childrenCount: 0,
     departure: {
-      selectedSeats: []
+      selectedSeats: [],
+      price: 0,
     },
     arrival: {
-      selectedSeats: []
-    }
+      selectedSeats: [],
+      price: 0,
+    },
   },
-
   order: {
     user: {},
     departure: {
@@ -93,12 +103,14 @@ export const orderSlises = createSlice({
       state.preOrder.childrenCount = action.payload;
       return state;
     },
-    setSelectDepartureSeat: (state, action: PayloadAction<Pick<ISeat, 'coach_id' | 'seat_number'>>) => {
+    setSelectDepartureSeat: (state, action: PayloadAction<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>) => {
       state.preOrder.departure.selectedSeats.push(action.payload);
+      state.preOrder.departure.price += action.payload.price;
       return state;
     },
-    setSelectArrivalSeat: (state, action: PayloadAction<Pick<ISeat, 'coach_id' | 'seat_number'>>) => {
+    setSelectArrivalSeat: (state, action: PayloadAction<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>) => {
       state.preOrder.arrival.selectedSeats.push(action.payload);
+      state.preOrder.arrival.price += action.payload.price;
       return state;
     },
     unsetSelectSeat: (state, action: PayloadAction<Pick<ISeat, 'coach_id' | 'seat_number'>>) => {
@@ -106,10 +118,12 @@ export const orderSlises = createSlice({
       if (ticketIndex === -1) {
         ticketIndex = state.preOrder.arrival.selectedSeats.findIndex(item => item.coach_id === action.payload.coach_id && item.seat_number === action.payload.seat_number);
       } else {
+        state.preOrder.departure.price -= state.preOrder.departure.selectedSeats[ticketIndex].price;
         state.preOrder.departure.selectedSeats.splice(ticketIndex, 1);
         return state;
       }
       if (ticketIndex !== -1) {
+        state.preOrder.arrival.price -= state.preOrder.arrival.selectedSeats[ticketIndex].price;
         state.preOrder.arrival.selectedSeats.splice(ticketIndex, 1);
         return state;
       }
@@ -117,6 +131,17 @@ export const orderSlises = createSlice({
     },
     cleanOrder: (state) => {
       state = initialState;
+      return state;
+    },
+    unselectCoachSeats: (state, action: PayloadAction<IUnselectCoachSeats>) => {
+      const deparutreSeats = state.preOrder.departure.selectedSeats;
+      const arrivalSeats = state.preOrder.arrival.selectedSeats;
+      const { direction, id } = action.payload;
+      if (direction === 'departure') {
+        state.preOrder.departure.selectedSeats = deparutreSeats.filter(item => item.coach_id !== id);
+      } else {
+        state.preOrder.arrival.selectedSeats = arrivalSeats.filter(item => item.coach_id !== id);
+      }
       return state;
     }
   }
@@ -131,7 +156,8 @@ export const {
   setSelectDepartureSeat,
   unsetSelectSeat,
   setSelectArrivalSeat,
-  cleanOrder
+  cleanOrder,
+  unselectCoachSeats
 } = orderSlises.actions;
 
 export default orderSlises.reducer;

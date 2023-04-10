@@ -12,14 +12,15 @@ interface IProps {
 function TicketsCount(props: IProps) {
   const { bemClass } = props;
   const available_seats = useAppSelector(state => state.tickets.selectedTicket?.available_seats);
-  const preOrder = useAppSelector(state => state.order.preOrder);
+  const adultCount = useAppSelector(state => state.order.preOrder.adultCount);
+  const childCount = useAppSelector(state => state.order.preOrder.childrenCount);
   const dispatch = useAppDispatch();
   const [childWithoutTicket, setChildWithoutTicket] = useState(0);
 
   const setAdultChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (/^(\d+)$/.test(e.target.value) || e.target.value === '') {
       const value = Number(e.target.value);
-      const available = available_seats ? available_seats - (preOrder.childrenCount) : 0;
+      const available = available_seats ? available_seats - (childCount) : 0;
       available >= value && dispatch(setAdultCount(value));
     }
   }
@@ -27,7 +28,7 @@ function TicketsCount(props: IProps) {
   const setChildChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (/^(\d+)$/.test(e.target.value) || e.target.value === '') {
       const value = Number(e.target.value);
-      const available = available_seats ? available_seats - (preOrder.adultCount) : 0;
+      const available = available_seats ? available_seats - (adultCount) : 0;
       available >= value && dispatch(setChildCount(value));
     }
   }
@@ -47,13 +48,13 @@ function TicketsCount(props: IProps) {
       <h2 className={classNames(`${className}__header`, { [`${bemClass}__section-header`]: bemClass })}>Количество билетов</h2>
       <div className={`${className}__section-wrapper`}>
         <div className={`${className}__section`}>
-          <InputWithLabelOnInput label='Взрослых —' changePassengerCount={setAdultChange} value={preOrder.adultCount} />
-          <div className={`${className}__section-description`}>{`Можно добавить еще ${available_seats && available_seats - (preOrder.adultCount + preOrder.childrenCount)} пассажиров`}</div>
+          <InputWithLabelOnInput label='Взрослых —' changePassengerCount={setAdultChange} value={adultCount} />
+          <div className={`${className}__section-description`}>{`Можно добавить еще ${available_seats && available_seats - (adultCount + childCount)} пассажиров`}</div>
         </div>
         <div className={`${className}__section`}>
-          <InputWithLabelOnInput label='Детских —' changePassengerCount={setChildChange} value={preOrder.childrenCount} />
+          <InputWithLabelOnInput label='Детских —' changePassengerCount={setChildChange} value={childCount} />
           <div className={`${className}__section-description ${className}__section-description_children`}>
-            {`Можно добавить еще ${available_seats && available_seats - (preOrder.adultCount + preOrder.childrenCount)} детей до 10 лет. Свое место в вагоне, как у взрослых, но дешевле
+            {`Можно добавить еще ${available_seats && available_seats - (adultCount + childCount)} детей до 10 лет. Свое место в вагоне, как у взрослых, но дешевле
           в среднем на 50-65%`}
           </div>
         </div>
