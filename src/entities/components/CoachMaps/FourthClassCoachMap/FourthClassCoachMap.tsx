@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { nanoid } from "nanoid";
-import { useState, useEffect } from "react";
 import { Seat } from "../../../index";
 import CoachMapProps from "../CoachMapsInterfaces/CoachMapProps";
 
