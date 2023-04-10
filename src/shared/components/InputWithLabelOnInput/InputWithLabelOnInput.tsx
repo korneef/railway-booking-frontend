@@ -17,12 +17,12 @@ function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
   return (
     <div className={classNames(className, { [`${bemClass}__${className}`]: bemClass })}>
       <label
-        className={`${className}__label`}
+        className={`${className}__label ${className}__label_no-border`}
         htmlFor={id}>
         <span>{label}</span>
       </label>
       <input
-        className={`${className}__input`}
+        className={`${className}__input ${className}__input_no-border`}
         id={id}
         type='text'
         value={value}
