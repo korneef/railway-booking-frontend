@@ -16,6 +16,7 @@ import { unselectTicket } from '../../app/store/ticketsListSlices';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import { cleanOrder } from 'app/store/orderSlices';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',
@@ -79,7 +80,10 @@ function SeatsSelection(props: SeatsSelectionProps) {
 
       <div className={classNames(`${className}__train-choise`, { [`${className}__train-choise_${direciton}`]: direciton })}>
         <img src={direciton === 'departure' ? ArrowRight : ArrowLeft} alt="direction-arrow" className={`${className}__direction-arrow-image`}></img>
-        <Button onClick={() => dispatch(unselectTicket())} className={className} variant='transparent' >Выбрать другой поезд</Button>
+        <Button onClick={() => {
+          dispatch(unselectTicket());
+          dispatch(cleanOrder());
+          }} className={className} variant='transparent' >Выбрать другой поезд</Button>
       </div>
 
       <div className={`${className}__train-schedule train-schedule`}>

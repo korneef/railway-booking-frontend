@@ -5,7 +5,6 @@ import CoachMapProps from "../CoachMapsInterfaces/CoachMapProps";
 
 function FourthClassCoachMap(props: CoachMapProps) {
   const { bemClass, seats, handleClick } = props;
-
   const className = 'coach-map-fourth'
   return (
     <div className={classNames(`${className}`, { [`${bemClass}__${className}`]: bemClass })}>

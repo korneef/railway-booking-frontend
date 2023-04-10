@@ -85,14 +85,6 @@ export const orderSlises = createSlice({
       state.order.arrival = { route_direction_id: action.payload }
       return state;
     },
-    // selectSeat: (state, action: PayloadAction<ISeat>) => {
-    //   state.order.departure.seats?.push(action.payload)
-    // },
-    // unselectSeat: (state, action: PayloadAction<string>) => {
-    //   const index = state.order.departure.seats?.findIndex(item => item.coach_id === action.payload);
-    //   index && state.order.departure.seats?.splice(index, 1)
-    //   return state;
-    // },
     setAdultCount: (state, action: PayloadAction<number>) => {
       state.preOrder.adultCount = action.payload;
       return state;
@@ -122,6 +114,10 @@ export const orderSlises = createSlice({
         return state;
       }
       return state;
+    },
+    cleanOrder: (state) => {
+      state = initialState;
+      return state;
     }
   }
 })
@@ -130,13 +126,12 @@ export const orderSlises = createSlice({
 export const {
   setDepartureId,
   setArrivalId,
-  // selectSeat,
-  // unselectSeat,
   setAdultCount,
   setChildCount,
   setSelectDepartureSeat,
   unsetSelectSeat,
-  setSelectArrivalSeat
+  setSelectArrivalSeat,
+  cleanOrder
 } = orderSlises.actions;
 
 export default orderSlises.reducer;

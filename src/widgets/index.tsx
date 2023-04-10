@@ -7,6 +7,17 @@ import OrderSteps from "./OrderSteps/OrderSteps";
 import TicketFilterForm from "./TicketFilterForm/TicketFilterForm";
 import TicketsList from "./TicketsList/TicketsList";
 import SeatsSelection from "./SeatsSelection/SeatsSelection";
+import SeatsSelectionWrapper from "./SeatsSelection/SeatsSelectionWrapper";
 
-
-export { About, Header, Footer, HowItWorks, Reviews, OrderSteps, TicketFilterForm, TicketsList, SeatsSelection }
+export {
+  About,
+  Header,
+  Footer,
+  HowItWorks,
+  Reviews,
+  OrderSteps,
+  TicketFilterForm,
+  TicketsList,
+  SeatsSelection,
+  SeatsSelectionWrapper
+}

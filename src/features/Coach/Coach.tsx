@@ -22,6 +22,8 @@ function Coach({ index, direction }: IProps) {
   const selectedCoadh = coach[index];
   const vacancySeats = selectedCoadh.seats;
   const handleClick = (clickedItem: ISeat) => {
+    console.log(clickedItem)
+    console.log(selectedCoadh)
     if (!clickedItem.available) return;
     const coach_id = coach[index].coach._id;
     const seat_number = clickedItem.index
