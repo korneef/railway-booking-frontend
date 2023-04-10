@@ -7,6 +7,7 @@ interface ButtonProps extends Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'typ
   children?: string;
   className: string;
   onClick?: (event: React.FormEvent<HTMLButtonElement>) => void;
+  
 }
 
 export default function Button(props: ButtonProps) {
@@ -15,7 +16,8 @@ export default function Button(props: ButtonProps) {
     children,
     className = '',
     variant = 'standart',
-    onClick
+    onClick,
+    disabled
   } = props;
 
 
@@ -23,7 +25,7 @@ export default function Button(props: ButtonProps) {
     `${className}__button`,
     `button__${variant}`,
   )
-  return <button type={type} className={classes} onClick={onClick}>
+  return <button type={type} className={classes} onClick={onClick} disabled={disabled}>
     {children}
   </button>
 }

@@ -2,8 +2,6 @@ import { Switcher } from "../../shared";
 import React, { ChangeEvent } from "react";
 import classNames from "classnames";
 import { useFindTicketRequest, useOffsetReset } from "../../shared";
-//TODO удалить комменты
-// import { useState } from "react";
 
 interface FilterSwitcherProps {
   svgIcon: React.ReactElement<React.SVGProps<SVGSVGElement>>,

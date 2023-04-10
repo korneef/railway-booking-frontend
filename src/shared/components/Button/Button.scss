@@ -28,6 +28,11 @@
 
   &:disabled {
     background-color: #918F94;
+    color: white;
+    border-color: #918F94;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
 

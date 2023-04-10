@@ -8,7 +8,6 @@ import getPagesCount from "./helpers/getPagesCount";
 import React from "react";
 
 
-//TODO доделать пагинацию
 export default function TicketsList() {
   const { total_count, items } = useAppSelector(state => state.tickets);
   const { offset } = useAppSelector(state => state.ticketsSearchRequest.params);
