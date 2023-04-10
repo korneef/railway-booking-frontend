@@ -46,16 +46,9 @@ export default function OrderStep1() {
         <div className={`${className}__tickets-wrapper`}>
           {selectedTicket ? <SeatsSelection direciton='departure' /> : <TicketsList />}
           {selectedTicket?.arrival && <SeatsSelection direciton='arrival' />}
-          {selectedTicket && <Button
-            variant='standart'
-            className={className}
-            disabled={false}
-            onClick={handleClick}
-          >
-            ДАЛЕЕ
-          </Button>}
+          {selectedTicket && <div className={`${className}__button-wrapper`}><Button variant='standart' className={className} disabled={false} onClick={handleClick}>ДАЛЕЕ</Button></div>}
         </div>
       </div>
-    </div>
+    </div >
   );
 }
