@@ -5,34 +5,14 @@ import { ChangeEvent, useState } from "react";
 interface InputWithLabelOnInputProps {
   label: string,
   bemClass?: string,
+  value: number | string;
+  changePassengerCount?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
-  const [value, setValue] = useState('0');
-
-  const { label, bemClass } = props;
+  const { value, label, bemClass, changePassengerCount } = props;
   const id = nanoid();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue((prevValue) => {
-      if (/^(\d+)$/.test(e.target.value) || e.target.value === '') {
-        return e.target.value
-      }
-      return prevValue
-    })
-  }
-
-  const handleFocus = () => {
-    if (value === '0') {
-      setValue('')
-    }
-  }
-
-  const handleBlur = () => {
-    if (value === '') {
-      setValue('0')
-    }
-  }
   const className = 'input-with-label';
   return (
     <div className={classNames(className, { [`${bemClass}__${className}`]: bemClass })}>
@@ -46,9 +26,7 @@ function InputWithLabelOnInput(props: InputWithLabelOnInputProps) {
         id={id}
         type='text'
         value={value}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        onChange={changePassengerCount}
       />
     </div>
   );

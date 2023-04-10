@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-//TODO доделать
 
 export interface TicketRequestParams {
   from_city_id?: string, //- Идентификатор города, откуда планируется путешествие (обязательный)
@@ -37,7 +36,9 @@ interface stateInterface {
 
 const initialState: stateInterface = {
   loadingStatus: null,
-  params: {}
+  params: {
+    offset: 0
+  }
 }
 
 interface updateRequestAction {
@@ -52,7 +53,7 @@ export const ticketSearchRequestSlises = createSlice({
     updateRequestParameter: (state, action: PayloadAction<updateRequestAction>) => {
       const key = action.payload.key;
       const value = action.payload.value;
-      if (!value) {
+      if (!value && value !== 0) {
         delete state.params[key as keyof TicketRequestParams]
         state.params = { ...state.params };
         return state;

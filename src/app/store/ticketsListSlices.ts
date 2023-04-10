@@ -43,18 +43,24 @@ interface IWagon {
   seats: Array<ISeat>
 }
 
-interface TicketsList {
+export interface TicketsList {
   total_count: number,
   items: Array<ITicket>,
   selectedTicket: ITicket | null,
-  wagonInformation: Array<IWagon> | null,
+  wagonInformation: {
+    departure: Array<IWagon>,
+    arrival: Array<IWagon>
+  },
 }
 
 const initialState: TicketsList = {
   total_count: 0,
   items: [],
   selectedTicket: null,
-  wagonInformation: null,
+  wagonInformation: {
+    departure: [],
+    arrival: []
+  },
 }
 
 export const ticketsSlice = createSlice({
@@ -62,7 +68,9 @@ export const ticketsSlice = createSlice({
   initialState,
   reducers: {
     refreshTicketsList: (state, action: PayloadAction<TicketsList>) => {
-      return state = action.payload
+      state.total_count = action.payload.total_count;
+      state.items = action.payload.items;
+      return state;
     },
     setSelectedTicket: (state, action: PayloadAction<ITicket>) => {
       state.selectedTicket = action.payload;
@@ -72,12 +80,16 @@ export const ticketsSlice = createSlice({
       state.selectedTicket = null;
       return state
     },
-    setWagonInformaiton: (state, action: PayloadAction<Array<IWagon>>) => {
-      state.wagonInformation = action.payload;
+    setWagonInformaiton: (state, action: PayloadAction<{ type: 'departure' | 'arrival', wagonInformation: Array<IWagon> }>) => {
+      action.payload.type === 'departure' ?
+        state.wagonInformation.departure = action.payload.wagonInformation
+        :
+        state.wagonInformation.arrival = action.payload.wagonInformation
       return state;
     },
     deleteWagonInformation: (state) => {
-      state.wagonInformation = null;
+      state.wagonInformation.arrival = [];
+      state.wagonInformation.departure = [];
       return state;
     }
   },

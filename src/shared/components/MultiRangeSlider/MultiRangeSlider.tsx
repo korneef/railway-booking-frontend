@@ -2,14 +2,15 @@ import { ChangeEvent, useCallback, useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 
 interface MultiRangeSliderProps {
-  type: 'price' | 'time';
-  min: number;
-  max: number;
-  bemClass: string
+  type: 'price' | 'time',
+  bemClass: string,
+  handleMouseUp?: (minVal: number, maxVal: number) => void,
 }
 
 export default function MultiRangeSlider(props: MultiRangeSliderProps) {
-  const { type, min, max, bemClass } = props;
+  const { type, bemClass, handleMouseUp } = props;
+  const min = 0;
+  const max = type === 'time' ? 24 : 10000;
 
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
@@ -29,7 +30,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
     if (range.current) {
       range.current.style.left = `${minPercent}%`;
       range.current.style.width = `${maxPercent - minPercent}%`;
-    }
+    }    
   }, [minVal, getPercent]);
 
   // Set width of the range to decrease from the right side
@@ -42,7 +43,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
     }
   }, [maxVal, getPercent]);
 
-  const className = 'multi-slider'
+  const className = 'multi-slider';
 
   return (
     <div className={classNames(bemClass+`__${className}`, className + `__container`, className + `__container_${type}`)}>
@@ -57,6 +58,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
           min={min}
           max={max}
           value={minVal}
+          onMouseUp={handleMouseUp !== undefined ? () => handleMouseUp(minVal, maxVal) : undefined}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             const value = Math.min(Number(event.target.value), maxVal - 1);
             setMinVal(value);
@@ -73,6 +75,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
           min={min}
           max={max}
           value={maxVal}
+          onMouseUp={handleMouseUp !== undefined ? () => handleMouseUp(minVal, maxVal) : undefined}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             const value = Math.max(Number(event.target.value), minVal + 1);
             setMaxVal(value);

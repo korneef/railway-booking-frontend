@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Button, DateField } from "../../shared";
 import CitiesSearchInput from "../../entities/components/CitiesSearchInput/CitiesSearchInput";
 import { useTicketsSearchRequest } from "../../shared";
+import { useAppSelector } from "app/store/hooks";
 
 interface TicketSearchFormProps {
   bemClass: string,
@@ -11,12 +12,16 @@ interface TicketSearchFormProps {
 
 
 function TicketSearchForm(props: TicketSearchFormProps) {
+  const from_city_id = useAppSelector(state => state.ticketsSearchRequest.params.from_city_id);
+  const to_city_id = useAppSelector(state => state.ticketsSearchRequest.params.to_city_id);
+  const date_start = useAppSelector(state => state.ticketsSearchRequest.params.date_start);
+  const date_end = useAppSelector(state => state.ticketsSearchRequest.params.date_end);
   const { bemClass, variant } = props;
   const className = "ticket-search-form";
-  const TicketsSearchRequest = useTicketsSearchRequest()
+  const ticketsSearchRequest = useTicketsSearchRequest()
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    TicketsSearchRequest();
+    ticketsSearchRequest({ from_city_id, to_city_id, date_start, date_end });
   }
 
   return (

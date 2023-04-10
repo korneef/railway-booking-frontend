@@ -7,12 +7,11 @@ import {
   TrainLogoSmall,
   OrangeClockIcon,
   getDuration,
-  InputWithLabelOnInput,
   useWagonInformationRequest
 } from '../../shared';
 import { TrainTimeTableInfo, WagonTypeSelect } from '../../entities/index';
 import classNames from 'classnames';
-import { Coach } from '../../features'
+import { Coach, TicketsCountSelector } from '../../features'
 import { unselectTicket } from '../../app/store/ticketsListSlices';
 import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
 import { useState, useEffect } from 'react';
@@ -23,7 +22,11 @@ interface SeatsSelectionProps {
 }
 
 function SeatsSelection(props: SeatsSelectionProps) {
-  const ticket = useAppSelector(state => state.tickets.selectedTicket?.departure)
+  const { direciton } = props;
+  const ticketInfo = useAppSelector(state => state.tickets.selectedTicket);
+  const ticket = direciton === 'departure' ? ticketInfo?.departure : ticketInfo?.arrival;
+
+  const ticketId = ticket ? ticket._id : null;
   const [selectedWagonsIndex, setSelectedWagonsIndex] = useState<Array<number>>([0]);
   const [selectedWagonsTypes, setSelectedWagonsTypes] = useState<Array<string>>(() => {
     const wagonTypes: Array<string> = [];
@@ -34,16 +37,16 @@ function SeatsSelection(props: SeatsSelectionProps) {
     if (ticket.have_fourth_class) wagonTypes.push('fourth');
     return wagonTypes;
   })
-
-  const seatsInfo = useAppSelector(state => state.tickets.wagonInformation);
-  const { direciton } = props;
+  
+  const seatsAllInfo = useAppSelector(state => state.tickets.wagonInformation);
+  const seatsInfo = direciton === 'departure' ? seatsAllInfo.departure : seatsAllInfo.arrival;
   const dispatch = useAppDispatch();
-  const wagonInformationRequest = useWagonInformationRequest();
+  const wagonInformationRequest = useWagonInformationRequest()
 
   useEffect(() => {
-    wagonInformationRequest(ticket?._id);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ticket?._id])
+    wagonInformationRequest(direciton, ticketId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ticketId])
 
   const handleSelectWagonType = (type: string): void => {
     const isSelected = selectedWagonsTypes.findIndex((item) => item === type);
@@ -71,7 +74,6 @@ function SeatsSelection(props: SeatsSelectionProps) {
   const wagonInfoClassName = 'train-wagons-information'
   const duration = getDuration(ticket.duration);
 
-
   return (
     <Panel variant='white' bemClass={className}>
 
@@ -88,7 +90,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
             <TrainPath fromCity={ticket.from.city.name} toCity={ticket.to.city.name} />
           </div>
         </div>
-        <TrainTimeTableInfo bemClass='train-schedule' direction='departure' from={ticket.from} to={ticket.to} />
+        <TrainTimeTableInfo bemClass='train-schedule' direction={direciton} from={ticket.from} to={ticket.to} />
         <div className="train-schedule__duration">
           <div className="train-schedule__clock-icon-wrapper"><img src={OrangeClockIcon} alt="Часы" /></div>
           <div className="train-schedule__time-information-wrapper">
@@ -98,25 +100,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
         </div>
       </div>
 
-      <div className={`${className}__tickets-count tickets-count`}>
-        <h2 className={`${className}__section-header tickets-count__header`}>Количество билетов</h2>
-        <div className="tickets-count__section-wrapper">
-          <div className='tickets-count__section'>
-            <InputWithLabelOnInput label='Взрослых —' />
-            <div className='tickets-count__section-description'>Можно добавить еще 3 пассажиров</div>
-          </div>
-          <div className='tickets-count__section'>
-            <InputWithLabelOnInput label='Детских —' />
-            <div className='tickets-count__section-description tickets-count__section-description_children'>
-              Можно добавить еще 3 детей до 10 лет. Свое место в вагоне, как у взрослых, но дешевле
-              в среднем на 50-65%
-            </div>
-          </div>
-          <div className='tickets-count__section'>
-            <InputWithLabelOnInput label='Детских «без места» —' />
-          </div>
-        </div>
-      </div>
+      <TicketsCountSelector bemClass={className}/>
 
       <div className="wagons-type">
         <h2 className="wagons-type__header">Тип вагона</h2>
@@ -148,7 +132,7 @@ function SeatsSelection(props: SeatsSelectionProps) {
         {seatsInfo.map((item, index) => {
           if (!selectedWagonsTypes.includes(item.coach.class_type) || !selectedWagonsIndex.includes(index)) return null;
           return <div key={nanoid()}>
-            <Coach index={index} />
+            <Coach index={index} direction={direciton} />
           </div>
         })}
       </> : 'loading'
@@ -156,6 +140,5 @@ function SeatsSelection(props: SeatsSelectionProps) {
     </Panel>
   );
 }
-
 
 export default SeatsSelection;

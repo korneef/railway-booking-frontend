@@ -2,26 +2,47 @@ import { SeatInformation, WagonSeatsServices } from "../../index";
 import { useAppSelector } from "../../../app/store/hooks";
 
 interface IProps {
-  index: number
+  index: number,
+  direction: 'departure' | 'arrival'
 }
 
-function CoachInfo({ index }: IProps) {
-  const coaches = useAppSelector(state => state.tickets.wagonInformation);
+function CoachInfo({ index, direction }: IProps) {
+  const coachDireciton = useAppSelector(state => state.tickets.wagonInformation);
+  const coaches = direction === 'departure' ? coachDireciton.departure : coachDireciton.arrival;
   if (coaches === null) return <></>;
   const wagonNumber = (index: number) => {
     const wagonNumber = index + 1;
     if (wagonNumber < 10) return `0${wagonNumber}`
     return wagonNumber
   }
+
+  let wagonType: string = ''
+  switch(coaches[index].coach.class_type) {
+    case 'first':
+      wagonType = 'Люкс'
+      break
+    case 'second':
+      wagonType = 'СВ'
+      break
+    case 'third':
+      wagonType = 'Плацкарт'
+      break
+    case 'fourth':
+      wagonType = 'Сидячий'
+      break
+  }
+
   const { coach, seats } = coaches[index]
   const onlyPrice = coach.class_type === 'first' || coach.class_type === 'fourth' ? false : true
   return (
     <div className="train-wagons-information__wagon-information wagon-information">
       <div className="wagon-information__wagon-number-section">
         <div className="wagon-information__wagon-number-wrapper">
-          <div className="wagon-information__wagon-number">{wagonNumber(index)}
+          <div className="wagon-information__wagon-number">
+            {wagonNumber(index)}
           </div>
           <div className="wagon-information__wagon-text">Вагон</div>
+          <div className="wagon-information__wagon-type">{wagonType}</div>
         </div>
       </div>
       <div className="wagon-information__seats-information">

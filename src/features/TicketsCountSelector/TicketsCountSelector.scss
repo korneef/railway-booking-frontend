@@ -1,0 +1,18 @@
+.tickets-count__section-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tickets-count__section {
+  width: 240px;
+}
+
+.tickets-count__section-description {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 16px;
+
+  &_children {
+    color: #928F94;
+  }
+}

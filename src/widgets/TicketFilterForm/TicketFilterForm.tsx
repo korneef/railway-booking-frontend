@@ -1,11 +1,17 @@
 import { TimeClarification } from "../../entities/index";
 import { FilterSwitcher } from "../../features";
-import { Panel, MultiRangeSlider, DateField, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi } from "../../shared";
+import { Panel, MultiRangeSlider, DateField, Coupe, Express, LuxuryClass, SeatClass, SecondClass, WiFi, useFindTicketRequest } from "../../shared";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function TicketFilterForm() {
+  const updateRequest = useFindTicketRequest();
   const className = 'ticket-fiter-form';
   
+  const selectTicketPrice = (minPrice: number = 0, maxPrice: number = 30000) => {
+    updateRequest('price_from', minPrice);
+    updateRequest('price_to', maxPrice);
+  }
+
   return (
     <Panel variant='black' bemClass={className}>
       <div className={`${className}__section`}>
@@ -28,7 +34,7 @@ export default function TicketFilterForm() {
       </div>
       <div className={`${className}__section`}>
         <div className={`${className}__section-header`}>Стоимость</div>
-        <MultiRangeSlider bemClass={className} type='price' min={850} max={2950} />
+        <MultiRangeSlider bemClass={className} type='price' handleMouseUp={selectTicketPrice} />
       </div>
       <div className={`${className}__section`} >
         <TimeClarification direction="departure" />

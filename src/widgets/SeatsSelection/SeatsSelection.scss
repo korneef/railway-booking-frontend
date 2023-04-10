@@ -1,5 +1,6 @@
 .seats-selection__panel-white {
   min-width: 960px;
+  margin-bottom: 30px;
 }
 
 .seats-selection__train-choise {
@@ -80,24 +81,7 @@
   margin: 30px 0;
 }
 
-.tickets-count__section-wrapper {
-  display: flex;
-  justify-content: space-around;
-}
 
-.tickets-count__section {
-  width: 240px;
-}
-
-.tickets-count__section-description {
-  margin-top: 20px;
-  font-weight: 400;
-  font-size: 16px;
-
-  &_children {
-    color: #928F94;
-  }
-}
 
 .wagons-type {
   padding: 0 20px 20px;

@@ -1,6 +1,7 @@
-import { ISeat } from "../../../../app/store/ticketsListSlices"
+import { ISeat } from "shared";
 
 export default interface CoachMapProps {
   bemClass?: string,
-  vacancySeats: Array<ISeat>
+  seats: Array<ISeat>
+  handleClick: (item: ISeat) => void;
 }

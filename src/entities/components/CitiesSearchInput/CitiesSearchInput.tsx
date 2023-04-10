@@ -74,7 +74,7 @@ function CitiesSearchInput({ placeholder, bemClass, requestKey }: CitiesSearchIn
             if (data.length === 1 && value.toLowerCase() === data[0].name.toLowerCase()) {
               citySelect(data[0])
             } else {
-              !request && dispatch(updateRequestParameter({ key: requestKey, value: false }));
+              dispatch(updateRequestParameter({ key: requestKey, value: false }));
               setCityList(prevValue => {
                 return {
                   ...prevValue,

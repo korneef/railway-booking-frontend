@@ -1,44 +1,38 @@
 import { TicketCard } from "../../features";
 import { useAppSelector } from "../../app/store/hooks";
 import { useState, useEffect } from "react";
-import { useFindTicketRequest, useTicketsSearchRequest } from "../../shared";
+import { useFindTicketRequest } from "../../shared";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
+import getPagesCount from "./helpers/getPagesCount";
+import React from "react";
 
 
-//TODO доделать пагинацию, возможно вынести параметры пагинации в стейт менеджер, выяснить почему компонент ререндерится по нескольку раз
-function TicketsList() {
-  const totalCount = useAppSelector(state => state.tickets.total_count)
+//TODO доделать пагинацию
+export default function TicketsList() {
+  const { total_count, items } = useAppSelector(state => state.tickets);
+  const { offset } = useAppSelector(state => state.ticketsSearchRequest.params);
+  const refreshTicketList = useFindTicketRequest();
+
   const [listOutputsOptions, setlistOutputsOptions] = useState(() => {
     const itemsCount: number = 5;
-    const maxPages = Math.ceil(totalCount / itemsCount);
-    //let pages: Array<number> = [];
-    // for (let i = 1; i < maxPages && i < 4; i += 1) {
-    //   pages.push(i)
-    // }
-    const pages = [1,2,3]
+    const maxPages = Math.ceil(total_count / itemsCount);
+    const pages = getPagesCount(maxPages);
     return {
       itemsCount,
-      sortBy: 'date',
       pageNumber: 1,
       pages,
-      offset: 0,
       maxPages
     }
-  })
-  const requestParams = useAppSelector(state => state.ticketsSearchRequest.params);
-  const refreshTicketList = useFindTicketRequest();
-  const { total_count, items } = useAppSelector(state => state.tickets);
-  const TicketsSearchRequest = useTicketsSearchRequest();
+  });
+
   useEffect(() => {
-    TicketsSearchRequest();
     setlistOutputsOptions(prevValue => {
-      const maxPages = Math.ceil(totalCount / prevValue.itemsCount);
-      return { ...prevValue, maxPages }
+      const maxPages = Math.ceil(total_count / prevValue.itemsCount);
+      return { ...prevValue, maxPages, pages: getPagesCount(maxPages) }
     })
-    !requestParams.offset && setlistOutputsOptions(prevValue => ({ ...prevValue, offset: 0 }));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requestParams])
+  }, [total_count])
+
 
   const handleDisplayedItemsCount = (count: number) => {
     setlistOutputsOptions(prevValue => {
@@ -47,61 +41,64 @@ function TicketsList() {
     refreshTicketList('limit', count)
   }
 
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const index = e.target.selectedIndex;
     const value = e.target.options[index].value;
-    setlistOutputsOptions(prevValue => {
-      return { ...prevValue, sortBy: value }
-    })
     refreshTicketList('sort', value);
   }
 
   const changeOffset = (count: number) => {
-
-    const newOffset = count + listOutputsOptions.offset;
-    if (newOffset > totalCount) return;
+    const newOffset = offset === undefined ? 0 : count + offset;
+    const { maxPages } = listOutputsOptions;
+    if (newOffset > total_count) return;
     if (newOffset <= 0) {
-
-      setlistOutputsOptions(prevValue => ({ ...prevValue, offset: 0, pageNumber: 1, pages: [1, 2, 3] }))
-      return
+      setlistOutputsOptions(prevValue => ({ ...prevValue, pageNumber: 1, pages: getPagesCount(maxPages) }));
+      refreshTicketList('offset', 0);
+      return;
     }
-    if (newOffset > totalCount - count) {
-      const { maxPages } = listOutputsOptions;
-      setlistOutputsOptions(prevValue => ({ ...prevValue, offset: newOffset, pageNumber: maxPages, pages: [maxPages - 2, maxPages - 1, maxPages] }))
-      return
+    if (newOffset > total_count - count) {
+      setlistOutputsOptions(prevValue => ({ ...prevValue, pageNumber: maxPages, pages: getPagesCount(maxPages) }));
+      refreshTicketList('offset', newOffset);
+      return;
     }
 
     setlistOutputsOptions(prevValue => {
       const changePage = count > 0 ? 1 : -1;
       const newPageNumber = prevValue.pageNumber + changePage;
-      return { ...prevValue, offset: newOffset, pageNumber: newPageNumber, pages: [newPageNumber - 1, newPageNumber, newPageNumber + 1] }
+      return { ...prevValue, pageNumber: newPageNumber, pages: [newPageNumber - 1, newPageNumber, newPageNumber + 1] }
     })
     refreshTicketList('offset', newOffset);
   }
 
   const selectPage = (selectedPage: number) => {
     const newOffset = selectedPage * listOutputsOptions.itemsCount - listOutputsOptions.itemsCount;
+    const { maxPages } = listOutputsOptions
 
     if (selectedPage === 1) {
-      setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: 1, pages: [1, 2, 3], offset: newOffset }))
+      setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: 1, pages: getPagesCount(maxPages), offset: newOffset }));
+      refreshTicketList('offset', newOffset);
       return
     }
-    const { maxPages } = listOutputsOptions
     if (selectedPage === maxPages) {
-      setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: maxPages, pages: [maxPages - 2, maxPages - 1, maxPages], offset: newOffset }))
+      const pages: Array<number> = maxPages === 2 ? [1, 2] : [maxPages - 2, maxPages - 1, maxPages]
+      setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: maxPages, pages, offset: newOffset }));
+      refreshTicketList('offset', newOffset);
       return
     }
-    setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: selectedPage, pages: [selectedPage - 1, selectedPage, selectedPage + 1], offset: newOffset }))
+    setlistOutputsOptions(preValue => ({ ...preValue, pageNumber: selectedPage, pages: [selectedPage - 1, selectedPage, selectedPage + 1], offset: newOffset }));
     refreshTicketList('offset', newOffset);
   }
 
   const className = 'tickets-list'
+  const needPagination = listOutputsOptions.maxPages > 1
+  const backPaginationButton = needPagination && <button onClick={() => changeOffset(-listOutputsOptions.itemsCount)} className={`${className}__pagination-button`}>{'<'}</button>;
+  const forwardPaginationButton = needPagination && <button onClick={() => changeOffset(listOutputsOptions.itemsCount)} className={`${className}__pagination-button`}>{'>'}</button>;
   return (
     <div className={`${className}`}>
       <div className={`${className}__header`}>
         <div className={`${className}__total-count`}>найдено {total_count}</div>
         <div className={`${className}__sort-selection`}>
-          сортировать по:<select onChange={handleSelect} className={`${className}__sort-selection-select`} name='sort by'>
+          сортировать по:<select onChange={handleSortSelect} className={`${className}__sort-selection-select`} name='sort by'>
             <option className={`${className}__sort-selection-option`} value="time">Времени</option>
             <option className={`${className}__sort-selection-option`} value="duration">Длительности</option>
             {/* TODO не работает сортировка по цене <option className={`${className}__sort-selection-option`} value="price">Стоимости</option> */}
@@ -126,8 +123,8 @@ function TicketsList() {
         {items !== undefined ? items.map(item => <TicketCard key={item.departure._id} ticket={item} />) : null}
       </div>
       <div className={`${className}__pagination`}>
-        <button onClick={() => changeOffset(-listOutputsOptions.itemsCount)} className={`${className}__pagination-button`} >{'<'}</button>
-        {listOutputsOptions.pages.map(item => <button
+        {backPaginationButton}
+        {needPagination && listOutputsOptions.pages.map(item => <button
           key={nanoid()}
           onClick={() => selectPage(item)}
           className={classNames(
@@ -136,11 +133,9 @@ function TicketsList() {
           {item}
         </button>
         )}
-        <button onClick={() => changeOffset(listOutputsOptions.itemsCount)} className={`${className}__pagination-button`} >{'>'}</button>
+        {forwardPaginationButton}
       </div>
 
     </div>
   );
 }
-
-export default TicketsList;

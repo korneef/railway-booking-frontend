@@ -2,14 +2,16 @@ import { TicketFilterForm, TicketsList, SeatsSelection } from "../../widgets";
 import { LastTicketCard } from "../../features";
 import { useAppSelector } from "../../app/store/hooks";
 import { useEffect, useState } from "react";
-import { backendURL } from "../../shared";
 import { ITicket } from "../../app/store/ticketsListSlices";
+import { backendURL, useTicketsSearchRequest } from 'shared'
 
 export default function OrderStep1() {
   const selectedTicket = useAppSelector(state => state.tickets.selectedTicket);
+  const requestParams = useAppSelector(state => state.ticketsSearchRequest.params);
+  const sendRequest = useTicketsSearchRequest();
+
   //TODO перенести last tickets в глобальный стейт для возможности заказа билетов по нему тоже
   const [lastTickets, setLastTickets] = useState<null | Array<ITicket>>(null);
-  //TODO добавить сетевой запрос для компонента LastTicketCards
   useEffect(() => {
     fetch(`${backendURL}/routes/last`)
       .then(response => response.json())
@@ -19,6 +21,11 @@ export default function OrderStep1() {
         setLastTickets(null)
       })
   }, [])
+  useEffect(()=>{
+    sendRequest(requestParams);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestParams])
   return (
     <div className="wrapped">
       <div className="order">
@@ -30,8 +37,10 @@ export default function OrderStep1() {
             {lastTickets.map(item => <LastTicketCard key={item.departure._id} {...item.departure} />)}
           </div>}
         </div>
-        {selectedTicket ? <SeatsSelection direciton='departure' /> : <TicketsList />}
-        {selectedTicket?.arrival && <SeatsSelection direciton='arrival' />}
+        <div>
+          {selectedTicket ? <SeatsSelection direciton='departure' /> : <TicketsList />}
+          {selectedTicket?.arrival && <SeatsSelection direciton='arrival' />}
+        </div>
       </div>
     </div>
   );

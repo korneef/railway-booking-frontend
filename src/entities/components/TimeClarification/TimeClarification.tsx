@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ToggleButton, MultiRangeSlider, ArrowLeft, ArrowRight } from '../../../shared';
+import { ToggleButton, MultiRangeSlider, ArrowLeft, ArrowRight, useFindTicketRequest } from '../../../shared';
 import { useState, ChangeEventHandler } from 'react';
 
 interface TimeClarificationProps {
@@ -8,11 +8,48 @@ interface TimeClarificationProps {
 
 function TimeClarification(props: TimeClarificationProps) {
   const [isChecked, setIsChecked] = useState(false);
+  const updateRequest = useFindTicketRequest()
   const { direction } = props;
 
   const handleClick: ChangeEventHandler<HTMLInputElement> = (): void => {
     setIsChecked(!isChecked);
   }
+
+  const selectDepartureTime = (minTime: number = 0, maxTime: number = 24) => {
+    switch (direction) {
+      case 'departure':
+        updateRequest('start_departure_hour_from', minTime);
+        updateRequest('start_departure_hour_to', maxTime);
+        break
+      case 'arrival':
+        updateRequest('end_departure_hour_from', minTime);
+        updateRequest('end_departure_hour_to', maxTime);
+        break
+    }
+  }
+
+  const selectArrivalTime = (minTime: number = 0, maxTime: number = 24) => {
+    switch (direction) {
+      case 'departure':
+        updateRequest('start_arrival_hour_from', minTime);
+        updateRequest('start_arrival_hour_to', maxTime);
+        break
+      case 'arrival':
+        updateRequest('end_arrival_hour_from', minTime);
+        updateRequest('end_arrival_hour_to', maxTime);
+        break
+    }
+  }
+
+  // start_departure_hour_from - Час отбытия от(число)
+  // start_departure_hour_to - Час отбытия до(число)
+  // start_arrival_hour_from - Час прибытия от(число)
+  // start_arrival_hour_to - Час прибытия до(число)
+  // end_departure_hour_from - Час отбытия назад от(число)
+  // end_departure_hour_to - Час отбытия назад до(число)
+  // end_arrival_hour_from - Час прибытия назад от(работает при установленном параметре date_end)
+  // end_arrival_hour_to - Час прибытия назад до(работает при установленном параметре date_end)
+
   const className = 'time-clarification';
 
   return (
@@ -29,15 +66,13 @@ function TimeClarification(props: TimeClarificationProps) {
       {isChecked ? <>
         <div className={classNames(className + '__slider-wrapper')}>
           <div className={classNames(className + '__slider-header', className + '__slider-header_left')}>Время отбытия</div>
-          <MultiRangeSlider bemClass={className} type='time' min={0} max={24} />
+          <MultiRangeSlider bemClass={className} type='time' handleMouseUp={selectDepartureTime} />
         </div>
         <div className={classNames(className + '__slider-wrapper')}>
           <div className={classNames(className + '__slider-header', className + '__slider-header_right')}>Время прибытия</div>
-          <MultiRangeSlider bemClass={className} type='time' min={0} max={24} />
+          <MultiRangeSlider bemClass={className} type='time' handleMouseUp={selectArrivalTime}/>
         </div>
       </> : false}
-
-
     </>
   );
 }
