@@ -1,19 +1,19 @@
 import { TicketFilterForm, TicketsList, SeatsSelection } from "../../widgets";
 import { LastTicketCard } from "../../features";
 import { useAppSelector } from "../../app/store/hooks";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ITicket } from "../../app/store/ticketsListSlices";
 import { Button, backendURL, useTicketsSearchRequest } from 'shared'
 
 export default function OrderStep1() {
   const selectedTicket = useAppSelector(state => state.tickets.selectedTicket);
   const requestParams = useAppSelector(state => state.ticketsSearchRequest.params);
-  const preOrder = useAppSelector(state => state.order.preOrder);
+  //const preOrder = useAppSelector(state => state.order.preOrder);
   const sendRequest = useTicketsSearchRequest();
   const className = 'order-step-1'
   //TODO перенести last tickets в глобальный стейт для возможности заказа билетов по нему тоже
   const [lastTickets, setLastTickets] = useState<null | Array<ITicket>>(null);
-  const [buttonDisabled, setButtonDisabled] = useState(true)
+  //const [buttonDisabled, setButtonDisabled] = useState(true)
   useEffect(() => {
     fetch(`${backendURL}/routes/last`)
       .then(response => response.json())
