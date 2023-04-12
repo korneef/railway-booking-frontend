@@ -4,6 +4,7 @@ import LastTicketCard from "./LastTicketCard/LastTicketCard";
 import TicketCard from "./TicketCard/TicketCard";
 import Coach from "./Coach/Coach";
 import TicketsCountSelector from "./TicketsCountSelector/TicketsCountSelector";
+import OrderDirectionInfo from "./OrderDirectionInfo/OrderDirectionInfo";
 
 export {
   FilterSwitcher,
@@ -11,5 +12,6 @@ export {
   LastTicketCard,
   TicketCard,
   Coach,
-  TicketsCountSelector
+  TicketsCountSelector,
+  OrderDirectionInfo
 }

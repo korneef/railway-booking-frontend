@@ -8,6 +8,7 @@ import TicketFilterForm from "./TicketFilterForm/TicketFilterForm";
 import TicketsList from "./TicketsList/TicketsList";
 import SeatsSelection from "./SeatsSelection/SeatsSelection";
 import SeatsSelectionWrapper from "./SeatsSelection/SeatsSelectionWrapper";
+import OrderInfo from "./OrderInfo/OrderInfo";
 
 export {
   About,
@@ -19,5 +20,6 @@ export {
   TicketFilterForm,
   TicketsList,
   SeatsSelection,
-  SeatsSelectionWrapper
+  SeatsSelectionWrapper,
+  OrderInfo
 }

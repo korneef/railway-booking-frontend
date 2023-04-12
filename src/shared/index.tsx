@@ -56,6 +56,7 @@ import { globalURL, backendURL } from "./API/globalUrl";
 //helpers
 import toUpperCaseFirst from "./helpers/toUpperCaseFirst";
 import getDuration from "./helpers/getDuration";
+import numberWithSpaces from "./helpers/numberWithSpaces";
 
 //customHooks
 import useTicketsSearchRequest from "./customHooks/useTicketsSearchRequest";
@@ -130,6 +131,7 @@ export {
 export {
   toUpperCaseFirst,
   getDuration,
+  numberWithSpaces
 };
 
 //customHooks

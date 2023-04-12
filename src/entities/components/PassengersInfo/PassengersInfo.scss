@@ -1,0 +1,20 @@
+//header
+.passengers-info {
+  &__header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__header {
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  &__passenger-type {
+    font-weight: 400;
+    font-size: 18px;
+    color: #E5E5E5;
+    margin-bottom: 20px;
+  }
+}

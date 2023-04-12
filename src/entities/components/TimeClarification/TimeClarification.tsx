@@ -41,15 +41,6 @@ function TimeClarification(props: TimeClarificationProps) {
     }
   }
 
-  // start_departure_hour_from - Час отбытия от(число)
-  // start_departure_hour_to - Час отбытия до(число)
-  // start_arrival_hour_from - Час прибытия от(число)
-  // start_arrival_hour_to - Час прибытия до(число)
-  // end_departure_hour_from - Час отбытия назад от(число)
-  // end_departure_hour_to - Час отбытия назад до(число)
-  // end_arrival_hour_from - Час прибытия назад от(работает при установленном параметре date_end)
-  // end_arrival_hour_to - Час прибытия назад до(работает при установленном параметре date_end)
-
   const className = 'time-clarification';
 
   return (

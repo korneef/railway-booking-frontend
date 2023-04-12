@@ -1,0 +1,107 @@
+.order-direction-info {
+
+  //header
+  &__header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  &__header-image {
+    margin-right: 15px;
+  }
+
+  &__header {
+    margin-right: 15px;
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  &__header-departure-date {
+    flex-grow: 1;
+  }
+
+  //main
+
+  &__train-general-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 55px;
+    }
+  }
+
+  &__train-general-info-header {
+    font-weight: 400;
+    font-size: 18px;
+    color: #E5E5E5;
+  }
+
+  &__train-general-info {
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+  }
+
+  &__train-general-info-city-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__train-city-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: right;
+  }
+
+  &__time-info {
+    margin-top: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__time-section-wrapper {
+    &_right {
+      text-align: right;
+    }
+  }
+
+  &__time {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 18px;
+    color: #928F94;
+  }
+
+  &__city-info {
+    margin-top: 65px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__city-info-wrapper {
+    &_right {
+      text-align: right;
+    }
+  }
+
+  &__city-name {
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  &__railway-station-name {
+    font-weight: 400;
+    font-size: 16px;
+    color: #928F94;
+  }
+}

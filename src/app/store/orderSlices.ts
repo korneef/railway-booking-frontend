@@ -38,6 +38,7 @@ interface IOrderCreated {
   preOrder: {
     adultCount: number,
     childrenCount: number,
+    childrenWithOutPlaceCount: number,
 
     departure: {
       selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>
@@ -66,6 +67,7 @@ const initialState: IOrderCreated = {
   preOrder: {
     adultCount: 0,
     childrenCount: 0,
+    childrenWithOutPlaceCount: 0,
     departure: {
       selectedSeats: [],
       price: 0,

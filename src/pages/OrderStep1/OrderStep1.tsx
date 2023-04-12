@@ -9,7 +9,7 @@ export default function OrderStep1() {
   const selectedTicket = useAppSelector(state => state.tickets.selectedTicket);
   const requestParams = useAppSelector(state => state.ticketsSearchRequest.params);
   const sendRequest = useTicketsSearchRequest();
-  const className = 'order-step-1'
+  const className = 'order-step'
   //TODO перенести last tickets в глобальный стейт для возможности заказа билетов по нему тоже
   const [lastTickets, setLastTickets] = useState<null | Array<ITicket>>(null);
   useEffect(() => {
