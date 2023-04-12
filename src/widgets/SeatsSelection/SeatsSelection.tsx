@@ -9,7 +9,7 @@ import {
   getDuration,
   useWagonInformationRequest
 } from '../../shared';
-import { TrainTimeTableInfo, WagonTypeSelect } from '../../entities/index';
+import { TrainTimeTableInfo, WagonTypeSelect, TicketPrice } from '../../entities/index';
 import classNames from 'classnames';
 import { Coach, TicketsCountSelector } from '../../features'
 import { unselectTicket } from '../../app/store/ticketsListSlices';
@@ -20,10 +20,9 @@ import { cleanOrder } from 'app/store/orderSlices';
 
 interface SeatsSelectionProps {
   direciton: 'departure' | 'arrival',
-  price?: number
 }
 
-function SeatsSelection({ direciton, price}: SeatsSelectionProps) {
+function SeatsSelection({ direciton }: SeatsSelectionProps) {
   const ticketInfo = useAppSelector(state => state.tickets.selectedTicket);
   const ticket = direciton === 'departure' ? ticketInfo?.departure : ticketInfo?.arrival;
 
@@ -67,6 +66,7 @@ function SeatsSelection({ direciton, price}: SeatsSelectionProps) {
       return newValue;
     })
   }
+  console.log('seats-selection-render')
 
   if (ticket === null || ticket === undefined) return <></>
 
@@ -135,13 +135,10 @@ function SeatsSelection({ direciton, price}: SeatsSelectionProps) {
         {seatsInfo.map((item, index) => {
           if (!selectedWagonsTypes.includes(item.coach.class_type) || !selectedWagonsIndex.includes(index)) return null;
           return <div key={nanoid()}>
-            <Coach index={index} direction={direciton} />
+            <Coach index={index} direction={direciton} />   
           </div>
         })}
-        <div className={`${className}__price-wrapper`}>
-          <span className={`${className}__price`} >{price}</span>
-          <span className={`${className}__price-valute`} >&#8381;</span>
-        </div>
+        <TicketPrice bemClass={className} direction={direciton}/>
       </> : 'loading'
       }
     </Panel>

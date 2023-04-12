@@ -1,6 +1,5 @@
 import { TicketFilterForm, TicketsList, SeatsSelectionWrapper, LastTicketList } from "../../widgets";
 import { useAppSelector } from "../../app/store/hooks";
-import LoadingScreen from "shared/components/LoadingScreen/LoadingScreen";
 
 
 export default function OrderStep1() {
@@ -17,7 +16,7 @@ export default function OrderStep1() {
         </div>
         <div className={`${className}__tickets-wrapper`}>
           {selectedTicket ?
-            <SeatsSelectionWrapper bemClass={className} />
+            <SeatsSelectionWrapper />
             :
             <TicketsList />}
         </div>

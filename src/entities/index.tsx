@@ -15,6 +15,7 @@ import SecondClassCoachMap from "./components/CoachMaps/SecondClassCoachMap/Seco
 import ThirdClassCoachMap from "./components/CoachMaps/ThirdClassCoachMap/ThirdClassCoachMap";
 import FourthClassCoachMap from "./components/CoachMaps/FourthClassCoachMap/FourthClassCoachMap";
 import PassengersInfo from "./components/PassengersInfo/PassengersInfo";
+import TicketPrice from "./components/TicketPrice/TicketPrice";
 
 //interfaces
 import ITrainInformation from "./Interfaces/ITrainInformation";
@@ -35,7 +36,8 @@ export {
   SecondClassCoachMap,
   ThirdClassCoachMap,
   FourthClassCoachMap,
-  PassengersInfo
+  PassengersInfo,
+  TicketPrice
 };
   
 export type { ITrainInformation }

@@ -16,10 +16,6 @@ function TicketCard(props: PropsInterface) {
   const { ticket } = props;
   const className = 'ticket-card';
 
-  useEffect(() => {
-
-  },[])
-
   function minPriceCoise(priceInfo: IPriceInfo | undefined): number | null {
     if (priceInfo) return Math.min(...Object.values(priceInfo as number))
     return null
