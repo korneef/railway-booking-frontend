@@ -4,7 +4,6 @@ import { TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo } from "../../ent
 import { Button, Coffee, WiFi, Express } from "../../shared";
 import { setSelectedTicket } from "../../app/store/ticketsListSlices";
 import { ITicket } from "../../app/store/ticketsListSlices";
-import { useEffect } from "react";
 import { useAppDispatch } from "app/store/hooks";
 
 interface PropsInterface {

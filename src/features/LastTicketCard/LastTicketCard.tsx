@@ -3,10 +3,14 @@ import { Express, WiFi, Coffee } from "../../shared";
 import { toUpperCaseFirst, Panel } from "../../shared";
 import ITrainInformation from "../../entities/Interfaces/ITrainInformation";
 import { IDirectionInfo } from "../../shared";
+import { ITicket } from "app/store/ticketsListSlices";
+import { useAppDispatch } from 'app/store/hooks';
+import { setSelectedTicket } from 'app/store/ticketsListSlices';
 
 interface ILastTicketCardProps extends Pick<ITrainInformation, 'min_price' | 'have_air_conditioning' | 'have_wifi' | 'is_express'> {
   from: Omit<IDirectionInfo, 'datetime'>,
   to: Omit<IDirectionInfo, 'datetime'>
+  ticket: ITicket;
 }
 
 
@@ -17,13 +21,20 @@ function LastTicketCard(props: ILastTicketCardProps) {
     min_price,
     have_air_conditioning,
     have_wifi,
-    is_express } = props;
-
+    is_express,
+    ticket
+  } = props;
+  const dispatch = useAppDispatch();
   const className = 'last-ticket-card'
+
+  const handleClick = (ticket: ITicket) => {
+    dispatch(setSelectedTicket(ticket))
+  }
+
 
   return (
     <Panel variant='white' bemClass={className} >
-      <div className={`${className}__wrapper`} >
+      <div className={`${className}__wrapper`} onClick={() => handleClick(ticket)}>
         <div className={classNames(className + '__direction-wrapper')}>
           <div className={classNames(className + '__from')}>
             <h2 className={classNames(className + '__city-name')}>{toUpperCaseFirst(from.city.name)}</h2>

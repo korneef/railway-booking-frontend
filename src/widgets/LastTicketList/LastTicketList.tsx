@@ -3,7 +3,6 @@ import { backendURL } from 'shared';
 import { ITicket } from 'app/store/ticketsListSlices';
 import { LastTicketCard } from 'features';
 
-
 function LastTicketList() {
   const [lastTickets, setLastTickets] = useState<null | Array<ITicket>>(null);
 
@@ -17,12 +16,12 @@ function LastTicketList() {
       })
   }, [])
 
-  const className = "last-tickets"
-
+  const className = "last-tickets";
+  
   return (<>
     {lastTickets && <div className={className}>
       <h2 className={`${className}__header`} >Последние билеты</h2>
-      {lastTickets.map(item => <LastTicketCard key={item.departure._id} {...item.departure} />)}
+      {lastTickets.map(item => <LastTicketCard key={item.departure._id} {...item.departure} ticket={item}/>)}
     </div>}</>
   );
 }
