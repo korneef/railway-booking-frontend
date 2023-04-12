@@ -12,8 +12,8 @@ function OrderInfo() {
   const arrivalPrice = useAppSelector(state => state.order.preOrder.departure.price);
   if (ticket === null) return <></>;
   const departure = ticket.departure;
-  const arrival = ticket.arrival
-  const className = 'order-info'
+  const arrival = ticket.arrival;
+  const className = 'order-info';
   return (
     <Panel bemClass={className} variant='black'>
       <div className={`${className}__section`}>

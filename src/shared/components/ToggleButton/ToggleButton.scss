@@ -1,27 +1,29 @@
-.toggle-button__label {
+//square-style
+
+.toggle-button-square__label {
   display: inline-block;
   position: relative;
   width: 20px;
   height: 20px;
 }
 
-.toggle-button__input {
+.toggle-button-square__input {
   width: 0;
   height: 0;
   opacity: 0;
 
-  &:checked+.toggle-button__toggle {
+  &:checked+.toggle-button-square__toggle {
     border-color: #C4C4C4;
   }
-  &:checked+.toggle-button__toggle::before {
+  &:checked+.toggle-button-square__toggle::before {
     background-color: #C4C4C4;
   }
-  &:checked+.toggle-button__toggle::after {
+  &:checked+.toggle-button-square__toggle::after {
     opacity: 0;
   }
 }
 
-.toggle-button__toggle {
+.toggle-button-square__toggle {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -55,6 +57,70 @@
     height: 12px;
     width: 2px;
     background-color: #ffffff;
+    border-radius: 1px;
+    transition: 0.1s;
+  }
+}
+
+//circle-style
+
+.toggle-button-circle__label {
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.toggle-button-circle__input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+
+  &:checked+.toggle-button-circle__toggle {
+    border-color: #928F94;
+  }
+  &:checked+.toggle-button-circle__toggle::before {
+    background-color: #928F94;
+  }
+  &:checked+.toggle-button-circle__toggle::after {
+    opacity: 0;
+  }
+}
+
+.toggle-button-circle__toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: inherit;
+  border: 2px solid $orange;
+  border-radius: 50%;
+  transition: 0.1s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    left: calc(50% - 9px);
+    top: calc(50% - 1px);
+    height: 2px;
+    width: 18px;
+    background-color: $orange;
+    border-radius: 1px;
+    transition: 0.1s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    left: calc(50% - 1px);
+    top: calc(50% - 9px);
+    height: 18px;
+    width: 2px;
+    background-color: $orange;
     border-radius: 1px;
     transition: 0.1s;
   }

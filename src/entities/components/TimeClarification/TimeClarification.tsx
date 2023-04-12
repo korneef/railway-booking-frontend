@@ -52,7 +52,7 @@ function TimeClarification(props: TimeClarificationProps) {
         <h2
           className={classNames(className + '__header')}>{direction === 'departure' ? "Туда" : "Обратно"}
         </h2>
-        <ToggleButton bemClass={className} handeClick={handleClick} />
+        <ToggleButton bemClass={className} handeClick={handleClick} checked={isChecked} />
       </div>
       {isChecked ? <>
         <div className={classNames(className + '__slider-wrapper')}>

@@ -9,6 +9,8 @@ import TicketsList from "./TicketsList/TicketsList";
 import SeatsSelection from "./SeatsSelection/SeatsSelection";
 import SeatsSelectionWrapper from "./SeatsSelection/SeatsSelectionWrapper";
 import OrderInfo from "./OrderInfo/OrderInfo";
+import PassengersList from "./PassengersList/PassengersList";
+import LastTicketList from "./LastTicketList/LastTicketList";
 
 export {
   About,
@@ -21,5 +23,7 @@ export {
   TicketsList,
   SeatsSelection,
   SeatsSelectionWrapper,
-  OrderInfo
+  OrderInfo,
+  PassengersList,
+  LastTicketList
 }

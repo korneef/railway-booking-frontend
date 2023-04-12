@@ -5,11 +5,12 @@ interface ToggleButtonProps {
   bemClass?: string,
   handeClick: ChangeEventHandler<HTMLInputElement>,
   checked?: boolean;
+  variant?: 'square' | 'circle'
 }
 
 function ToggleButton(props: ToggleButtonProps) {
-  const { bemClass, handeClick, checked = false } = props
-  const className = 'toggle-button'
+  const { bemClass, handeClick, checked = false, variant = 'square' } = props
+  const className = `toggle-button-${variant}`
   return (
     <div className={classNames(className, bemClass + `__${className}`)}>
       <label className={classNames(className + "__label")}>

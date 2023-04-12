@@ -30,12 +30,14 @@ export interface TicketRequestParams {
 }
 
 interface stateInterface {
+  isFirstRequest: boolean;
   loadingStatus: string | null;
   params: TicketRequestParams;
 }
 
 const initialState: stateInterface = {
   loadingStatus: null,
+  isFirstRequest: false,
   params: {
     offset: 0
   }
@@ -66,10 +68,14 @@ export const ticketSearchRequestSlises = createSlice({
       const status = action.payload;
       state.loadingStatus = status;
       return state;
+    },
+    isFirstRequestUpdate: (state, action: PayloadAction<boolean>) => {
+      state.isFirstRequest = action.payload;
+      return state;
     }
   },
 })
 
-export const { updateRequestParameter, updateLoadingStatus } = ticketSearchRequestSlises.actions;
+export const { updateRequestParameter, updateLoadingStatus, isFirstRequestUpdate } = ticketSearchRequestSlises.actions;
 
 export default ticketSearchRequestSlises.reducer;

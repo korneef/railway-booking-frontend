@@ -1,17 +1,24 @@
 import { TicketCard } from "../../features";
-import { useAppSelector } from "../../app/store/hooks";
+import { useAppSelector, useAppDispatch } from "../../app/store/hooks";
 import { useState, useEffect } from "react";
 import { useFindTicketRequest } from "../../shared";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import getPagesCount from "./helpers/getPagesCount";
 import React from "react";
-
+import { useTicketsSearchRequest } from 'shared'
+// import { isFirstRequestUpdate } from "app/store/ticketSearchRequestSlices";
+//TODO удалить закоменнтированный код
 
 export default function TicketsList() {
   const { total_count, items } = useAppSelector(state => state.tickets);
   const { offset } = useAppSelector(state => state.ticketsSearchRequest.params);
   const refreshTicketList = useFindTicketRequest();
+  const requestParams = useAppSelector(state => state.ticketsSearchRequest.params);
+  const isLoading = useAppSelector(state => state.ticketsSearchRequest.loadingStatus)
+  const sendRequest = useTicketsSearchRequest();
+  // const dispatch = useAppDispatch();
+
 
   const [listOutputsOptions, setlistOutputsOptions] = useState(() => {
     const itemsCount: number = 5;
@@ -24,6 +31,13 @@ export default function TicketsList() {
       maxPages
     }
   });
+
+  useEffect(() => {
+    // dispatch(isFirstRequestUpdate(false));
+    if (isLoading === 'isLoading') return;
+    sendRequest(requestParams);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestParams]);
 
   useEffect(() => {
     setlistOutputsOptions(prevValue => {

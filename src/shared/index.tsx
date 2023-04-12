@@ -42,6 +42,7 @@ import LinensServiceActive from './assets/icons/wagon-service-icons/linens-activ
 import LinensServiceActiveUntouchable from './assets/icons/wagon-service-icons/linens-active-untouchable.svg';
 import WiFiService from './assets/icons/wagon-service-icons/wifi.svg';
 import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.svg';
+import LoadingScreenAnimation from './assets/animations/loading-animation/loading-animation.gif';
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -110,6 +111,7 @@ export {
   LinensServiceActiveUntouchable,
   WiFiService,
   WifiServiseActive,
+  LoadingScreenAnimation
 };
 
 //interfaces

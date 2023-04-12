@@ -1,4 +1,4 @@
-import { OrderInfo } from "widgets";
+import { OrderInfo, PassengersList } from "widgets";
 
 function OrderStep2() {
 
@@ -9,9 +9,7 @@ function OrderStep2() {
         <div className={`${className}__aside`}>
           <OrderInfo />
         </div>
-        <div className={`${className}__passenger-list`}>
-
-        </div>
+        <PassengersList />
       </div>
     </div >
   );

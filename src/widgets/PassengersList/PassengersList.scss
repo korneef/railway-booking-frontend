@@ -1,0 +1,24 @@
+.passenger-card {
+
+  &__panel-white {
+    width: 960px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 30px 15px;
+    background: #F9F9F9;
+    border-bottom: 1px dashed #928F94;
+
+  }
+
+  &__toggle-button-circle {
+    margin-right: 15px;
+  }
+
+  &__passenger-number {
+    font-weight: 400;
+    font-size: 30px;
+  }
+}
