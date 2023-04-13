@@ -7,7 +7,7 @@ function ToStep2ButtonWrapper() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const preOrder = useAppSelector(state => state.order.preOrder);
   const selectedTicket = useAppSelector(state => state.tickets.selectedTicket);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function ToStep2ButtonWrapper() {
   }, [preOrder, selectedTicket?.arrival]);
 
   const handleClick = () => {
-    navigate('/order/step/2')
+    navigate('/order/step/2');
   }
   return (
     <div className={`order-step__button-wrapper`}>

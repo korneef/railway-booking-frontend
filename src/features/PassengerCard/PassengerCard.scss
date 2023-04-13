@@ -1,0 +1,180 @@
+.passenger-card {
+  margin-bottom: 45px;
+
+  //Header
+  &__panel-white {
+    width: 960px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 30px 15px;
+    background: #F9F9F9;
+  }
+
+  &__toggle-button-circle {
+    margin-right: 15px;
+  }
+
+  &__passenger-number {
+    font-weight: 400;
+    font-size: 30px;
+  }
+
+  //main
+  &__form-wrapper {
+    border-top: 1px dashed #928F94;
+  }
+
+  &__personal-info-section {
+    padding: 35px 25px;
+    border-bottom: 1px dashed #928F94;
+  }
+
+  &__input-label {
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    color: #928F94;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    width: 280px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    padding: 0 18px;
+
+    &_document-select {
+      display: inline-block;
+      width: auto;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $orange;
+    }
+
+    &_error {
+      border-color: rgb(247, 78, 78);
+    }
+  }
+
+  &__fullname-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__personal-details-wrapper {
+    margin-top: 30px;
+    display: flex;
+  }
+
+  &__gender-wrapper {
+    margin-right: 30px;
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-wrapper {
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+  }
+
+  &__radio-label {
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #000000;
+
+    &_left {
+      border-right: 1px solid #928F94;
+    }
+
+    &_active {
+      background-color: $orange;
+    }
+  }
+
+  &__document-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
+
+  &__document-input-wrapper {
+    margin-right: 35px;
+  }
+
+  &__button-wrapper {
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+
+    &_successfully {
+      background: #B2F6A1;
+    }
+  }
+
+  &__successfully-image-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    &img {
+      margin-right: 10px;
+    }
+  }
+
+  &__successfully-image {
+    margin-right: 15px;
+  }
+
+  &__successfully-text {
+    font-weight: 400;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+
+  &__button {
+    height: 50px;
+  }
+
+  &__errors-field {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background: rgba(255, 61, 0, 0.38);
+  }
+
+  &__errors-field-image {
+    margin-right: 15px;
+  }
+
+  &__errors-item {
+    font-weight: 400;
+    font-size: 18px;
+    color: #292929;
+    margin-bottom: 5px;
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

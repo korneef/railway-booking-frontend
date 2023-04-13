@@ -5,7 +5,6 @@ import { ToStep2ButtonWrapper } from "features";
 
 function SeatsSelectionWrapper() {
   const selectedTicket = useAppSelector(state => state.tickets.selectedTicket);
-  console.log('render wrapper')
   return (
     <>
       <SeatsSelection direciton='departure' />

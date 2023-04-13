@@ -9,12 +9,12 @@ interface IUser {
   payment_method: 'cash' | 'online'
 }
 
-interface IPersonInfo {
-  is_adult: true,
+export interface IPersonInfo {
+  is_adult: boolean,
   first_name: string,
   last_name: string,
   patronymic: string,
-  gender: true,
+  gender: boolean,
   birthday: string,
   document_type: string,
   document_data: string
@@ -48,6 +48,7 @@ interface IOrderCreated {
       selectedSeats: Array<Pick<ISeat, 'coach_id' | 'seat_number' | 'price'>>
       price: number,
     }
+    persons: Array<IPersonInfo | null>,
   }
   order: {
     user: Partial<IUser>,
@@ -59,6 +60,11 @@ interface IOrderCreated {
 interface IUnselectCoachSeats {
   direction: string,
   id: string,
+}
+
+interface INewPerson {
+  index: number,
+  person: IPersonInfo,
 }
 
 export interface OrderSubmit extends Required<IOrderCreated> { };
@@ -76,6 +82,7 @@ const initialState: IOrderCreated = {
       selectedSeats: [],
       price: 0,
     },
+    persons: [],
   },
   order: {
     user: {},
@@ -145,6 +152,14 @@ export const orderSlises = createSlice({
         state.preOrder.arrival.selectedSeats = arrivalSeats.filter(item => item.coach_id !== id);
       }
       return state;
+    },
+    changeNewPersonsArray: (state, action: PayloadAction<Array<IPersonInfo | null>>) => {
+      state.preOrder.persons = action.payload;
+      return state;
+    },
+    addNewPerson: (state, action: PayloadAction<INewPerson>) => {
+      state.preOrder.persons[action.payload.index] = action.payload.person;
+      return state;
     }
   }
 })
@@ -159,7 +174,9 @@ export const {
   unsetSelectSeat,
   setSelectArrivalSeat,
   cleanOrder,
-  unselectCoachSeats
+  unselectCoachSeats,
+  changeNewPersonsArray,
+  addNewPerson
 } = orderSlises.actions;
 
 export default orderSlises.reducer;

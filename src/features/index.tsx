@@ -7,6 +7,7 @@ import TicketsCountSelector from "./TicketsCountSelector/TicketsCountSelector";
 import OrderDirectionInfo from "./OrderDirectionInfo/OrderDirectionInfo";
 import PassengerCard from "./PassengerCard/PassengerCard";
 import ToStep2ButtonWrapper from "./ToStep2Button/ToStep2ButtonWrapper";
+import ToStep3ButtonWrapper from "./ToStep3Button/ToStep3Button";
 
 export {
   FilterSwitcher,
@@ -17,5 +18,6 @@ export {
   TicketsCountSelector,
   OrderDirectionInfo,
   PassengerCard,
-  ToStep2ButtonWrapper
+  ToStep2ButtonWrapper,
+  ToStep3ButtonWrapper
 }

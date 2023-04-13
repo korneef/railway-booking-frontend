@@ -13,6 +13,7 @@ import TrainDirection from "./components/TrainDirection/TrainDirection";
 import TrainPath from "./components/TrainPath/TrainPath";
 import InputWithLabelOnInput from "./components/InputWithLabelOnInput/InputWithLabelOnInput";
 import Price from "./components/Price/Price";
+import DatePickerField from "./components/DateFieldFormik/DateFieldFormik";
 
 //assests
 import { ReactComponent as TrainLogo } from './assets/icons/train-logo.svg';
@@ -43,6 +44,8 @@ import LinensServiceActiveUntouchable from './assets/icons/wagon-service-icons/l
 import WiFiService from './assets/icons/wagon-service-icons/wifi.svg';
 import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.svg';
 import LoadingScreenAnimation from './assets/animations/loading-animation/loading-animation.gif';
+import ErrorIcon from './assets/icons/status-icons/error.png'
+import SuccessfullyIcon from './assets/icons/status-icons/successfully.png'
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -79,7 +82,8 @@ export {
   TrainDirection,
   TrainPath,
   InputWithLabelOnInput,
-  Price
+  Price,
+  DatePickerField
 };
 
 //assets
@@ -111,7 +115,9 @@ export {
   LinensServiceActiveUntouchable,
   WiFiService,
   WifiServiseActive,
-  LoadingScreenAnimation
+  LoadingScreenAnimation,
+  ErrorIcon,
+  SuccessfullyIcon
 };
 
 //interfaces

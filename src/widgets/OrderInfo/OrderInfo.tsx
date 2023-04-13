@@ -9,7 +9,7 @@ import PassengersInfo from "entities/components/PassengersInfo/PassengersInfo";
 function OrderInfo() {
   const ticket = useAppSelector(state => state.tickets.selectedTicket);
   const departurePrice = useAppSelector(state => state.order.preOrder.departure.price);
-  const arrivalPrice = useAppSelector(state => state.order.preOrder.departure.price);
+  const arrivalPrice = useAppSelector(state => state.order.preOrder.arrival.price);
   if (ticket === null) return <></>;
   const departure = ticket.departure;
   const arrival = ticket.arrival;
