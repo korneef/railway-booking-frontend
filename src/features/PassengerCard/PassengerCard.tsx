@@ -28,10 +28,9 @@ function PassengerCard({ index, person, open, scroll, last }: IProps) {
   const dispatch = useAppDispatch();
   const headerRef = useRef<null | HTMLDivElement>(null);
   useLayoutEffect(() => {
-    console.log(scroll)
     if (!scroll) return
     headerRef.current !== null && headerRef.current.scrollIntoView();
-  }, []);
+  }, [scroll]);
   const formik = useFormik({
     initialValues: initialValuesParser(person),
     onSubmit: values => {
