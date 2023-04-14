@@ -17,7 +17,6 @@ function PassengersList() {
     for (let i = 0; i < personsNeeded; i += 1) {
       if (persons[i] === undefined) {
         newPersons.push(null);
-        console.log(newPersons)
       } else {
         newPersons.push(persons[i]);
       }
@@ -27,11 +26,9 @@ function PassengersList() {
 
   const className = 'passengers-list';
 
-
   return (
     <div className={className} >
       {persons.map((item, index) => {
-        console.log(`${index} >> ${persons[index - 1]}`)
         return <PassengerCard
           key={nanoid()}
           index={index}

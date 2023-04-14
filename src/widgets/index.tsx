@@ -11,6 +11,7 @@ import SeatsSelectionWrapper from "./SeatsSelection/SeatsSelectionWrapper";
 import OrderInfo from "./OrderInfo/OrderInfo";
 import PassengersList from "./PassengersList/PassengersList";
 import LastTicketList from "./LastTicketList/LastTicketList";
+import PayerInfo from "./PayerInfo/PayerInfo";
 
 export {
   About,
@@ -25,5 +26,6 @@ export {
   SeatsSelectionWrapper,
   OrderInfo,
   PassengersList,
-  LastTicketList
+  LastTicketList,
+  PayerInfo
 }

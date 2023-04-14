@@ -46,6 +46,7 @@ import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.sv
 import LoadingScreenAnimation from './assets/animations/loading-animation/loading-animation.gif';
 import ErrorIcon from './assets/icons/status-icons/error.png'
 import SuccessfullyIcon from './assets/icons/status-icons/successfully.png'
+import CheckMark from './assets/icons/chek-mark.svg'
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -117,7 +118,8 @@ export {
   WifiServiseActive,
   LoadingScreenAnimation,
   ErrorIcon,
-  SuccessfullyIcon
+  SuccessfullyIcon,
+  CheckMark
 };
 
 //interfaces

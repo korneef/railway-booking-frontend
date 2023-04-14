@@ -1,0 +1,116 @@
+.payer-info {
+  width: 960px;
+  margin-bottom: 80px;
+
+  &__header {
+    padding: 35px 35px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 30px;
+    background-color: #F9F9F9;
+    color: #292929;
+  }
+
+  &__fullname-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 35px;
+    border-top: 1px dashed #928F94;
+  }
+
+  &__contacts-wrapper {
+    border-top: 1px dashed #928F94;
+    border-bottom: 1px dashed #928F94;
+    padding: 35px;
+  }
+
+  &__phone-wrapper {
+    margin-bottom: 35px;
+  }
+
+  &__label {
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    color: #292929;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    width: 280px;
+    height: 50px;
+    border: 1px solid #928F94;
+    border-radius: 5px;
+    padding: 15px;
+
+    &:focus,
+    :active {
+      outline: none;
+      border-color: $orange;
+    }
+
+    &_error {
+      border-color: rgb(249, 160, 160);
+    }
+  }
+
+  &__payment-method-online {
+    padding: 35px;
+    border-bottom: 1px dashed #928F94;
+    border-top: 1px dashed #928F94;
+
+  }
+
+  &__radio-button-input {
+    display: none;
+
+    &:checked+.payer-info__radio-button-label {
+      color: $orange;
+      transition: 100ms;
+
+      &::before {
+        transition: 100ms;
+        border-color: $orange;
+        background-image: url('../../shared/assets/icons/chek-mark.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+
+  &__radio-button-label {
+    font-weight: 400;
+    font-size: 24px;
+    position: relative;
+    transition: 100ms;
+
+    &::before {
+      content: '';
+      position: relative;
+      top: 4px;
+      margin-right: 20px;
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border: 1px solid #928F94;
+      border-radius: 5px;
+    }
+  }
+
+  &__online-payment-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+
+  &__online-payment-item {
+    margin-right: 60px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #292929;
+  }
+
+  &__payment-method-chash {
+    padding: 35px;
+  }
+}

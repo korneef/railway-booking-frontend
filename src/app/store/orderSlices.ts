@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface IUser {
+export interface IUser {
   first_name: string,
   last_name: string,
   patronymic: string,
@@ -49,6 +49,7 @@ interface IOrderCreated {
       price: number,
     }
     persons: Array<IPersonInfo | null>,
+    user: IUser | null,
   }
   order: {
     user: Partial<IUser>,
@@ -83,6 +84,7 @@ const initialState: IOrderCreated = {
       price: 0,
     },
     persons: [],
+    user: null,
   },
   order: {
     user: {},
@@ -160,6 +162,10 @@ export const orderSlises = createSlice({
     addNewPerson: (state, action: PayloadAction<INewPerson>) => {
       state.preOrder.persons[action.payload.index] = action.payload.person;
       return state;
+    },
+    addUser: (state, action: PayloadAction<IUser>) => {
+      state.preOrder.user = action.payload;
+      return state;
     }
   }
 })
@@ -176,7 +182,8 @@ export const {
   cleanOrder,
   unselectCoachSeats,
   changeNewPersonsArray,
-  addNewPerson
+  addNewPerson,
+  addUser
 } = orderSlises.actions;
 
 export default orderSlises.reducer;

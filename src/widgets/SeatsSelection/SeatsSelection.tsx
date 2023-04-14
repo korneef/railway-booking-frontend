@@ -66,7 +66,6 @@ function SeatsSelection({ direciton }: SeatsSelectionProps) {
       return newValue;
     })
   }
-  console.log('seats-selection-render')
 
   if (ticket === null || ticket === undefined) return <></>
 
