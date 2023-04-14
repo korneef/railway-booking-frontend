@@ -46,10 +46,13 @@ import LinensServiceActiveUntouchable from './assets/icons/wagon-service-icons/l
 import WiFiService from './assets/icons/wagon-service-icons/wifi.svg';
 import WifiServiseActive from './assets/icons/wagon-service-icons/wifi-active.svg';
 import LoadingScreenAnimation from './assets/animations/loading-animation/loading-animation.gif';
-import ErrorIcon from './assets/icons/status-icons/error.png'
-import SuccessfullyIcon from './assets/icons/status-icons/successfully.png'
-import CheckMark from './assets/icons/chek-mark.svg'
-import UserIcon from './assets/icons/user-icon.svg'
+import ErrorIcon from './assets/icons/status-icons/error.png';
+import SuccessfullyIcon from './assets/icons/status-icons/successfully.png';
+import CheckMark from './assets/icons/chek-mark.svg';
+import UserIcon from './assets/icons/user-icon.svg';
+import PrintTicket from './assets/icons/instuction-icons/print-ticket.svg';
+import GetTicket from './assets/icons/instuction-icons/get-ticket.svg';
+import PresentTicket from './assets/icons/instuction-icons/present-ticket.svg';
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -125,7 +128,10 @@ export {
   ErrorIcon,
   SuccessfullyIcon,
   CheckMark,
-  UserIcon
+  UserIcon,
+  GetTicket,
+  PrintTicket,
+  PresentTicket
 };
 
 //interfaces

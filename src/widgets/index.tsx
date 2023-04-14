@@ -12,6 +12,9 @@ import OrderInfo from "./OrderInfo/OrderInfo";
 import PassengersList from "./PassengersList/PassengersList";
 import LastTicketList from "./LastTicketList/LastTicketList";
 import PayerInfo from "./PayerInfo/PayerInfo";
+import TrainSummaryInfo from "./TrainSummaryInfo/TrainSummaryInfo";
+import PassengersSummaryInfo from "./PassengersSummaryInfo/PassengersSummaryInfo";
+import PaymentMethodSummaryInfo from "./PaymentMethodSummaryInfo/PaymentMethodSummaryInfo";
 
 export {
   About,
@@ -27,5 +30,8 @@ export {
   OrderInfo,
   PassengersList,
   LastTicketList,
-  PayerInfo
+  PayerInfo,
+  TrainSummaryInfo,
+  PassengersSummaryInfo,
+  PaymentMethodSummaryInfo
 }

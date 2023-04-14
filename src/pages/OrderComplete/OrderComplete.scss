@@ -1,0 +1,114 @@
+.order-completed {
+  &__main-wrapper {
+    position: relative;
+  }
+
+  position: relative;
+  top: -350px;
+
+
+  &__gratitude-header {
+    margin-bottom: 10px;
+
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 84px;
+    color: #FFFFFF;
+  }
+
+  &__panel-white {
+    background-color: #FFFFFF;
+  }
+
+  &__header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 50px;
+  }
+
+  &__order-number {
+    font-weight: 700;
+    font-size: 36px;
+    color: #3E3C41;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #3E3C41;
+
+    &::before {
+      content: "сумма ";
+      color: #928F94;
+      font-weight: 300;
+    }
+
+    &::after {
+      content: " \20BD";
+      color: #928F94;
+      font-weight: 300;
+    }
+  }
+
+  &__main {
+    padding: 100px 200px;
+  }
+
+  &__user {
+    margin-bottom: 50px;
+
+    font-weight: 700;
+    font-size: 36px;
+    color: #292929;
+  }
+
+  &__text-standart {
+    margin-bottom: 25px;
+
+    font-weight: 400;
+    font-size: 24px;
+    color: #292929;
+  }
+
+  &__text-bold {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #292929;
+  }
+
+  &__button-wrapper {
+    padding: 70px 90px;
+    text-align: right;
+    background-color: $orange;
+  }
+
+  &__button {
+    height: 60px;
+    &:hover {
+      color: #FFFFFF
+    }
+  }
+}
+
+.instructions {
+  background-color: #F4F3F6;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  &__card {
+    width: 155px;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  &__image-container {
+    margin-bottom: 15px;
+  }
+}

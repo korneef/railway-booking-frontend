@@ -11,7 +11,7 @@ import valuesToStoreParser from "./helpers/valuesToStoreParser";
 import { useAppDispatch } from "app/store/hooks";
 import { addNewPerson } from "app/store/orderSlices";
 import { nanoid } from "nanoid";
-import { SuccessfullyIcon, ErrorIcon, WidgetHeader } from "shared";
+import { SuccessfullyIcon, ErrorIcon } from "shared";
 
 interface IProps {
   index: number,

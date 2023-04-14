@@ -6,10 +6,11 @@ import { HashLink } from "react-router-hash-link";
 
 export default function Header() {
   const isOrder:boolean = /\/order\/step\//.test(useLocation().pathname);
-  const variant = isOrder ? 'variant-2' : 'variant-1'
-  const className = 'header'
+  const variant = isOrder ? 'variant-2' : 'variant-1';
+  const orderIsComplete:boolean = /thanks-for-your-order/.test(useLocation().pathname);
+  const className = 'header';
   return (
-    <header className={classNames(className, (className+`_${variant}`))}>
+    <header className={classNames(className, (className+`_${variant}`), {[`${className}_variant-3`]: orderIsComplete})}>
       <div className="logo wrapped">Лого</div>
       <nav className="header__nav-menu wrapped">
         <ul className="header-nav-menu-list">
@@ -19,13 +20,13 @@ export default function Header() {
           <li className="header__nav-menu-item"><HashLink to={`/#contacts`} className="header__nav-menu-link">Контакты</HashLink></li>
         </ul>
       </nav>
-      <div className={classNames(
+      {!orderIsComplete && <div className={classNames(
         `${className}__ticket-search-section wrapped`,
         (`${className}__ticket-search-section_${variant}`)
         )}>
         {isOrder ? false : <Slogan bemClass={className} />}
         <TicketSearchForm bemClass={className} variant={variant}/>
-      </div>
+      </div>}
     </header>
   )
 }

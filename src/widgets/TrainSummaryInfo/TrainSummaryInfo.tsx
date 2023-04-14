@@ -1,18 +1,16 @@
 import classNames from "classnames";
-import { IPriceInfo, Panel } from "../../shared";
+import { IPriceInfo, Panel, Button, Coffee, WiFi, Express, WidgetHeader } from "../../shared";
 import { TrainGeneralInfo, TrainTimeTableInfo, TicketSeatsInfo } from "../../entities/index";
-import { Button, Coffee, WiFi, Express } from "../../shared";
-import { setSelectedTicket } from "../../app/store/ticketsListSlices";
-import { ITicket } from "../../app/store/ticketsListSlices";
-import { useAppDispatch } from "app/store/hooks";
+import { useAppDispatch, useAppSelector } from "app/store/hooks";
+import { useNavigate } from "react-router-dom";
+import { unselectTicket } from "../../app/store/ticketsListSlices";
+import { cleanOrder } from "app/store/orderSlices";
 
-interface PropsInterface {
-  ticket: ITicket
-}
-
-function TicketCard(props: PropsInterface) {
-  const dispatch = useAppDispatch()
-  const { ticket } = props;
+function TrainSummaryInfo() {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const ticket = useAppSelector(state => state.tickets.selectedTicket);
+  if (ticket === null) return (<></>);
   const className = 'ticket-card';
 
   function minPriceCoise(priceInfo: IPriceInfo | undefined): number | null {
@@ -32,13 +30,17 @@ function TicketCard(props: PropsInterface) {
   const firstClassPrice = minPriceCoise(ticket?.departure.price_info.first);
   const firstClassCount = ticket?.departure.available_seats_info.first;
 
-  const handleClick = (ticket: ITicket) => {
-    dispatch(setSelectedTicket(ticket))
+  const handleClick = () => {
+    dispatch(unselectTicket());
+    dispatch(cleanOrder());
+    navigate('/order/step/1')
+
   }
 
   return (
 
     <Panel variant='white' bemClass={className} >
+      <WidgetHeader bemClass={className}>Поезд</WidgetHeader>
       <div className={`${className}__wrapper`}>
         <TrainGeneralInfo
           bemClass={className}
@@ -63,7 +65,7 @@ function TicketCard(props: PropsInterface) {
             {ticket.is_express && <Express className={classNames(className + '__option-icon')} />}
           </div>
           <div className={classNames(className + '__take-seats-button-wrapper')}>
-            <Button variant='small' className={className} onClick={() => handleClick(ticket)}>Выбрать места</Button>
+            <Button variant='transparent' className={className} onClick={handleClick}>Изменить</Button>
           </div>
         </div>
       </div>
@@ -71,5 +73,4 @@ function TicketCard(props: PropsInterface) {
   );
 }
 
-export default TicketCard;
-
+export default TrainSummaryInfo;

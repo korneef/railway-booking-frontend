@@ -24,14 +24,14 @@ interface ISeat {
   coach_id: string,
   person_info: IPersonInfo,
   seat_number: number,
-  is_child: true,
-  include_children_seat: true,
+  is_child: boolean,
+  include_children_seat: boolean,
   price: number,
 }
 
 interface IDirection {
   route_direction_id: string,
-  seats: Array<Partial<ISeat>>
+  seats: Array<Omit<ISeat, 'price'>>
 }
 
 interface IOrderCreated {
@@ -52,9 +52,9 @@ interface IOrderCreated {
     user: IUser | null,
   }
   order: {
-    user: Partial<IUser>,
-    departure: Partial<IDirection>,
-    arrival?: Partial<IDirection>
+    user: IUser | null,
+    departure: IDirection,
+    arrival?: IDirection
   }
 }
 
@@ -87,9 +87,10 @@ const initialState: IOrderCreated = {
     user: null,
   },
   order: {
-    user: {},
+    user: null,
     departure: {
-      seats: []
+      seats: [],
+      route_direction_id: ''
     },
   }
 }
@@ -99,11 +100,11 @@ export const orderSlises = createSlice({
   initialState,
   reducers: {
     setDepartureId: (state, action: PayloadAction<string>) => {
-      state.order.departure = { route_direction_id: action.payload }
+      state.order.departure.route_direction_id = action.payload
       return state;
     },
     setArrivalId: (state, action: PayloadAction<string>) => {
-      state.order.arrival = { route_direction_id: action.payload }
+      state.order.arrival = {route_direction_id: action.payload, seats: []}
       return state;
     },
     setAdultCount: (state, action: PayloadAction<number>) => {
@@ -166,6 +167,18 @@ export const orderSlises = createSlice({
     addUser: (state, action: PayloadAction<IUser>) => {
       state.preOrder.user = action.payload;
       return state;
+    },
+    addUserInOrder: (state, action: PayloadAction<IUser>) => {
+      state.order.user = action.payload;
+      return state;
+    },
+    addDepartureSeatsInOrder: (state, action: PayloadAction<Array<Omit<ISeat, 'price'>>>) => {
+      state.order.departure.seats = action.payload;
+      return state;
+    },
+    addArrivalSeatsInOrder: (state, action: PayloadAction<Array<Omit<ISeat, 'price'>>>) => {
+      if (state.order.arrival !== undefined) state.order.arrival.seats = action.payload;
+      return state;
     }
   }
 })
@@ -183,7 +196,10 @@ export const {
   unselectCoachSeats,
   changeNewPersonsArray,
   addNewPerson,
-  addUser
+  addUser,
+  addUserInOrder,
+  addDepartureSeatsInOrder,
+  addArrivalSeatsInOrder
 } = orderSlises.actions;
 
 export default orderSlises.reducer;

@@ -1,9 +1,16 @@
 .ticket-card__panel-white {
+  margin-bottom: 50px;
+}
+
+.ticket-card__wrapper {
   min-height: 30px;
   width: 960px;
   display: flex;
   flex-wrap: nowrap;
-  margin-bottom: 50px;
+}
+
+.ticket-card__widget-header {
+  border-bottom: 1px solid #928F94;
 }
 
 .ticket-card__general {

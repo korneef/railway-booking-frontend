@@ -1,7 +1,7 @@
 import { WidgetHeader, PassengerCard, Panel, Button, numberWithSpaces } from "shared";
 import { useAppSelector } from "app/store/hooks";
 import { nanoid } from "nanoid";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PassengersSummaryInfo() {
   const passengers = useAppSelector(state => state.order.preOrder.persons);

@@ -1,0 +1,29 @@
+.payment-summary-info {
+
+  margin-bottom: 50px;
+
+  &__widget-header {
+    border-bottom: 1px solid #928F94;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__payment-method {
+    width: 680px;
+    padding: 35px;
+    border-right: 1px dashed #E5E5E5;
+    font-weight: 400;
+    font-size: 24px;
+
+    color: #292929;
+  }
+
+  &__change-paymetn-button-wrapper {
+    padding: 35px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
