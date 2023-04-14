@@ -3,8 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Button, DateField } from "../../shared";
 import CitiesSearchInput from "../../entities/components/CitiesSearchInput/CitiesSearchInput";
 import { useTicketsSearchRequest } from "../../shared";
-import { useAppSelector, useAppDispatch } from "app/store/hooks";
-import { isFirstRequestUpdate } from "app/store/ticketSearchRequestSlices";
+import { useAppSelector } from "app/store/hooks";
 
 interface TicketSearchFormProps {
   bemClass: string,

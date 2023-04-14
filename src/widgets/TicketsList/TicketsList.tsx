@@ -1,5 +1,5 @@
 import { TicketCard } from "../../features";
-import { useAppSelector, useAppDispatch } from "../../app/store/hooks";
+import { useAppSelector } from "../../app/store/hooks";
 import { useState, useEffect } from "react";
 import { useFindTicketRequest } from "../../shared";
 import classNames from "classnames";

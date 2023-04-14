@@ -13,7 +13,6 @@ import TrainDirection from "./components/TrainDirection/TrainDirection";
 import TrainPath from "./components/TrainPath/TrainPath";
 import InputWithLabelOnInput from "./components/InputWithLabelOnInput/InputWithLabelOnInput";
 import Price from "./components/Price/Price";
-import DatePickerField from "./components/DateFieldFormik/DateFieldFormik";
 import WidgetHeader from "./components/WidgetHeader/WidgetHeader";
 import PassengerCard from "./components/PassengerCard/PassengerCard";
 
@@ -90,7 +89,6 @@ export {
   TrainPath,
   InputWithLabelOnInput,
   Price,
-  DatePickerField,
   WidgetHeader,
   PassengerCard
 };
