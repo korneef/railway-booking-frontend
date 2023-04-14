@@ -14,6 +14,8 @@ import TrainPath from "./components/TrainPath/TrainPath";
 import InputWithLabelOnInput from "./components/InputWithLabelOnInput/InputWithLabelOnInput";
 import Price from "./components/Price/Price";
 import DatePickerField from "./components/DateFieldFormik/DateFieldFormik";
+import WidgetHeader from "./components/WidgetHeader/WidgetHeader";
+import PassengerCard from "./components/PassengerCard/PassengerCard";
 
 //assests
 import { ReactComponent as TrainLogo } from './assets/icons/train-logo.svg';
@@ -47,6 +49,7 @@ import LoadingScreenAnimation from './assets/animations/loading-animation/loadin
 import ErrorIcon from './assets/icons/status-icons/error.png'
 import SuccessfullyIcon from './assets/icons/status-icons/successfully.png'
 import CheckMark from './assets/icons/chek-mark.svg'
+import UserIcon from './assets/icons/user-icon.svg'
 
 //interfaces
 import IAviableSeatsInfo from "./interfaces/IAviableSeatsInfo";
@@ -84,7 +87,9 @@ export {
   TrainPath,
   InputWithLabelOnInput,
   Price,
-  DatePickerField
+  DatePickerField,
+  WidgetHeader,
+  PassengerCard
 };
 
 //assets
@@ -119,7 +124,8 @@ export {
   LoadingScreenAnimation,
   ErrorIcon,
   SuccessfullyIcon,
-  CheckMark
+  CheckMark,
+  UserIcon
 };
 
 //interfaces

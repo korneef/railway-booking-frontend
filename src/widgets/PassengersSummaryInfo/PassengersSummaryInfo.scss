@@ -1,0 +1,56 @@
+.passengers-summary-info {
+  width: 960px;
+
+  &__widget-header {
+    border-bottom: 1px solid #928F94;
+    ;
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__passengers {
+    width: 680px;
+    border-right: 1px dashed #E5E5E5;
+  }
+
+  &__aside-wrapper {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__total {
+    font-weight: 400;
+    font-size: 30px;
+    color: #292929;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+
+    color: #292929;
+
+    &::after {
+      content: " \20BD";
+      color: #928F94;
+      font-weight: 300;
+    }
+  }
+
+
+
+  &__button {
+    width: 100%;
+  }
+}

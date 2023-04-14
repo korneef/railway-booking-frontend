@@ -2,7 +2,7 @@ import { Panel } from "shared";
 import { useFormik } from "formik";
 import classNames from "classnames";
 import { validationSchema } from "./validationSchema";
-import { Button } from "shared";
+import { Button, WidgetHeader } from "shared";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "app/store/orderSlices";
 import { useAppDispatch, useAppSelector } from "app/store/hooks";
@@ -45,7 +45,7 @@ function PayerInfo() {
     <div>
       <div className={className}>
         <Panel variant='white' bemClass={className}>
-          <h2 className={`${className}__header`}>Персональные данные</h2>
+          <WidgetHeader bemClass={className}>Персональные данные</WidgetHeader>
           <div className={`${className}__fullname-wrapper`}>
             <div>
               <label htmlFor="last-name" className={lableClass}>Фамилия</label>
@@ -105,7 +105,7 @@ function PayerInfo() {
                 onChange={formik.handleChange} />
             </div>
           </div>
-          <h2 className={`${className}__header`}>Способ оплаты</h2>
+          <WidgetHeader bemClass={className}>Способ оплаты</WidgetHeader>
 
           <div className={`${className}__payment-method-online`}>
             <input
