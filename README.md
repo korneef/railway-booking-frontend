@@ -1,7 +1,7 @@
 [![Build Status](https://api.cirrus-ci.com/github/korneef/railway-booking-frontend.svg?branch=main)](https://cirrus-ci.com/github/korneef/railway-booking-frontend)
 
 
-## [Ссылка на развернутый проект](https://korneef.github.io/test-list-selection)
+## [Ссылка на развернутый проект](https://korneef.github.io/railway-booking-frontend)
 
 ## Инструкция по запуску проекта:
 
@@ -10,7 +10,7 @@
 **npm** версии *8.9.12* или *выше*
 
 ### 1. Клонирование репозитория
-#### `git clone https://github.com/korneef/test-list-selection`
+#### `git clone https://github.com/korneef/railway-booking-frontend`
 
 ### 2. Установка зависимостей
 #### `npm install`
