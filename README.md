@@ -1,5 +1,5 @@
 [![Build Status](https://api.cirrus-ci.com/github/korneef/railway-booking-frontend.svg?branch=main)](https://cirrus-ci.com/github/korneef/railway-booking-frontend)
-
+WARNING: у проекта отключили backend, реализованный функционал проверить невозможно. Ведутся работы по развертыванию нового backend сервера
 
 ## [Ссылка на развернутый проект](https://korneef.github.io/railway-booking-frontend)
 
