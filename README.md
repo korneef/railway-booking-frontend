@@ -1,7 +1,7 @@
 [![Build Status](https://api.cirrus-ci.com/github/korneef/railway-booking-frontend.svg?branch=main)](https://cirrus-ci.com/github/korneef/railway-booking-frontend)
 
 
-## [https://korneef.github.io/test-list-selection](Ссылка на развернутый проект)
+## [Ссылка на развернутый проект](https://korneef.github.io/test-list-selection)
 
 ## Инструкция по запуску проекта:
 
